@@ -110,36 +110,6 @@ myAppController.controller('ZwaveVendorIdController', function ($scope, $routePa
 });
 
 /**
- * The controller that renders Z-Wave manufacturers and devices.
- * @class ZwaveAddController
- */
-myAppController.controller('ZwaveAddController', function ($scope, $routeParams, dataFactory, dataService, _) {
-    $scope.zwaveDevices = [];
-    $scope.deviceVendor = false;
-    $scope.manufacturers = [];
-    $scope.manufacturer = false;
-    /**
-     * Load z-wave devices
-     */
-    $scope.loadData = function (brandname, lang) {
-        $scope.loading = {status: 'loading-spin', icon: 'fa-spinner fa-spin', message: $scope._t('loading')};
-        dataFactory.getApiLocal('device.' + lang + '.json').then(function (response) {
-            $scope.loading = false;
-            $scope.manufacturers = _.uniq(response.data, 'brandname');
-            if (brandname) {
-                $scope.zwaveDevices = _.where(response.data, {brandname: brandname});
-                $scope.manufacturer = brandname;
-            }
-        }, function (error) {
-            alertify.alertError($scope._t('error_load_data')).set('onok', function (closeEvent) {
-                dataService.goBack();
-            });
-        });
-    };
-    $scope.loadData($routeParams.brandname, $scope.lang);
-});
-
-/**
  * The controller that renders and handles data in the Z-Wave/Manage section.
  * @class ZwaveManageController
  */
@@ -178,7 +148,7 @@ myAppController.controller('ZwaveManageController', function ($scope, $cookies, 
             // Success - elements
             if (elements.state === 'fulfilled') {
                 //setElements(elements.value.data.data.devices);
-                setElements(dataService.getDevicesData(elements.value.data.data.devices, false));
+                setElements(dataService.getDevicesData(elements.value.data.data.devices, false,true));
             }
         });
     };
@@ -770,7 +740,7 @@ myAppController.controller('ZwaveManageIdController', function ($scope, $window,
             }
             // Success - devices
             if (devices.state === 'fulfilled') {
-                var elements = dataService.getDevicesData(devices.value.data.data.devices, false);
+                var elements = dataService.getDevicesData(devices.value.data.data.devices, false,true);
                 zwaveConfigApiData($scope.zwaveConfig.nodeId, elements.value());
             }
             // Success - locations

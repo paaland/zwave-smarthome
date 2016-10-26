@@ -10,14 +10,16 @@
 var config_data = {
     'cfg': {
         //Application name
-        'app_name': 'SmartHome UI',
+        'app_name': 'SmartHome UI ',
         // Application version
-        'app_version': '1.5.0',
+        'app_version': '1.6.0',
         // Server base url
         'server_url': '/',
         //'server_url': 'http://192.168.10.119:8083/',
         // Interval in miliseconds to refresh data
         'interval': 3000,
+        // Displays a connection error After reaching the limit
+        'pending_requests_limit': 10,
         // Route - will be extended
         'route': {
             // Current location
@@ -31,6 +33,7 @@ var config_data = {
             os: 'unknown',
             // Route fatal error
             fatalError: {
+                type: 'system',// system|network
                 message: false,
                 info: false,
                 permanent: false, // Permanently displayed
@@ -179,6 +182,7 @@ var config_data = {
         // Online module rating create url
         'online_module_rating_create_url': 'https://developer.z-wave.me/?uri=api-rating-create',
         // Online skins url
+        //'online_skin_url': 'http://developer.z-wave.me/?uri=api-skins',
         'online_skin_url': 'http://hrix.net/developer-console/?uri=api-skins',
         //'online_skin_url': 'http://dev.dev/developer-console/?uri=api-skins',
         // Online icons url
@@ -237,8 +241,8 @@ var config_data = {
             expert_view: [1],
             remote_access: [1],
             devices_include: [1],
-            rooms: [1, 2, 3],
-            element: [1, 2, 3],
+            rooms: [1, 2, 3, 4],
+            element: [1, 2, 3, 4],
             event_delete: [1],
             config_rooms: [1],
             config_rooms_id: [1],
