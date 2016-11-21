@@ -12,13 +12,14 @@
          ng-include="'app/views/management/management_licence.html'"></div>
     
      <!-- ///////////////////////////// Local Access ///////////////////////////// -->
-     <div class="accordion-entry" 
+     <div class="accordion-entry"
           ng-include="'app/views/management/management_local.html'"
           ng-if="cfg.app_type === 'jb'"></div>
-    
+
     <!-- ///////////////////////////// Backup ///////////////////////////// -->
-     <div class="accordion-entry" ng-include="'app/views/management/management_backup.html'" ng-if="!isMobile"></div>
-     
+     <!--<div class="accordion-entry" ng-include="'app/views/management/management_backup.html'" ng-if="!isMobile"></div>-->
+     <!-- ///////////////////////////// Backup to the cloud ///////////////////////////// -->
+     <div class="accordion-entry" ng-include="'app/views/management/management_cloud_backup.html'" ng-if="!isMobile"></div>
       <!-- ///////////////////////////// Timezone ///////////////////////////// -->
      <div class="accordion-entry" 
           ng-include="'app/views/management/management_timezone.html'"
@@ -32,7 +33,7 @@
 
     <!-- ///////////////////////////// Firmware update ///////////////////////////// --> 
     <div class="accordion-entry" 
-            ng-if="!isMobile && !isInArray(['popp','jb'],cfg.app_type)"
+            ng-if="!isMobile && !isInArray(['wd','jb'],cfg.app_type)"
          ng-include="'app/views/management/management_firmware.html'"></div>
     <div class="accordion-entry" 
             ng-if="cfg.app_type === 'jb'"

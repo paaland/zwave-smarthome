@@ -41,6 +41,12 @@ Convert val to int
 
 
 
+### toString() 
+
+Convert val to string
+
+
+
 ### toBool() 
 
 Convert val to bool
@@ -200,6 +206,12 @@ Convert text to slug
 ### setConfigValue() 
 
 Set a hardware configuration value
+
+
+
+### etRgbColors() 
+
+Set rgb colors
 
 
 

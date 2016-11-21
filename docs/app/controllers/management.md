@@ -156,7 +156,7 @@ Load latest version
 
 
 ## ManagementTimezoneController
-The controller that handles a backup to the cloud.
+The controller that handles a timezone.
 
 ### ManagementTimezoneController.loadModule() 
 
@@ -236,6 +236,30 @@ Load postfix data
 
 ## ManagementInfoController
 The controller that renders info data.
+
+
+## ManagementCloudBackupController
+The controller that handles a backup to the cloud.
+
+### ManagementCloudBackupController.allCloudSettled() 
+
+Load all promises
+
+
+### ManagementCloudBackupController.setSchedulerType() 
+
+Set scheduler type
+
+
+### ManagementCloudBackupController.activateCloudBackup() 
+
+Activate cloud backup
+
+
+### ManagementCloudBackupController.updateInstance() 
+
+Update instance
+
 
 
 

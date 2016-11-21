@@ -23,6 +23,7 @@ myAppController.controller('ManagementController', function ($scope, $interval, 
     $scope.ZwaveApiData = false;
     $scope.controllerInfo = {
         uuid: null,
+        remoteId: null,
         isZeroUuid: false,
         softwareRevisionVersion: null,
         softwareLatestVersion: null,
@@ -31,6 +32,7 @@ myAppController.controller('ManagementController', function ($scope, $interval, 
         capsLimited: false
 
     };
+    $scope.remoteAccess = false;
     $scope.handleLicense = {
         show: false,
         disabled: false,
@@ -478,7 +480,7 @@ myAppController.controller('ManagementRemoteController', function ($scope, dataF
  * @class ManagementLocalController
  */
 myAppController.controller('ManagementLocalController', function ($scope, dataFactory, dataService) {
-    
+
 
      /**
      * Update instance
@@ -498,7 +500,7 @@ myAppController.controller('ManagementLocalController', function ($scope, dataFa
             });
         }
     };
-    
+
      /**
      * System rebboot
      */
@@ -630,7 +632,7 @@ myAppController.controller('ManagementFirmwareController', function ($scope, $sc
     //$scope.loadRazLatest();
 });
 /**
- * The controller that handles a backup to the cloud.
+ * The controller that handles a timezone.
  * @class ManagementTimezoneController
  */
 myAppController.controller('ManagementTimezoneController', function ($scope, $timeout, dataFactory, dataService) {
@@ -936,5 +938,110 @@ myAppController.controller('ManagementPostfixController', function ($scope, data
  * @class ManagementInfoController
  */
 myAppController.controller('ManagementInfoController', function ($scope, dataFactory, dataService) {
+
+});
+/**
+ * The controller that handles a backup to the cloud.
+ * @class ManagementCloudBackupController
+ */
+myAppController.controller('ManagementCloudBackupController', function ($scope, $timeout, $q, dataFactory, dataService) {
+    $scope.managementCloud = {
+        alert: {message: false, status: 'is-hidden', icon: false},
+        show: false,
+        module:[],
+        instance: {},
+        process: false
+    };
+    /**
+     * Load all promises
+     */
+    $scope.allCloudSettled = function () {
+        $scope.loading = {status: 'loading-spin', icon: 'fa-spinner fa-spin', message: $scope._t('loading')};
+        var promises = [
+            dataFactory.getApi('instances', '/CloudBackup'),
+            dataFactory.getApi('modules', '/CloudBackup')
+        ];
+
+        $q.allSettled(promises).then(function (response) {
+            $scope.loading = false;
+            var instance = response[0];
+            var module = response[1];
+            // Error message
+            if (instance.state === 'rejected') {
+                $scope.managementCloud.alert = {message: $scope._t('cloud_not_installed'), status: 'alert-warning', icon: 'fa-exclamation-circle'};
+                alertify.alertWarning($scope._t('cloud_not_installed'));
+                return;
+            }
+
+            if (module.state === 'rejected') {
+                alertify.alertWarning($scope._t('cloud_not_installed'));
+                return;
+            }
+
+            // Success - api data
+            if (instance.state === 'fulfilled') {
+                /*if (!instance.value.data.data[0].active) {
+                    $scope.managementCloud.alert = {message: $scope._t('cloud_not_active'), status: 'alert-warning', icon: 'fa-exclamation-circle'};
+                    alertify.alertWarning($scope._t('cloud_not_active'));
+                    return;
+                }*/
+                $scope.managementCloud.show = true;
+                $scope.managementCloud.instance = instance.value.data.data[0];
+            }
+            // Success - module
+            if (module.state === 'fulfilled') {
+                // Module
+                $scope.managementCloud.module = module.value.data.data;
+            }
+        });
+    };
+    $scope.allCloudSettled();
+
+    /**
+     * Set scheduler type
+     */
+    $scope.setSchedulerType = function (type) {
+        $scope.managementCloud.instance.params.scheduler = type;
+    };
+
+    /**
+     * Activate cloud backup
+     */
+    $scope.activateCloudBackup = function (input, activeStatus) {
+        input.active = activeStatus;
+        $scope.loading = {status: 'loading-spin', icon: 'fa-spinner fa-spin', message: $scope._t('updating')};
+        if (input.id) {
+            dataFactory.putApi('instances', input.id, input).then(function (response) {
+                dataService.showNotifier({message: $scope._t('success_updated')});
+                $scope.loading = false;
+                $scope.allCloudSettled();
+
+            }, function (error) {
+                alertify.alertError($scope._t('error_update_data'));
+                $scope.loading = false;
+            });
+        }
+
+    };
+
+    /**
+     * Update instance
+     */
+    $scope.updateInstance = function (form, input) {
+        if (form.$invalid) {
+            return;
+        }
+        $scope.loading = {status: 'loading-spin', icon: 'fa-spinner fa-spin', message: $scope._t('updating')};
+        if (input.id) {
+            dataFactory.putApi('instances', input.id, input).then(function (response) {
+                dataService.showNotifier({message: $scope._t('success_updated')});
+                $scope.loading = false;
+                $scope.allCloudSettled();
+            }, function (error) {
+                alertify.alertError($scope._t('error_update_data'));
+                $scope.loading = false;
+            });
+        }
+    };
 
 });
