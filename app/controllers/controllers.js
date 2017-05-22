@@ -127,3 +127,12 @@ $scope.autocomplete = {
 
 });
 
+/**
+ * For testing purpose.
+ * @class TestController
+ */
+myAppController.controller('TestController', function($scope, cfg,dataFactory,dataService) {
+
+
+});
+
