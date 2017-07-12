@@ -3,30 +3,121 @@
 
 /* Variables
 -------------------------------------------------- */
-$app-dark:#2D3038;
-$app-darker: #2A2D35;
-$app-darkest: #24262D;
-$app-lightest: #FFFFFF;
-$app-lighter: #949ba2;
+$app-color-dark:#2D3038;
+$app-color-darker: #2A2D35;
+$app-color-darkest: #24262D;
+$app-color-lightest: #FFFFFF;
+$app-color-lighter: #949ba2;
+$app-color-additional: #F6A821;
 
 /* Body
 -------------------------------------------------- */
 body {
-  color: $app-lighter;
-  background-color: $app-dark;
+  color: $app-color-lighter;
+  background-color: $app-color-dark;
 
+}
+.timestamp{
+  color: $app-color-lighter;
 }
 
 /* Header
 -------------------------------------------------- */
 #header{
   color: $app-body-color;
+  .divider-vertical {
+    display: none;
+  }
 
 }
 
 /* Main navigation
 -------------------------------------------------- */
 #main_navigation_wrap{
-  background-color: $app-darker;
-  border-bottom: solid 1px $app-border-color;
+  background-color: $app-color-darker;
+  border-bottom: solid 1px $app-color-darkest;
+}
+
+#main_navigation{
+  a{
+    color: $app-color-lighter;
+  }
+  a:hover{
+    color: $app-color-additional;
+  }
+  .active{
+    background-color:$app-color-darkest;
+    color: $app-color-additional;
+  }
+}
+
+/* Subnavigation
+-------------------------------------------------- */
+#sub_navigation_in{
+  ul{
+    background-color: #FFFFFF;
+    @include appBoxShadow($app-box-shadow);
+    border: 1px solid $app-border-color;
+    // Media queries
+    @include mediaQueries(min-small) {
+      margin: 0 0 0 50%
+    }
+    // Media queries
+    @include mediaQueries(min-large) {
+      margin: 0 0 0 66%
+    }
+    li{
+      padding: $spacing 0;
+      border-bottom: solid 1px $app-border-color;
+      a{
+        display: block;
+        position:relative;
+        padding:  $spacing;
+        vertical-align: middle;
+        color: $app-a-color;
+        // Media queries
+        @include mediaQueries(min-small) {
+          padding: 0 $spacing;
+        }
+        span{
+          display: inline-block;
+          position: absolute;
+          left:50px;
+        }
+      }
+
+      .subnavi-arrow{
+        position: absolute;
+        right: 1%;
+        display: inline-block;
+      }
+
+    }
+    .active{
+      a{
+        color: lighten($app-a-color, 50%);
+        font-weight: bold;
+        text-decoration: underline;
+      }
+      .fa{
+        color: lighten($app-a-color, 50%);
+      }
+    }
+    .fa{
+      color: lighten($app-a-color, 20%);
+      //padding-right: 7px;
+    }
+
+  }
+}
+
+/* Footer
+-------------------------------------------------- */
+#footer{
+   border-top: solid 1px $app-border-color;
+  #footer_in{
+    color: $app-color-lighter;
+    background-color: $app-color-darkest;
+
+  }
 }

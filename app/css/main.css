@@ -14430,25 +14430,134 @@ img.widget-promo-image {
 -------------------------------------------------- */
 /* Body
 -------------------------------------------------- */
-/* line 14, ../sass/custom/_dark.scss */
+/* line 15, ../sass/custom/_dark.scss */
 body {
   color: #949ba2;
   background-color: #2D3038;
 }
 
+/* line 20, ../sass/custom/_dark.scss */
+.timestamp {
+  color: #949ba2;
+}
+
 /* Header
 -------------------------------------------------- */
-/* line 22, ../sass/custom/_dark.scss */
+/* line 26, ../sass/custom/_dark.scss */
 #header {
   color: #0d0d0d;
+}
+/* line 28, ../sass/custom/_dark.scss */
+#header .divider-vertical {
+  display: none;
 }
 
 /* Main navigation
 -------------------------------------------------- */
-/* line 29, ../sass/custom/_dark.scss */
+/* line 36, ../sass/custom/_dark.scss */
 #main_navigation_wrap {
   background-color: #2A2D35;
+  border-bottom: solid 1px #24262D;
+}
+
+/* line 42, ../sass/custom/_dark.scss */
+#main_navigation a {
+  color: #949ba2;
+}
+/* line 45, ../sass/custom/_dark.scss */
+#main_navigation a:hover {
+  color: #F6A821;
+}
+/* line 48, ../sass/custom/_dark.scss */
+#main_navigation .active {
+  background-color: #24262D;
+  color: #F6A821;
+}
+
+/* Subnavigation
+-------------------------------------------------- */
+/* line 57, ../sass/custom/_dark.scss */
+#sub_navigation_in ul {
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  border: 1px solid #cccccc;
+  /* MIN WIDTH */
+  /* MAX WIDTH */
+  /* MIN WIDTH */
+  /* MAX WIDTH */
+}
+@media only screen and (min-width: 768px) {
+  /* line 57, ../sass/custom/_dark.scss */
+  #sub_navigation_in ul {
+    margin: 0 0 0 50%;
+  }
+}
+@media only screen and (min-width: 1024px) and (orientation: landscape) {
+  /* line 57, ../sass/custom/_dark.scss */
+  #sub_navigation_in ul {
+    margin: 0 0 0 66%;
+  }
+}
+/* line 69, ../sass/custom/_dark.scss */
+#sub_navigation_in ul li {
+  padding: 10px 0;
   border-bottom: solid 1px #cccccc;
+}
+/* line 72, ../sass/custom/_dark.scss */
+#sub_navigation_in ul li a {
+  display: block;
+  position: relative;
+  padding: 10px;
+  vertical-align: middle;
+  color: #333333;
+  /* MIN WIDTH */
+  /* MAX WIDTH */
+}
+@media only screen and (min-width: 768px) {
+  /* line 72, ../sass/custom/_dark.scss */
+  #sub_navigation_in ul li a {
+    padding: 0 10px;
+  }
+}
+/* line 82, ../sass/custom/_dark.scss */
+#sub_navigation_in ul li a span {
+  display: inline-block;
+  position: absolute;
+  left: 50px;
+}
+/* line 89, ../sass/custom/_dark.scss */
+#sub_navigation_in ul li .subnavi-arrow {
+  position: absolute;
+  right: 1%;
+  display: inline-block;
+}
+/* line 97, ../sass/custom/_dark.scss */
+#sub_navigation_in ul .active a {
+  color: #b3b3b3;
+  font-weight: bold;
+  text-decoration: underline;
+}
+/* line 102, ../sass/custom/_dark.scss */
+#sub_navigation_in ul .active .fa {
+  color: #b3b3b3;
+}
+/* line 106, ../sass/custom/_dark.scss */
+#sub_navigation_in ul .fa {
+  color: #666666;
+}
+
+/* Footer
+-------------------------------------------------- */
+/* line 116, ../sass/custom/_dark.scss */
+#footer {
+  border-top: solid 1px #cccccc;
+}
+/* line 118, ../sass/custom/_dark.scss */
+#footer #footer_in {
+  color: #949ba2;
+  background-color: #24262D;
 }
 
 /* SmartHome UI custom POPP
