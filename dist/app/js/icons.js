@@ -1,4 +1,4 @@
-/* Copyright:  Z-Wave Europe GmbH, Created: 20-01-2017 15:23:37 */
+/* Copyright:  Z-Wave Europe GmbH, Created: 10-07-2017 16:20:50 */
 /**
  * @overview The object with default icons.
  * @author Martin Vach
@@ -118,6 +118,14 @@ var icon_data = {
                         off: 'tamper-off.png'
                     }
 
+                },
+                security: {
+                    level: {
+                        on: 'security-on.png',
+                        pending: 'security-pending.png',
+                        off: 'security-off.png',
+                        alarmed: 'security-alarmed.png'
+                    }
                 },
                 gesture: {
                     level: {
