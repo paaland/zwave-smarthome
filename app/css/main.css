@@ -5340,8 +5340,8 @@ a.badge:hover, a.badge:focus {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../../../app/fonts/fontawesome-webfont.eot?v=4.4.0");
-  src: url("../../../app/fonts/fontawesome-webfont.eot?#iefix&v=4.4.0") format("embedded-opentype"), url("../../../app/fonts/fontawesome-webfont.woff2?v=4.4.0") format("woff2"), url("../../../app/fonts/fontawesome-webfont.woff?v=4.4.0") format("woff"), url("../../../app/fonts/fontawesome-webfont.ttf?v=4.4.0") format("truetype"), url("../../../app/fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular") format("svg");
+  src: url("../fonts/fontawesome-webfont.eot?v=4.4.0");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.4.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.4.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.4.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.4.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -14424,145 +14424,35 @@ img.widget-promo-image {
 
 /* SmartHome UI custom
 -------------------------------------------------- */
-/* Default SmartHome skin
+/* Dark SmartHome skin
 -------------------------------------------------- */
 /* Variables
 -------------------------------------------------- */
 /* Body
 -------------------------------------------------- */
-/* line 8, ../sass/custom/_shui.scss */
+/* line 14, ../sass/custom/_dark.scss */
 body {
-  background-color: #F6F6F6;
+  color: #949ba2;
+  background-color: #2D3038;
+}
+
+/* Header
+-------------------------------------------------- */
+/* line 22, ../sass/custom/_dark.scss */
+#header {
+  color: #0d0d0d;
 }
 
 /* Main navigation
 -------------------------------------------------- */
-/* line 14, ../sass/custom/_shui.scss */
+/* line 29, ../sass/custom/_dark.scss */
 #main_navigation_wrap {
-  border-bottom: solid 4px #DDD;
-  background-color: #E9E9E9;
-}
-/* line 18, ../sass/custom/_shui.scss */
-#main_navigation_wrap #main_navigation .active {
-  background-color: #DDD;
-  color: #ffffff;
-}
-
-/* Form
--------------------------------------------------- */
-/* line 27, ../sass/custom/_shui.scss */
-.form-page {
-  border: solid 4px #e7e7e7;
-}
-/* line 29, ../sass/custom/_shui.scss */
-.form-page .form-group {
-  border-color: #e7e7e7;
-}
-
-/* line 33, ../sass/custom/_shui.scss */
-.submit-entry {
-  background-color: #e7e7e7;
-  border-top: solid 1px  #e7e7e7;
-}
-
-/* Button
--------------------------------------------------- */
-/* line 41, ../sass/custom/_shui.scss */
-.btn-goup-tabs .btn {
-  background-color: #eeeeee;
-}
-/* line 43, ../sass/custom/_shui.scss */
-.btn-goup-tabs .btn.active {
-  background-color: #dcdcdc;
-}
-
-/* Widget
--------------------------------------------------- */
-/* line 52, ../sass/custom/_shui.scss */
-.widget-entry .widget-entry-in {
-  border-color: #d3d3d3;
-  /* MIN WIDTH */
-  /* MAX WIDTH */
-}
-@media only screen and (min-width: 768px) {
-  /* line 52, ../sass/custom/_shui.scss */
-  .widget-entry .widget-entry-in {
-    border: solid 4px #FFFFFF;
-    background: #f6f6f6;
-    /* Old browsers */
-    background: -moz-linear-gradient(top, #f6f6f6 0%, #ffffff 77%);
-    /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f6f6f6), color-stop(77%, #ffffff));
-    /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #f6f6f6 0%, #ffffff 77%);
-    /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #f6f6f6 0%, #ffffff 77%);
-    /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #f6f6f6 0%, #ffffff 77%);
-    /* IE10+ */
-    background: linear-gradient(to bottom, #f6f6f6 0%, #ffffff 77%);
-    /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff', GradientType=0);
-    /* IE6-9 */
-    -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.29);
-    -moz-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.29);
-    box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.29);
-  }
-}
-
-/* Rooms
--------------------------------------------------- */
-/* line 67, ../sass/custom/_shui.scss */
-.card-room .card-room-in {
-  border: solid 4px #ffffff;
-  -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.29);
-  -moz-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.29);
-  box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.29);
-}
-
-/* Elements in Room
--------------------------------------------------- */
-/* line 75, ../sass/custom/_shui.scss */
-.elemnts-room-bar {
-  /* MIN WIDTH */
-  /* MAX WIDTH */
-}
-@media only screen and (min-width: 768px) {
-  /* line 75, ../sass/custom/_shui.scss */
-  .elemnts-room-bar {
-    border: 0;
-    -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.29);
-    -moz-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.29);
-    box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.29);
-    background: #f6f6f6;
-    /* Old browsers */
-    background: -moz-linear-gradient(top, #f6f6f6 0%, #ffffff 77%);
-    /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f6f6f6), color-stop(77%, #ffffff));
-    /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #f6f6f6 0%, #ffffff 77%);
-    /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #f6f6f6 0%, #ffffff 77%);
-    /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #f6f6f6 0%, #ffffff 77%);
-    /* IE10+ */
-    background: linear-gradient(to bottom, #f6f6f6 0%, #ffffff 77%);
-    /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff', GradientType=0);
-    /* IE6-9 */
-  }
+  background-color: #2A2D35;
+  border-bottom: solid 1px #cccccc;
 }
 
 /* SmartHome UI custom POPP
 -------------------------------------------------- */
-/* POPP css
--------------------------------------------------- */
-/* line 5, ../sass/custom/_popp.scss */
-.app-type-popp .header-logo img {
-  max-height: 40px;
-  max-width: 70px;
-}
-
 /* Media queries
 -------------------------------------------------- */
 /* Media queries

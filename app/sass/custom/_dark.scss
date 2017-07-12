@@ -1,0 +1,32 @@
+/* Dark SmartHome skin
+-------------------------------------------------- */
+
+/* Variables
+-------------------------------------------------- */
+$app-dark:#2D3038;
+$app-darker: #2A2D35;
+$app-darkest: #24262D;
+$app-lightest: #FFFFFF;
+$app-lighter: #949ba2;
+
+/* Body
+-------------------------------------------------- */
+body {
+  color: $app-lighter;
+  background-color: $app-dark;
+
+}
+
+/* Header
+-------------------------------------------------- */
+#header{
+  color: $app-body-color;
+
+}
+
+/* Main navigation
+-------------------------------------------------- */
+#main_navigation_wrap{
+  background-color: $app-darker;
+  border-bottom: solid 1px $app-border-color;
+}
