@@ -14430,45 +14430,104 @@ img.widget-promo-image {
 -------------------------------------------------- */
 /* Body
 -------------------------------------------------- */
-/* line 15, ../sass/custom/_dark.scss */
+/* line 21, ../sass/custom/_dark.scss */
 body {
   color: #949ba2;
   background-color: #2D3038;
 }
 
-/* line 20, ../sass/custom/_dark.scss */
+/* line 26, ../sass/custom/_dark.scss */
 .timestamp {
   color: #949ba2;
 }
 
+/* Typo
+-------------------------------------------------- */
+/* line 32, ../sass/custom/_dark.scss */
+h1, h2, h3, h4 {
+  color: #d4d4d4;
+}
+
+/* line 36, ../sass/custom/_dark.scss */
+.text-supp {
+  color: #79828a;
+}
+
+/* Links
+-------------------------------------------------- */
+/* line 42, ../sass/custom/_dark.scss */
+a {
+  color: #949ba2;
+}
+/* line 44, ../sass/custom/_dark.scss */
+a:hover, a:focus {
+  color: #949ba2;
+  text-decoration: underline;
+}
+/* line 49, ../sass/custom/_dark.scss */
+a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+/* line 57, ../sass/custom/_dark.scss */
+a.link-dotted {
+  color: #949ba2;
+  border-bottom: 1px dotted #949ba2;
+}
+/* line 61, ../sass/custom/_dark.scss */
+a.link-dotted:hover, a.link-dotted:focus {
+  border-bottom: 1px solid #949ba2;
+  text-decoration: none;
+}
+/* line 67, ../sass/custom/_dark.scss */
+a.link-underline {
+  color: #949ba2;
+}
+
+/* Others
+-------------------------------------------------- */
+/* line 76, ../sass/custom/_dark.scss */
+.bcg-success {
+  background-color: #dff0d8;
+  background: transparent;
+}
+
+/* line 81, ../sass/custom/_dark.scss */
+.bcg-active.false, .bcg-danger {
+  background-color: #f2dede;
+  background: transparent;
+}
+
 /* Header
 -------------------------------------------------- */
-/* line 26, ../sass/custom/_dark.scss */
+/* line 88, ../sass/custom/_dark.scss */
 #header {
-  color: #0d0d0d;
+  color: #949ba2;
 }
-/* line 28, ../sass/custom/_dark.scss */
+/* line 90, ../sass/custom/_dark.scss */
 #header .divider-vertical {
   display: none;
 }
 
 /* Main navigation
 -------------------------------------------------- */
-/* line 36, ../sass/custom/_dark.scss */
+/* line 98, ../sass/custom/_dark.scss */
 #main_navigation_wrap {
   background-color: #2A2D35;
   border-bottom: solid 1px #24262D;
 }
 
-/* line 42, ../sass/custom/_dark.scss */
+/* line 104, ../sass/custom/_dark.scss */
 #main_navigation a {
   color: #949ba2;
 }
-/* line 45, ../sass/custom/_dark.scss */
+/* line 107, ../sass/custom/_dark.scss */
 #main_navigation a:hover {
+  background-color: #24262D;
   color: #F6A821;
 }
-/* line 48, ../sass/custom/_dark.scss */
+/* line 111, ../sass/custom/_dark.scss */
 #main_navigation .active {
   background-color: #24262D;
   color: #F6A821;
@@ -14476,85 +14535,448 @@ body {
 
 /* Subnavigation
 -------------------------------------------------- */
-/* line 57, ../sass/custom/_dark.scss */
+/* line 120, ../sass/custom/_dark.scss */
 #sub_navigation_in ul {
-  background-color: #FFFFFF;
-  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  border: 1px solid #cccccc;
-  /* MIN WIDTH */
-  /* MAX WIDTH */
-  /* MIN WIDTH */
-  /* MAX WIDTH */
+  background-color: #2A2D35;
+  border: 1px solid #6f777e;
 }
-@media only screen and (min-width: 768px) {
-  /* line 57, ../sass/custom/_dark.scss */
-  #sub_navigation_in ul {
-    margin: 0 0 0 50%;
-  }
-}
-@media only screen and (min-width: 1024px) and (orientation: landscape) {
-  /* line 57, ../sass/custom/_dark.scss */
-  #sub_navigation_in ul {
-    margin: 0 0 0 66%;
-  }
-}
-/* line 69, ../sass/custom/_dark.scss */
+/* line 124, ../sass/custom/_dark.scss */
 #sub_navigation_in ul li {
-  padding: 10px 0;
-  border-bottom: solid 1px #cccccc;
+  border-bottom: solid 1px #6f777e;
 }
-/* line 72, ../sass/custom/_dark.scss */
+/* line 126, ../sass/custom/_dark.scss */
 #sub_navigation_in ul li a {
-  display: block;
-  position: relative;
-  padding: 10px;
-  vertical-align: middle;
-  color: #333333;
+  color: #949ba2;
+}
+/* line 128, ../sass/custom/_dark.scss */
+#sub_navigation_in ul li a:hover {
+  color: #F6A821;
+}
+/* line 136, ../sass/custom/_dark.scss */
+#sub_navigation_in ul .active a {
+  color: #F6A821;
+}
+/* line 139, ../sass/custom/_dark.scss */
+#sub_navigation_in ul .active .fa {
+  color: #F6A821;
+}
+/* line 143, ../sass/custom/_dark.scss */
+#sub_navigation_in ul .fa {
+  color: #949ba2;
+}
+
+/* Page navigation
+-------------------------------------------------- */
+/* line 151, ../sass/custom/_dark.scss */
+.page-navi {
+  color: #949ba2;
+}
+/* line 153, ../sass/custom/_dark.scss */
+.page-navi .page-navi-in {
+  background-color: #2A2D35;
+  border: 1px solid #6f777e;
+}
+/* line 158, ../sass/custom/_dark.scss */
+.page-navi ul li {
+  border-bottom: solid 1px #6f777e;
+}
+/* line 160, ../sass/custom/_dark.scss */
+.page-navi ul li a {
+  color: #949ba2;
+}
+/* line 166, ../sass/custom/_dark.scss */
+.page-navi ul .active a {
+  color: #F6A821;
+}
+/* line 169, ../sass/custom/_dark.scss */
+.page-navi ul .active .fa {
+  color: #F6A821;
+}
+/* line 174, ../sass/custom/_dark.scss */
+.page-navi ul .fa {
+  color: #949ba2;
+}
+/* line 179, ../sass/custom/_dark.scss */
+.page-navi .page-navi-title {
+  color: #d4d4d4;
+}
+/* line 182, ../sass/custom/_dark.scss */
+.page-navi .page-navi-tag {
+  border: solid 1px #6f777e;
+}
+/* line 186, ../sass/custom/_dark.scss */
+.page-navi .page-navi-tag.active {
+  background-color: #6f777e;
+}
+
+/* Form
+-------------------------------------------------- */
+/* line 193, ../sass/custom/_dark.scss */
+.form-control {
+  color: #949ba2;
+  border: solid 1px #24262D;
+  /* border-radius: 4px;
+   -webkit-box-shadow: none;
+   box-shadow: none;
+   -webkit-transition: none;
+   -o-transition: none;
+   transition: none;*/
+  background-color: #44464F;
+}
+
+/* line 204, ../sass/custom/_dark.scss */
+.input-group-addon {
+  border: solid 1px #24262D;
+  background-color: #24262D;
+}
+/* line 207, ../sass/custom/_dark.scss */
+.input-group-addon .fa {
+  color: #d4d4d4;
+}
+
+/* line 211, ../sass/custom/_dark.scss */
+.form-page {
+  background-color: #3B3E47;
+  border: 0 none;
+}
+/* line 214, ../sass/custom/_dark.scss */
+.form-page .form-group {
+  border-bottom: solid 1px #2D3038;
+}
+
+/* line 219, ../sass/custom/_dark.scss */
+.submit-entry {
+  background-color: #24262D;
+  border-top: 0;
+}
+
+/* line 224, ../sass/custom/_dark.scss */
+.control-active {
+  border: solid 4px #F6A821 !important;
+}
+
+/* Button
+-------------------------------------------------- */
+/* line 230, ../sass/custom/_dark.scss */
+.btn-default, .btn-primary, .btn-info, .btn-success, .btn-warning, .btn-danger {
+  background-color: #44464F;
+  color: #949ba2;
+  border: solid 1px #737786;
+}
+/* line 234, ../sass/custom/_dark.scss */
+.btn-default:hover, .btn-primary:hover, .btn-info:hover, .btn-success:hover, .btn-warning:hover, .btn-danger:hover {
+  background-color: #24262D;
+  color: #949ba2;
+}
+/* line 238, ../sass/custom/_dark.scss */
+.btn-default.active, .btn-primary.active, .btn-info.active, .btn-success.active, .btn-warning.active, .btn-danger.active {
+  background-color: #949ba2;
+  color: #24262D;
+}
+
+/* line 246, ../sass/custom/_dark.scss */
+.btn-goup-block .btn.active .fa {
+  color: #F6A821;
+}
+
+/* line 253, ../sass/custom/_dark.scss */
+.btn-submit {
+  color: #FFFFFF;
+  border: solid 1px #aa6e07;
+  background-color: #F6A821;
+}
+/* line 257, ../sass/custom/_dark.scss */
+.btn-submit:hover, .btn-submit:focus {
+  background-color: #aa6e07;
+  color: #FFFFFF;
+}
+
+/* Button tabs
+-------------------------------------------------- */
+/* line 266, ../sass/custom/_dark.scss */
+.btn-goup-tabs .btn {
+  background-color: #44464F;
+  color: #949ba2;
+  border: solid 1px #737786;
+}
+/* line 270, ../sass/custom/_dark.scss */
+.btn-goup-tabs .btn.active {
+  background-color: #949ba2;
+  color: #24262D;
+}
+/* line 274, ../sass/custom/_dark.scss */
+.btn-goup-tabs .btn .fa {
+  color: #949ba2;
+}
+/* line 276, ../sass/custom/_dark.scss */
+.btn-goup-tabs .btn .fa.text-danger {
+  color: #d9534f;
+}
+/* line 282, ../sass/custom/_dark.scss */
+.btn-goup-tabs .active .fa {
+  color: #F6A821;
+}
+/* line 284, ../sass/custom/_dark.scss */
+.btn-goup-tabs .active .fa.text-danger {
+  color: #d9534f;
+}
+
+/* Dropdown
+-------------------------------------------------- */
+/* line 294, ../sass/custom/_dark.scss */
+.app-dropdown {
+  background-color: #2A2D35;
+  border: 1px solid #6f777e;
+  color: #949ba2;
+}
+/* line 299, ../sass/custom/_dark.scss */
+.app-dropdown .app-dropdown-title {
+  color: #d4d4d4;
+  border-bottom: solid 1px #6f777e;
+}
+/* line 305, ../sass/custom/_dark.scss */
+.app-dropdown ul li {
+  border-bottom: solid 1px #6f777e;
+}
+/* line 307, ../sass/custom/_dark.scss */
+.app-dropdown ul li a {
+  color: #949ba2;
+}
+/* line 310, ../sass/custom/_dark.scss */
+.app-dropdown ul li:hover {
+  background-color: #2D3038;
+  color: #F6A821;
+}
+/* line 317, ../sass/custom/_dark.scss */
+.app-dropdown ul .active a {
+  color: #F6A821;
+}
+/* line 321, ../sass/custom/_dark.scss */
+.app-dropdown ul .btn {
+  color: #949ba2;
+}
+
+/* Accordion
+-------------------------------------------------- */
+/* line 330, ../sass/custom/_dark.scss */
+.accordion-entry {
+  border-bottom: dotted 1px #6f777e;
+  color: #949ba2;
+}
+
+/* line 334, ../sass/custom/_dark.scss */
+.accordion-entry-title {
+  color: #949ba2;
+}
+/* line 336, ../sass/custom/_dark.scss */
+.accordion-entry-title .fa {
+  color: #79828a;
+}
+
+/* Modal
+-------------------------------------------------- */
+/* line 343, ../sass/custom/_dark.scss */
+.appmodal {
+  color: #949ba2;
+}
+/* line 345, ../sass/custom/_dark.scss */
+.appmodal .appmodal-in {
+  background-color: #2A2D35;
+}
+
+/* line 350, ../sass/custom/_dark.scss */
+.appmodal-header {
+  border-bottom: solid 1px #44464F;
+  background-color: #24262D;
+}
+/* line 353, ../sass/custom/_dark.scss */
+.appmodal-header h3 {
+  color: #d4d4d4;
+}
+
+/* line 361, ../sass/custom/_dark.scss */
+.appmodal-footer {
+  border-top: solid 1px #44464F;
+  background-color: #24262D;
+}
+
+/* Report
+-------------------------------------------------- */
+/* line 368, ../sass/custom/_dark.scss */
+.app-row-report {
+  border-top: solid 1px #6f777e;
+  border-bottom: solid 1px #6f777e;
+  background-color: #44464F;
+  color: #949ba2;
+}
+
+/* line 374, ../sass/custom/_dark.scss */
+.report-entry {
+  border-bottom: solid 1px #6f777e;
+}
+
+/* Table
+-------------------------------------------------- */
+/* line 383, ../sass/custom/_dark.scss */
+.table tbody tr td {
+  border-top: 1px solid #6f777e;
+}
+
+/* line 390, ../sass/custom/_dark.scss */
+.table-report {
+  background-color: #44464F;
+}
+
+/* Widget
+-------------------------------------------------- */
+/* line 397, ../sass/custom/_dark.scss */
+.widget-entry .widget-entry-in {
+  border-bottom: solid 1px #6f777e;
+  background-color: #44464F;
+  color: #949ba2;
   /* MIN WIDTH */
   /* MAX WIDTH */
 }
 @media only screen and (min-width: 768px) {
-  /* line 72, ../sass/custom/_dark.scss */
-  #sub_navigation_in ul li a {
-    padding: 0 10px;
+  /* line 397, ../sass/custom/_dark.scss */
+  .widget-entry .widget-entry-in {
+    /*border-color: $app-border-color;
+    border: solid 1px $app-border-color;*/
+    border: 0 none;
   }
 }
-/* line 82, ../sass/custom/_dark.scss */
-#sub_navigation_in ul li a span {
-  display: inline-block;
-  position: absolute;
-  left: 50px;
+/* line 408, ../sass/custom/_dark.scss */
+.widget-entry .widget-entry-in .widget-header .widget-icon {
+  color: #949ba2;
 }
-/* line 89, ../sass/custom/_dark.scss */
-#sub_navigation_in ul li .subnavi-arrow {
-  position: absolute;
-  right: 1%;
-  display: inline-block;
+/* line 413, ../sass/custom/_dark.scss */
+.widget-entry .widget-entry-in .widget-title {
+  color: #d4d4d4;
 }
-/* line 97, ../sass/custom/_dark.scss */
-#sub_navigation_in ul .active a {
-  color: #b3b3b3;
-  font-weight: bold;
-  text-decoration: underline;
+/* line 416, ../sass/custom/_dark.scss */
+.widget-entry .widget-entry-in .widget-title h3 a {
+  color: #d4d4d4;
 }
-/* line 102, ../sass/custom/_dark.scss */
-#sub_navigation_in ul .active .fa {
-  color: #b3b3b3;
+/* line 423, ../sass/custom/_dark.scss */
+.widget-entry.widget-success .widget-entry-in {
+  border-color: #bed5be;
 }
-/* line 106, ../sass/custom/_dark.scss */
-#sub_navigation_in ul .fa {
-  color: #666666;
+
+/* Rooms
+-------------------------------------------------- */
+/* line 431, ../sass/custom/_dark.scss */
+.card-room {
+  /* Inner element */
+}
+/* line 433, ../sass/custom/_dark.scss */
+.card-room .card-room-in {
+  border: 0;
+  background-color: #44464F;
+}
+/* line 437, ../sass/custom/_dark.scss */
+.card-room .card-room-in .card-header {
+  background: #24262D;
+  /* Header icons */
+}
+/* line 440, ../sass/custom/_dark.scss */
+.card-room .card-room-in .card-header .card-header-icon {
+  color: #949ba2;
+}
+/* line 446, ../sass/custom/_dark.scss */
+.card-room .card-room-in .card-content {
+  background-color: #24262D;
+  /* MIN WIDTH */
+  /* MAX WIDTH */
+}
+@media only screen and (min-width: 768px) {
+  /* line 446, ../sass/custom/_dark.scss */
+  .card-room .card-room-in .card-content {
+    background: transparent;
+  }
+}
+/* line 454, ../sass/custom/_dark.scss */
+.card-room .card-room-in .card-content .card-title h3 a {
+  color: #949ba2;
+}
+/* line 461, ../sass/custom/_dark.scss */
+.card-room .card-room-in .card-content .card-sensors .sensor .sensor-img {
+  background: transparent;
+}
+
+/* line 477, ../sass/custom/_dark.scss */
+.room-no-device .card-title h3 a {
+  color: #949ba2 !important;
+}
+
+/* Apps instances
+-------------------------------------------------- */
+/* line 488, ../sass/custom/_dark.scss */
+#apps_instances .accordion-entry {
+  background-color: #3B3E47;
+}
+
+/* Events
+-------------------------------------------------- */
+/* line 495, ../sass/custom/_dark.scss */
+.event-level-warning, .event-level-error, .event-level-critical {
+  background-color: #3B3E47;
+}
+/* line 497, ../sass/custom/_dark.scss */
+.event-level-warning.report-entry, .event-level-error.report-entry, .event-level-critical.report-entry {
+  border-bottom: solid 1px #d9534f;
+}
+
+/* line 502, ../sass/custom/_dark.scss */
+.event-room {
+  color: #949ba2;
+}
+
+/* Customize
+-------------------------------------------------- */
+/* line 508, ../sass/custom/_dark.scss */
+.customize-detail-img {
+  border-top: solid 1px #44464F;
+}
+
+/* line 512, ../sass/custom/_dark.scss */
+.customize-image-detail {
+  border: solid 4px #6f777e;
+}
+
+/* Image list
+-------------------------------------------------- */
+/* line 518, ../sass/custom/_dark.scss */
+.app-row-imglist {
+  border: solid 1px #6f777e;
+  background-color: #44464F;
+}
+
+/* line 523, ../sass/custom/_dark.scss */
+.imglist-entry.in-device {
+  background-color: #f2dede;
+}
+
+/* ZWave
+-------------------------------------------------- */
+/* line 532, ../sass/custom/_dark.scss */
+.network-zwave-title.noelements {
+  color: #949ba2;
+}
+
+/* Expert Commands
+-------------------------------------------------- */
+/* line 539, ../sass/custom/_dark.scss */
+.commands-data-control {
+  background-color: #3B3E47;
 }
 
 /* Footer
 -------------------------------------------------- */
-/* line 116, ../sass/custom/_dark.scss */
+/* line 545, ../sass/custom/_dark.scss */
 #footer {
-  border-top: solid 1px #cccccc;
+  border-top: solid 1px #6f777e;
 }
-/* line 118, ../sass/custom/_dark.scss */
+/* line 547, ../sass/custom/_dark.scss */
 #footer #footer_in {
   color: #949ba2;
   background-color: #24262D;

@@ -6,19 +6,81 @@
 $app-color-dark:#2D3038;
 $app-color-darker: #2A2D35;
 $app-color-darkest: #24262D;
-$app-color-lightest: #FFFFFF;
+$app-color-dark-lighter:#3B3E47;
+$app-color-dark-lightest:#44464F;
+$app-color-lightest: #d4d4d4;
 $app-color-lighter: #949ba2;
 $app-color-additional: #F6A821;
+$app-body-color: $app-color-lighter;
+$app-a-color: $app-color-lighter;
+$app-border-color: #6f777e;
+$app-heading-color: $app-color-lightest;
 
 /* Body
 -------------------------------------------------- */
 body {
-  color: $app-color-lighter;
+  color: $app-body-color;
   background-color: $app-color-dark;
 
 }
 .timestamp{
-  color: $app-color-lighter;
+  color: $app-body-color;
+}
+
+/* Typo
+-------------------------------------------------- */
+h1, h2, h3, h4 {
+  color: $app-heading-color;
+}
+
+.text-supp {
+  color: darken($app-body-color, 10%);
+}
+
+/* Links
+-------------------------------------------------- */
+a {
+  color: $app-a-color;
+  &:hover, &:focus {
+    color: $app-a-color;
+    text-decoration: underline;
+  }
+
+  &:focus {
+    // Default
+    outline: thin dotted;
+    // WebKit
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+
+  &.link-dotted {
+    color: $app-a-color;
+    border-bottom: 1px dotted $app-a-color;
+
+    &:hover, &:focus {
+      border-bottom: 1px solid $app-a-color;
+      text-decoration: none;
+    }
+  }
+
+  &.link-underline {
+    color: $app-a-color;
+
+    //&:hover, &:focus { }
+  }
+}
+
+/* Others
+-------------------------------------------------- */
+.bcg-success {
+  background-color: $app-bcg-success;
+  background: transparent;
+}
+
+.bcg-active.false, .bcg-danger {
+  background-color: $app-bcg-danger;
+  background: transparent;
 }
 
 /* Header
@@ -43,6 +105,7 @@ body {
     color: $app-color-lighter;
   }
   a:hover{
+    background-color:$app-color-darkest;
     color: $app-color-additional;
   }
   .active{
@@ -55,60 +118,426 @@ body {
 -------------------------------------------------- */
 #sub_navigation_in{
   ul{
-    background-color: #FFFFFF;
-    @include appBoxShadow($app-box-shadow);
+    background-color: $app-color-darker;
     border: 1px solid $app-border-color;
-    // Media queries
-    @include mediaQueries(min-small) {
-      margin: 0 0 0 50%
-    }
-    // Media queries
-    @include mediaQueries(min-large) {
-      margin: 0 0 0 66%
-    }
+
     li{
-      padding: $spacing 0;
       border-bottom: solid 1px $app-border-color;
       a{
-        display: block;
-        position:relative;
-        padding:  $spacing;
-        vertical-align: middle;
         color: $app-a-color;
-        // Media queries
-        @include mediaQueries(min-small) {
-          padding: 0 $spacing;
+        &:hover{
+          color: $app-color-additional;
         }
-        span{
-          display: inline-block;
-          position: absolute;
-          left:50px;
-        }
-      }
 
-      .subnavi-arrow{
-        position: absolute;
-        right: 1%;
-        display: inline-block;
       }
 
     }
     .active{
       a{
-        color: lighten($app-a-color, 50%);
-        font-weight: bold;
-        text-decoration: underline;
+        color: $app-color-additional;
       }
       .fa{
-        color: lighten($app-a-color, 50%);
+        color: $app-color-additional;
       }
     }
     .fa{
-      color: lighten($app-a-color, 20%);
-      //padding-right: 7px;
+      color: $app-a-color;
     }
 
   }
+}
+/* Page navigation
+-------------------------------------------------- */
+.page-navi{
+  color: $app-a-color;
+  .page-navi-in{
+    background-color:$app-color-darker;
+    border: 1px solid $app-border-color;
+  }
+  ul{
+    li{
+      border-bottom: solid 1px $app-border-color;
+      a{
+        color: $app-a-color;
+
+      }
+    }
+    .active{
+      a{
+        color: $app-color-additional;
+      }
+      .fa{
+        color: $app-color-additional;
+
+      }
+    }
+    .fa{
+      color: $app-a-color;
+
+    }
+  }
+  .page-navi-title{
+    color: $app-heading-color;
+  }
+  .page-navi-tag {
+    border: solid 1px $app-border-color;
+
+  }
+  .page-navi-tag.active{
+    background-color: $app-border-color;
+  }
+}
+
+/* Form
+-------------------------------------------------- */
+.form-control {
+  color: $app-color-lighter;
+  border: solid 1px $app-color-darkest;
+  /* border-radius: 4px;
+   -webkit-box-shadow: none;
+   box-shadow: none;
+   -webkit-transition: none;
+   -o-transition: none;
+   transition: none;*/
+  background-color: $app-color-dark-lightest;
+}
+.input-group-addon {
+  border: solid 1px $app-color-darkest;
+  background-color: $app-color-darkest;
+  .fa {
+    color: $app-color-lightest;
+  }
+}
+.form-page {
+  background-color: $app-color-dark-lighter;
+  border: 0 none;
+  .form-group {
+    border-bottom: solid 1px $app-color-dark;
+  }
+}
+
+.submit-entry {
+  background-color: $app-color-darkest;
+  border-top: 0;
+}
+
+.control-active {
+  border: solid 4px $app-color-additional !important;
+}
+
+/* Button
+-------------------------------------------------- */
+.btn-default,.btn-primary,.btn-info,.btn-success,.btn-warning,.btn-danger{
+  background-color: $app-color-dark-lightest;
+  color: $app-color-lighter;
+  border: solid 1px lighten($app-color-dark-lightest, 20%);
+  &:hover{
+    background-color: $app-color-darkest;
+    color: $app-color-lighter;
+  }
+  &.active{
+    background-color: $app-color-lighter;
+    color: $app-color-darkest;
+  }
+}
+
+.btn-goup-block {
+  .btn {
+    &.active .fa {
+      color: $app-color-additional;
+    }
+  }
+
+}
+
+.btn-submit {
+  color: #FFFFFF;
+  border: solid 1px darken($app-color-additional, 20%);
+  background-color: $app-color-additional;
+  &:hover, &:focus {
+    background-color: darken($app-color-additional, 20%);
+    color: #FFFFFF;
+  }
+}
+
+/* Button tabs
+-------------------------------------------------- */
+.btn-goup-tabs {
+  .btn {
+    background-color: $app-color-dark-lightest;
+    color: $app-color-lighter;
+    border: solid 1px lighten($app-color-dark-lightest, 20%);
+    &.active {
+      background-color: $app-color-lighter;
+      color: $app-color-darkest;
+    }
+    .fa {
+      color: $app-color-lighter;
+      &.text-danger{
+        color: $app-brand-danger;
+      }
+    }
+  }
+  .active {
+    .fa {
+      color: $app-color-additional;
+      &.text-danger{
+        color: $app-brand-danger;
+      }
+
+    }
+  }
+}
+
+/* Dropdown
+-------------------------------------------------- */
+.app-dropdown{
+  background-color:$app-color-darker;
+  border: 1px solid $app-border-color;
+  color: $app-a-color;
+
+  .app-dropdown-title{
+    color: $app-heading-color;
+    border-bottom: solid 1px $app-border-color;
+  }
+
+  ul{
+    li{
+      border-bottom: solid 1px $app-border-color;
+      a{
+        color: $app-a-color;
+      }
+      &:hover{
+        background-color:$app-color-dark;
+        color: $app-color-additional;
+      }
+
+    }
+    .active{
+      a{
+        color: $app-color-additional;
+      }
+    }
+    .btn{
+      color: $app-a-color;
+    }
+
+  }
+}
+
+/* Accordion
+-------------------------------------------------- */
+.accordion-entry{
+  border-bottom: dotted 1px  $app-border-color;
+  color: $app-color-lighter;
+}
+.accordion-entry-title{
+  color: $app-color-lighter;
+  .fa{
+    color: darken($app-color-lighter, 10%);
+  }
+}
+
+/* Modal
+-------------------------------------------------- */
+.appmodal {
+  color: $app-body-color;
+   .appmodal-in {
+    background-color: $app-color-darker;
+  }
+}
+
+.appmodal-header {
+  border-bottom: solid 1px $app-color-dark-lightest;
+  background-color: $app-color-darkest;
+  h3 {
+    color: $app-heading-color;
+  }
+}
+
+.appmodal-body {
+}
+
+.appmodal-footer {
+  border-top: solid 1px $app-color-dark-lightest;
+  background-color: $app-color-darkest;
+}
+
+/* Report
+-------------------------------------------------- */
+.app-row-report{
+  border-top: solid 1px $app-border-color;
+  border-bottom: solid 1px $app-border-color;
+  background-color: $app-color-dark-lightest;
+  color: $app-color-lighter;
+}
+.report-entry {
+  border-bottom: solid 1px $app-border-color;
+}
+
+/* Table
+-------------------------------------------------- */
+.table{
+  tbody{
+    tr{
+      td{
+        border-top: 1px solid $app-border-color;
+      }
+    }
+  }
+
+}
+.table-report{
+  background-color: $app-color-dark-lightest;
+}
+
+/* Widget
+-------------------------------------------------- */
+.widget-entry{
+  .widget-entry-in{
+    border-bottom: solid 1px $app-border-color;
+    background-color: $app-color-dark-lightest;
+    color: $app-body-color;
+    @include mediaQueries(min-small) {
+      /*border-color: $app-border-color;
+      border: solid 1px $app-border-color;*/
+      border: 0 none;
+    }
+
+    .widget-header {
+     .widget-icon{
+        color: $app-body-color;
+
+      }
+    }
+    .widget-title{
+      color: $app-heading-color;
+      h3{
+        a{
+          color: $app-heading-color;
+        }
+      }
+    }
+  }
+  &.widget-success{
+    .widget-entry-in{
+      border-color: lighten($app-brand-success,20%);
+    }
+  }
+}
+
+/* Rooms
+-------------------------------------------------- */
+.card-room {
+  /* Inner element */
+  .card-room-in {
+    //border: solid 1px $room-card-border-color;
+    border: 0;
+    background-color: $app-color-dark-lightest;
+    .card-header{
+      background: $app-color-darkest;
+       /* Header icons */
+      .card-header-icon {
+        color: $app-color-lighter;
+
+      }
+
+    }
+    .card-content {
+      background-color: $app-color-darkest;
+      // Media queries
+      @include mediaQueries(min-small) {
+        background: transparent;
+      }
+      .card-title {
+        h3 {
+          a {
+            color: $app-body-color;
+          }
+        }
+      }
+      .card-sensors {
+        .sensor {
+          .sensor-img {
+            background: transparent;
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.room-no-device {
+  .card-title {
+    h3 {
+      a {
+        color: $app-body-color !important;
+
+      }
+    }
+  }
+}
+
+/* Apps instances
+-------------------------------------------------- */
+#apps_instances {
+  .accordion-entry {
+    background-color: $app-color-dark-lighter;
+  }
+}
+
+/* Events
+-------------------------------------------------- */
+.event-level-warning,.event-level-error,.event-level-critical{
+  background-color: $app-color-dark-lighter;
+  &.report-entry {
+    border-bottom: solid 1px $app-brand-danger;
+  }
+}
+
+.event-room {
+  color: $app-color-lighter;
+}
+
+/* Customize
+-------------------------------------------------- */
+.customize-detail-img{
+  border-top: solid 1px $app-color-dark-lightest;
+}
+
+.customize-image-detail{
+  border: solid 4px $app-border-color;
+}
+
+/* Image list
+-------------------------------------------------- */
+.app-row-imglist{
+  border: solid 1px $app-border-color;
+  background-color: $app-color-dark-lightest;
+}
+.imglist-entry{
+  &.in-device{
+    background-color: $app-bcg-danger;
+  }
+}
+
+/* ZWave
+-------------------------------------------------- */
+
+.network-zwave-title{
+  &.noelements{
+    color: $app-body-color;
+  }
+}
+
+/* Expert Commands
+-------------------------------------------------- */
+.commands-data-control{
+  background-color: $app-color-dark-lighter;
 }
 
 /* Footer
