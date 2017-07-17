@@ -88,6 +88,12 @@ a {
   color: $app-color-lighter;
 }
 
+.fa {
+  &.text-success{
+    color: $app-color-additional;
+  }
+}
+
 /* Header
 -------------------------------------------------- */
 #header{
@@ -574,6 +580,75 @@ a {
 
 }
 
+/* Apps
+-------------------------------------------------- */
+.widget-entry-app {
+  .widget-entry-in {
+
+    .widget-footer {
+      .rating-group {
+        .widget-rating {
+          color: darken($app-body-color,10%);
+          &.israted {
+            color: $app-body-color;
+          }
+        }
+      }
+
+    }
+  }
+}
+#apps_online, #apps_instances {
+  .widget-warning {
+
+    .widget-title {
+      h3 {
+        a {
+          color: darken($app-heading-color, 20%) !important;
+        }
+      }
+    }
+    .widget-footer {
+      .rating-group {
+        .widget-rating {
+          &.israted {
+            color: darken($app-body-color, 20%);
+            //color: $app-body-color;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+/* Apps online detail
+-------------------------------------------------- */
+.app-detail-list {
+  border-top: solid 1px $app-border-color;
+}
+
+.module-rating {
+  color: $app-body-color;
+  &.israted {
+    color: $app-body-color;
+  }
+}
+
+/* Apps comments
+-------------------------------------------------- */
+.comment-entry {
+ background-color: $app-color-dark-lighter;
+  color: $app-body-color;
+  .comment-header {
+    color: lighten($app-body-color, 20%);
+  }
+}
+
+.comment-entry.even {
+  background-color:  $app-color-dark-lightest;
+}
+
 /* Apps instances
 -------------------------------------------------- */
 #apps_instances {
@@ -662,4 +737,42 @@ a {
     background-color: $app-color-darkest;
 
   }
+}
+
+/* Alpaca
+-------------------------------------------------- */
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 110%;
+  line-height: inherit;
+  color: $app-body-color;
+  border: 0;
+  border-bottom: 0px solid $app-border-color;
+}
+.alpaca-field-object {
+  border: 1px $app-border-color solid;
+}
+.table-bordered {
+  border: 1px solid $app-border-color;
+}
+.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: $app-color-dark-lightest;
+}
+
+#alpaca_data{
+  .table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
+    border: 1px solid $app-border-color;
+    //border-bottom: 0;
+  }
+.table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > tfoot > tr > td {
+  border: 0px solid $app-border-color;
+}
+  .btn-default[disabled]{
+    background: transparent;
+    border-color: $app-border-color;
+  }
+
 }
