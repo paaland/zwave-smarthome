@@ -83,6 +83,11 @@ a {
   background: transparent;
 }
 
+.badge-number {
+  background-color: lighten($app-color-dark, 20%);
+  color: $app-color-lighter;
+}
+
 /* Header
 -------------------------------------------------- */
 #header{
@@ -391,6 +396,24 @@ a {
   background-color: $app-color-dark-lightest;
 }
 
+/* Loader
+-------------------------------------------------- */
+#loading{
+  color: $app-body-color;
+  .loading-in{
+    background-color: $app-color-darkest;
+    border: solid 2px $app-border-color;
+  }
+}
+.progress-true {
+
+  .widget-loader {
+    color:$app-color-additional;
+
+  }
+
+}
+
 /* Widget
 -------------------------------------------------- */
 .widget-entry{
@@ -482,6 +505,75 @@ a {
   }
 }
 
+.elemnts-room-bar{
+  border: 0 none;
+  background-color: $app-color-dark-lightest;
+  //color: $app-body-color;
+}
+
+/* Elements
+-------------------------------------------------- */
+.widget-entry-element {
+  .widget-entry-in {
+    .widget-img {
+      background-color: #fff;
+    }
+    .widget-title {
+      .widget-room {
+        color: $app-color-lighter;
+      }
+    }
+    .widget-level {
+      color: $app-body-color;
+    }
+
+  }
+}
+
+.widget-ctrl, .tbl-widget-ctrl {
+  .fa-caret-down {
+    color:  lighten($app-color-lighter, 10%);
+  }
+  .btn-group {
+    .btn {
+      color: $app-color-lighter;
+    }
+    .btn-primary {
+      background-color: $app-color-lighter !important;
+      border-color: lighten($app-color-lighter, 20%);
+      color: $app-color-darkest !important;
+      .fa {
+        color: $app-color-darkest !important;
+      }
+    }
+    .btn-off.btn-primary {
+      color: $app-color-darkest !important;
+      .fa {
+        color: $app-color-darkest !important;
+      }
+    }
+    .btn-label-on {
+      color: $app-color-lighter;
+    }
+    .btn-widget-time, .txt-widget-time {
+      color: $app-color-lighter;
+    }
+  }
+}
+
+.dragdrop-element{
+  .dd-placeholder{
+    border: 3px dashed $app-color-dark-lightest;
+    background-color: $app-color-lighter;
+  }
+}
+.card-element-dragdrop {
+  background: none $app-color-dark-lightest;
+  //background-color: $app-color-dark-lightest;
+  border: solid 1px $app-color-dark;
+
+}
+
 /* Apps instances
 -------------------------------------------------- */
 #apps_instances {
@@ -538,6 +630,27 @@ a {
 -------------------------------------------------- */
 .commands-data-control{
   background-color: $app-color-dark-lighter;
+}
+
+/* RSS
+-------------------------------------------------- */
+.report-entry {
+  &.read-true{
+    border: 0;
+    background-color: $app-color-dark;
+    .event-date,.rss-title,.rss-description{
+      color: darken($app-color-lighter, 20%);
+    }
+  }
+
+}
+
+.read-false{
+  .rss-title{
+    font-weight: bold;
+  }
+  //border: solid 4px $app-border-color;
+  // background-color: $app-border-color;
 }
 
 /* Footer
