@@ -11949,6 +11949,13 @@ fieldset.submit-entry {
 .elemnts-room-bar .bar-row .bar-ctrl .sensor .sensor-level {
   font-weight: bold;
   font-size: 130%;
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 91, ../sass/base/_bar.scss */
+.elemnts-room-bar .bar-row .bar-ctrl .sensor .sensor-scale {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* Dropdown
