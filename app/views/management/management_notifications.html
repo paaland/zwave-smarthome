@@ -3,7 +3,7 @@
     <i class="fa fa-commenting"></i> <span ng-bind="_t('notifications')"></span>
     <i class="fa accordion-arrow" ng-class="expand.notifications  ? 'fa-chevron-up':'fa-chevron-down'"></i>
 </h2>
- <div class="accordion-entry-ctrl" ng-if_="expand.notifications"  ng-controller="ManagementNotificationController">
+ <div class="accordion-entry-ctrl" ng-if="expand.notifications"  ng-controller="ManagementNotificationController">
      <div class="app-row app-row-report app-row-notification clearfix">
          <div class="report-entry" ng-repeat="v in managementNotification.all">
              <div class="report-col report-body">
