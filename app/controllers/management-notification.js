@@ -8,82 +8,36 @@
  */
 myAppController.controller('ManagementNotificationController', function ($scope, $route, dataFactory, dataService) {
     $scope.managementNotification = {
-        input: {},
-        emails: ['info@email.com', 'name.lastname@email.com', 'hello@email.com'],
-        pushes: ['1. Mobile device', '2. Mobile device', '3. Mobile device'],
         all: [
             {
                 id: 1,
                 name: 'Conto 1',
-                email: ['info@email.com', '2info@email.com', '3info@email.com'],
-                push: ['1. Mobile device', '2. Mobile device', '3. Mobile device']
+                email: ['info@email.com', '2info@email.com'],
+                push: ['2. Mobile device', '3. Mobile device']
             },
             {
                 id: 2,
                 name: 'Conto 2',
-                email: ['info@email.com', '2info@email.com', '3info@email.com'],
-                push: ['1. Mobile device', '2. Mobile device', '3. Mobile device']
+                email: ['info@email.com', '3info@email.com'],
+                push: ['1. Mobile device', '3. Mobile device']
             },
             {
                 id: 3,
                 name: 'Conto 3',
-                email: ['info@email.com', '2info@email.com', '3info@email.com'],
-                push: ['1. Mobile device', '2. Mobile device', '3. Mobile device']
+                email: ['2info@email.com', '3info@email.com'],
+                push: ['2. Mobile device', '3. Mobile device']
             }
         ]
     };
-    $scope.masterModel = angular.copy($scope.managementNotification.input);
-
-    /*$scope.managementNotification = {
-     input:{
-     type: '',
-     name: '',
-     email: '',
-     push: ''
-     }
-     };*/
-
-
     /**
-     * Change type
+     * Delete notification from data holder
      */
-    $scope.changeType = function () {
-        if (!$scope.managementNotification.input.type) {
-            $scope.resetNotification();
-        } else {
-            angular.copy({type: $scope.managementNotification.input.type}, $scope.managementNotification.input);
-        }
+    $scope.deleteNotification = function (index,message) {
+        alertify.confirm(message, function () {
+            $scope.managementNotification.all.splice(index, 1);
+        });
 
-    };
 
-    /**
-     * Add new email
-     */
-    $scope.addEmail = function () {
-        var email = $scope.managementNotification.input.email_add;
-        console.log(email)
-        if ($scope.managementNotification.emails.indexOf(email) === -1) {
-            $scope.managementNotification.emails.push(email);
-        }
-
-        $scope.managementNotification.input.contact = email;
-        $scope.managementNotification.input.email_add = '';
-        //$route.reload();
-
-    };
-
-    /**
-     * Reset notification
-     */
-    $scope.resetNotification = function () {
-        angular.copy($scope.masterModel, $scope.managementNotification.input);
-    };
-
-    /**
-     * Create notification
-     */
-    $scope.createNotification = function () {
-        console.log($scope.managementNotification)
     };
 
 });
@@ -92,29 +46,34 @@ myAppController.controller('ManagementNotificationController', function ($scope,
  * The controller that renders and handles notification.
  * @class ManagementNotificationIdController
  */
-myAppController.controller('ManagementNotificationIdController', function ($scope, $routeParams, $filter,dataFactory, dataService) {
+myAppController.controller('ManagementNotificationIdController', function ($scope, $routeParams, $filter, dataFactory, dataService) {
     $scope.managementNotification = {
-        input: {},
-        emails: ['info@email.com', 'name.lastname@email.com', 'hello@email.com'],
-        pushes: ['1. Mobile device', '2. Mobile device', '3. Mobile device'],
+        input: {
+            id: 0,
+            name: '',
+            email: [],
+            push: []
+        },
+        emails: ['info@email.com', 'name.lastname@email.com', 'hello@email.com', '3info@email.com', '2info@email.com'],
+        pushes: ['1. Mobile device', '2. Mobile device', '3. Mobile device', '4. Mobile device', '5. Mobile device'],
         all: [
             {
                 id: 1,
                 name: 'Conto 1',
-                email: ['info@email.com', '2info@email.com', '3info@email.com'],
-                push: ['1. Mobile device', '2. Mobile device', '3. Mobile device']
+                email: ['info@email.com', '2info@email.com'],
+                push: ['2. Mobile device', '3. Mobile device']
             },
             {
                 id: 2,
                 name: 'Conto 2',
-                email: ['info@email.com', '2info@email.com', '3info@email.com'],
-                push: ['1. Mobile device', '2. Mobile device', '3. Mobile device']
+                email: ['info@email.com', '3info@email.com'],
+                push: ['1. Mobile device', '3. Mobile device']
             },
             {
                 id: 3,
                 name: 'Conto 3',
-                email: ['info@email.com', '2info@email.com', '3info@email.com'],
-                push: ['1. Mobile device', '2. Mobile device', '3. Mobile device']
+                email: ['2info@email.com', '3info@email.com'],
+                push: ['2. Mobile device', '3. Mobile device']
             }
         ]
     };
@@ -125,53 +84,92 @@ myAppController.controller('ManagementNotificationIdController', function ($scop
      * Load notification
      */
     $scope.loadNotificaion = function () {
-        $scope.managementNotification.input = _.findWhere($scope.managementNotification.all,{id:$filter('toInt')($routeParams.id)});
-        console.log($scope.managementNotification.input)
+        var data = _.findWhere($scope.managementNotification.all, {id: $filter('toInt')($routeParams.id)});
+        if(data){
+            console.log('data', data)
+            $scope.managementNotification.input = data;
+        }
+
+        //console.log($scope.managementNotification.input)
 
     };
     $scope.loadNotificaion();
 
 
     /**
-     * Change type
+     * Assign email to list
      */
-    $scope.changeType = function () {
-        if (!$scope.managementNotification.input.type) {
-            $scope.resetNotification();
-        } else {
-            angular.copy({type: $scope.managementNotification.input.type}, $scope.managementNotification.input);
+    $scope.assignImail = function (v) {
+        if ($scope.managementNotification.input.email.indexOf(v) === -1) {
+            $scope.managementNotification.input.email.push(v);
         }
-
     };
 
     /**
-     * Add new email
+     * Remove email from the list
      */
-    $scope.addEmail = function () {
+    $scope.removeEmail = function (index) {
+        $scope.managementNotification.input.email.splice(index, 1);
+        return;
+    };
+
+    /**
+     * Create email
+     */
+    $scope.createEmail = function () {
         var email = $scope.managementNotification.input.email_add;
-        console.log(email)
-        if ($scope.managementNotification.emails.indexOf(email) === -1) {
-            $scope.managementNotification.emails.push(email);
+        console.log('createEmail', email)
+        if ($scope.managementNotification.emails.indexOf(email) > -1 || email === '') {
+            console.log('return', email)
+            return;
         }
 
-        $scope.managementNotification.input.contact = email;
+        $scope.managementNotification.emails.push(email);
+        $scope.managementNotification.input.email.push(email);
         $scope.managementNotification.input.email_add = '';
-        //$route.reload();
+
 
     };
 
     /**
-     * Reset notification
+     * Delete email from data holder
      */
-    $scope.resetNotification = function () {
-        angular.copy($scope.masterModel, $scope.managementNotification.input);
+    $scope.deleteEmail = function (index,message) {
+        alertify.confirm(message, function () {
+            $scope.managementNotification.emails.splice(index, 1);
+        });
+
+
     };
 
     /**
-     * Create notification
+     * Assign push device to list
      */
-    $scope.createNotification = function () {
-        console.log($scope.managementNotification)
+    $scope.assignPush = function (v) {
+        if ($scope.managementNotification.input.push.indexOf(v) === -1) {
+            $scope.managementNotification.input.push.push(v);
+        }
     };
+
+    /**
+     * Remove push device from the list
+     */
+    $scope.removePush = function (index) {
+        $scope.managementNotification.input.push.splice(index, 1);
+        return;
+    };
+
+    /**
+     * Create/Update an item
+     */
+    $scope.storeNotification = function (form) {
+        if (form.$invalid) {
+            return;
+        }
+        console.log('Store: ',$scope.managementNotification.input)
+        window.location = '#/admin';
+
+    };
+
 
 });

@@ -10594,6 +10594,13 @@ img {
   visibility: hidden;
 }
 
+/* line 290, ../sass/base/_body.scss */
+.device-available-block.assigned {
+  padding: 10px 10px 0 10px;
+  border: solid 1px #cccccc;
+  margin: 0 0 10px 0;
+}
+
 /* Header
 -------------------------------------------------- */
 /* line 3, ../sass/base/_header.scss */
@@ -11419,7 +11426,7 @@ img {
     margin: 0 10px 10px 0;
   }
 }
-/* line 103, ../sass/base/_button.scss */
+/* line 104, ../sass/base/_button.scss */
 .btn-tag .fa {
   position: absolute;
   top: 5px;
@@ -11429,61 +11436,87 @@ img {
   /* MAX WIDTH */
 }
 @media only screen and (min-width: 768px) {
-  /* line 103, ../sass/base/_button.scss */
+  /* line 104, ../sass/base/_button.scss */
   .btn-tag .fa {
     position: static;
     margin: 0 0 0 10px;
     font-size: 120%;
   }
 }
+/* line 116, ../sass/base/_button.scss */
+.btn-tag.btn-group {
+  /* MIN WIDTH */
+  /* MAX WIDTH */
+}
+@media only screen and (max-width: 991px) {
+  /* line 116, ../sass/base/_button.scss */
+  .btn-tag.btn-group {
+    display: table !important;
+    width: 100%;
+  }
+  /* line 120, ../sass/base/_button.scss */
+  .btn-tag.btn-group .btn {
+    position: static;
+    float: none;
+    display: table-cell;
+  }
+  /* line 125, ../sass/base/_button.scss */
+  .btn-tag.btn-group .btn .fa {
+    position: static;
+  }
+}
+/* line 133, ../sass/base/_button.scss */
+.btn-tag .btn-addon .fa {
+  margin: 0;
+}
 
 /* Button tabs
 -------------------------------------------------- */
-/* line 119, ../sass/base/_button.scss */
+/* line 141, ../sass/base/_button.scss */
 .btn-goup-tabs {
   /* display: table;
    width: 100%;*/
   margin: 0 0 10px 0;
 }
-/* line 123, ../sass/base/_button.scss */
+/* line 145, ../sass/base/_button.scss */
 .btn-goup-tabs .btn {
   padding: 10px;
   font-size: 120%;
   background-color: #FFFFFF;
 }
-/* line 127, ../sass/base/_button.scss */
+/* line 149, ../sass/base/_button.scss */
 .btn-goup-tabs .btn.active {
   background-color: #f2f2f2;
 }
-/* line 130, ../sass/base/_button.scss */
+/* line 152, ../sass/base/_button.scss */
 .btn-goup-tabs .btn .fa {
   font-size: 130%;
   color: #404040;
 }
-/* line 133, ../sass/base/_button.scss */
+/* line 155, ../sass/base/_button.scss */
 .btn-goup-tabs .btn .fa.text-danger {
   color: #d9534f;
 }
-/* line 139, ../sass/base/_button.scss */
+/* line 161, ../sass/base/_button.scss */
 .btn-goup-tabs .active .fa {
   color: #80AD80;
 }
-/* line 141, ../sass/base/_button.scss */
+/* line 163, ../sass/base/_button.scss */
 .btn-goup-tabs .active .fa.text-danger {
   color: #d9534f;
 }
 
-/* line 150, ../sass/base/_button.scss */
+/* line 172, ../sass/base/_button.scss */
 .btn-tabs-2 .btn {
   width: 50%;
 }
 
-/* line 156, ../sass/base/_button.scss */
+/* line 178, ../sass/base/_button.scss */
 .btn-tabs-3 .btn {
   width: 33.33333%;
 }
 
-/* line 162, ../sass/base/_button.scss */
+/* line 184, ../sass/base/_button.scss */
 .btn-tabs-4 .btn {
   width: 25%;
 }
@@ -11491,7 +11524,7 @@ img {
 /* Switch button
 ---------- http://www.w3schools.com/howto/howto_css_switch.asp
 -------------------------------------------------- */
-/* line 170, ../sass/base/_button.scss */
+/* line 192, ../sass/base/_button.scss */
 .switch {
   position: relative;
   display: inline-block;
@@ -11501,7 +11534,7 @@ img {
   /* MAX WIDTH */
 }
 @media only screen and (min-width: 768px) {
-  /* line 170, ../sass/base/_button.scss */
+  /* line 192, ../sass/base/_button.scss */
   .switch {
     width: 60px;
     height: 34px;
@@ -11509,13 +11542,13 @@ img {
 }
 
 /* Hide default HTML checkbox */
-/* line 183, ../sass/base/_button.scss */
+/* line 205, ../sass/base/_button.scss */
 .switch input {
   display: none;
 }
 
 /* The slider */
-/* line 188, ../sass/base/_button.scss */
+/* line 210, ../sass/base/_button.scss */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -11529,7 +11562,7 @@ img {
   transition: .4s;
 }
 
-/* line 203, ../sass/base/_button.scss */
+/* line 225, ../sass/base/_button.scss */
 .slider:before {
   position: absolute;
   content: "";
@@ -11546,24 +11579,24 @@ img {
   /* MAX WIDTH */
 }
 @media only screen and (min-width: 768px) {
-  /* line 203, ../sass/base/_button.scss */
+  /* line 225, ../sass/base/_button.scss */
   .slider:before {
     height: 26px;
     width: 26px;
   }
 }
 
-/* line 225, ../sass/base/_button.scss */
+/* line 247, ../sass/base/_button.scss */
 input:checked + .slider:before {
   background-color: #80AD80;
 }
 
-/* line 230, ../sass/base/_button.scss */
+/* line 252, ../sass/base/_button.scss */
 input:focus + .slider {
   box-shadow: 0 0 1px #80AD80;
 }
 
-/* line 234, ../sass/base/_button.scss */
+/* line 256, ../sass/base/_button.scss */
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
@@ -11571,12 +11604,12 @@ input:checked + .slider:before {
 }
 
 /* Rounded sliders */
-/* line 241, ../sass/base/_button.scss */
+/* line 263, ../sass/base/_button.scss */
 .slider.round {
   border-radius: 4px;
 }
 
-/* line 245, ../sass/base/_button.scss */
+/* line 267, ../sass/base/_button.scss */
 .slider.round:before {
   border-radius: 4px;
 }
@@ -11840,6 +11873,12 @@ fieldset.submit-entry {
   text-align: right;
   /* MIN WIDTH */
   /* MAX WIDTH */
+}
+@media only screen and (max-width: 767px) {
+  /* line 29, ../sass/base/_bar.scss */
+  .bar-row .bar-ctrl {
+    display: block;
+  }
 }
 /* line 37, ../sass/base/_bar.scss */
 .bar-row .bar-icon {
@@ -14430,14 +14469,20 @@ body {
   background-color: #F6F6F6;
 }
 
+/* line 13, ../sass/custom/_shui.scss */
+.device-available-block.assigned {
+  background-color: #e7e7e7;
+  border: 0;
+}
+
 /* Main navigation
 -------------------------------------------------- */
-/* line 14, ../sass/custom/_shui.scss */
+/* line 20, ../sass/custom/_shui.scss */
 #main_navigation_wrap {
   border-bottom: solid 4px #DDD;
   background-color: #E9E9E9;
 }
-/* line 18, ../sass/custom/_shui.scss */
+/* line 24, ../sass/custom/_shui.scss */
 #main_navigation_wrap #main_navigation .active {
   background-color: #DDD;
   color: #ffffff;
@@ -14445,16 +14490,16 @@ body {
 
 /* Form
 -------------------------------------------------- */
-/* line 27, ../sass/custom/_shui.scss */
+/* line 33, ../sass/custom/_shui.scss */
 .form-page {
   border: solid 4px #e7e7e7;
 }
-/* line 29, ../sass/custom/_shui.scss */
+/* line 35, ../sass/custom/_shui.scss */
 .form-page .form-group {
   border-color: #e7e7e7;
 }
 
-/* line 33, ../sass/custom/_shui.scss */
+/* line 39, ../sass/custom/_shui.scss */
 .submit-entry {
   background-color: #e7e7e7;
   border-top: solid 1px  #e7e7e7;
@@ -14462,25 +14507,25 @@ body {
 
 /* Button
 -------------------------------------------------- */
-/* line 41, ../sass/custom/_shui.scss */
+/* line 47, ../sass/custom/_shui.scss */
 .btn-goup-tabs .btn {
   background-color: #eeeeee;
 }
-/* line 43, ../sass/custom/_shui.scss */
+/* line 49, ../sass/custom/_shui.scss */
 .btn-goup-tabs .btn.active {
   background-color: #dcdcdc;
 }
 
 /* Widget
 -------------------------------------------------- */
-/* line 52, ../sass/custom/_shui.scss */
+/* line 58, ../sass/custom/_shui.scss */
 .widget-entry .widget-entry-in {
   border-color: #d3d3d3;
   /* MIN WIDTH */
   /* MAX WIDTH */
 }
 @media only screen and (min-width: 768px) {
-  /* line 52, ../sass/custom/_shui.scss */
+  /* line 58, ../sass/custom/_shui.scss */
   .widget-entry .widget-entry-in {
     border: solid 4px #FFFFFF;
     background: #f6f6f6;
@@ -14507,7 +14552,7 @@ body {
 
 /* Rooms
 -------------------------------------------------- */
-/* line 67, ../sass/custom/_shui.scss */
+/* line 73, ../sass/custom/_shui.scss */
 .card-room .card-room-in {
   border: solid 4px #ffffff;
   -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.29);
@@ -14517,13 +14562,13 @@ body {
 
 /* Elements in Room
 -------------------------------------------------- */
-/* line 75, ../sass/custom/_shui.scss */
+/* line 81, ../sass/custom/_shui.scss */
 .elemnts-room-bar {
   /* MIN WIDTH */
   /* MAX WIDTH */
 }
 @media only screen and (min-width: 768px) {
-  /* line 75, ../sass/custom/_shui.scss */
+  /* line 81, ../sass/custom/_shui.scss */
   .elemnts-room-bar {
     border: 0;
     -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.29);
