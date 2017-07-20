@@ -110,6 +110,13 @@ a {
   }
 }*/
 
+.device-available-block{
+  &.assigned{
+    border: 0;
+    background-color: $app-color-darkest;
+  }
+}
+
 .text-primary {
   color: $app-brand-primary;
 }
