@@ -39,6 +39,7 @@ name | overview
 [app\controllers\management-firmware.js](app/controllers/management-firmware.md) | 
 [app\controllers\management-licence.js](app/controllers/management-licence.md) | _he controller that handles the licence key._
 [app\controllers\management-local.js](app/controllers/management-local.md) | _The controller that renders and handles local access._
+[app\controllers\management-notification.js](app/controllers/management-notification.md) | _The controller that renders and handles notifications._
 [app\controllers\management-remote.js](app/controllers/management-remote.md) | _The controller that renders and handles remote access data._
 [app\controllers\management-report.js](app/controllers/management-report.md) | _The controller that handles bug report info._
 [app\controllers\management-restore.js](app/controllers/management-restore.md) | _The controller that handles restore process._
