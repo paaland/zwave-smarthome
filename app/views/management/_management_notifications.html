@@ -1,0 +1,69 @@
+<!-- Admin notifications view -->
+<h2 class="accordion-entry-title" ng-click="expandElement('notifications')">
+    <i class="fa fa-commenting"></i> <span ng-bind="_t('notifications')"></span>
+    <i class="fa accordion-arrow" ng-class="expand.notifications  ? 'fa-chevron-up':'fa-chevron-down'"></i>
+</h2>
+ <fieldset class="accordion-entry-ctrl" ng-if_="expand.notifications"  ng-controller="ManagementNotificationController">
+      <bb-loader></bb-loader>
+    <form name="form_notifications" id="form_notifications" class="form form-page" ng-submit="sendnotifications(form_notifications,input)" novalidate>
+        <fieldset>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </fieldset>
+        <pre>{{managementNotification|json}} </pre>
+        master <pre>{{masterModel|json}}</pre>
+        <fieldset>
+            <!-- add new  -->
+            <div class="form-group form-inline">
+                <!-- type -->
+                    <select name="time_zone" name="time_zone" class="form-control"
+                            ng-change="changeType()"
+                            ng-model="managementNotification.input.type">
+                        <option value="">--- Select Type ---</option>
+                        <option ng-repeat="v in ['email','push']" value="{{v}}">{{v}}</option>
+                    </select>
+            </div>
+            <!-- Name  -->
+            <div class="form-group form-inline" ng-if="managementNotification.input.type">
+                <!-- name -->
+                <input name="name" id="name" type="text" class="form-control" value="{{input.name}}" placeholder="{{_t('lb_name')}}"  ng-model="managementNotification.input.name" ng-required="true" />
+            </div>
+            <!-- type email  -->
+            <div class="form-group form-inline" ng-show="managementNotification.input.type === 'email'">
+                <!-- email select -->
+                <select name="time_zone" name="time_zone" class="form-control" ng-model="managementNotification.input.contact"
+                        ng-required="managementNotification.input.type === 'email'">
+                    <option value="">--- Select email ---</option>
+                    <option ng-repeat="v in managementNotification.emails" value="{{v}}"
+                    ng-selected="v == managementNotification.input.contact">{{v}}</option>
+                </select>
+                  or
+                <!-- email add -->
+                <div class="input-group">
+                    <input name="email_add" id="email_add" class="form-control" value="" placeholder="{{_t('Add new email')}}"
+                    ng-model="managementNotification.input.email_add"/>
+                    <span class="input-group-addon clickable" title="{{_t('add_new')}}" ng-click="addEmail()">
+                       <i class="fa fa-plus text-success"></i>
+                   </span>
+                </div>
+            </div>
+            <!-- type push  -->
+            <div class="form-group form-inline last" ng-show="managementNotification.input.type === 'push'">
+                <!-- push select -->
+                <select name="time_zone" name="time_zone" class="form-control" ng-model="managementNotification.input.contact"
+                        ng-required="managementNotification.input.type === 'push'">
+                    <option value="">--- Select device ---</option>
+                    <option ng-repeat="v in  managementNotification.pushes" value="{{v}}">{{v}}</option>
+                </select>
+            </div>
+        </fieldset>
+        <fieldset class="submit-entry" ng-if_="managementNotification.input.type">
+            <button type="button" class="btn btn-default" title="{{_t('lb_cancel')}}"
+                    ng-click="resetNotification()">
+                <i class="fa fa-reply"></i> <span class="btn-name">{{_t('lb_cancel')}}</span>
+            </button>
+            <button type="submit" class="btn btn-submit" title="{{_t('lb_save')}}"
+                    ng-click="createNotification()"
+                    ng-disabled="form_notifications.$invalid">
+                <i class="fa fa-check"></i> <span class="btn-name">{{_t('lb_save')}}</span>
+            </button>
+        </fieldset>
+    </form>
+</div>

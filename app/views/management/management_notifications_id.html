@@ -1,0 +1,44 @@
+<!-- Admin notificarion view -->
+<div ng-controller="ManagementNotificationIdController">
+    <bb-loader></bb-loader>
+        <h2>{{_t('Notification')}}<span ng-show="managementNotification.input.id > 0">: (#{{managementNotification.input.id}})</span> {{managementNotification.input.name}}</h2>
+        <form name="form_notification" id="form_notification" class="form form-page" ng-submit="store(form_notification,input)" novalidate>
+            <fieldset>
+                <div class="form-group form-inline">
+                    <!-- name -->
+                     <label class="isrequired display-block">{{_t('lb_name')}}: </label>
+                    <input name="name" id="name" type="text" class="form-control" value="{{input.name}}" ng-model="managementNotification.input.name" ng-blur="nameBlur = true" ng-required="true" />
+                    <bb-validator input-name='form_notification.name.$error.required' trans='_t("field_required")' has-blur='nameBlur'></bb-validator>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="form-group">
+                <h3>{{_t('Allow notifications to emails')}}</h3>
+                <div class="device-available-block">
+                    List of allowed emails
+                </div>
+                <h3>{{_t('Available emails')}}</h3>
+                <div class="device-available-block">
+                    List of available emails
+                </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <h3>{{_t('Allow push notifications to')}}</h3>
+                <div class="device-available-block">
+                    List of allowed devices
+                </div>
+                <h3>{{_t('Available devices')}}</h3>
+                <div class="device-available-block">
+                    List of available devices
+                </div>
+            </fieldset>
+
+            <fieldset class="submit-entry">
+                <button type="button" class="btn btn-default" bb-go-back><i class="fa fa-reply"></i> <span class="btn-name">{{_t('lb_cancel')}}</span></button>
+                  <button type="submit" class="btn btn-submit" ng-disabled="form_notification.$invalid"><i class="fa fa-check"></i> <span class="btn-name">{{_t('lb_save')}}</span></button>
+            </fieldset>
+        </form>
+
+</div> <!-- /ng-controller --> 

@@ -1,0 +1,30 @@
+<!-- Admin notifications view -->
+<h2 class="accordion-entry-title" ng-click="expandElement('notifications')">
+    <i class="fa fa-commenting"></i> <span ng-bind="_t('notifications')"></span>
+    <i class="fa accordion-arrow" ng-class="expand.notifications  ? 'fa-chevron-up':'fa-chevron-down'"></i>
+</h2>
+ <div class="accordion-entry-ctrl" ng-if_="expand.notifications"  ng-controller="ManagementNotificationController">
+     <div class="app-row app-row-report app-row-notification clearfix">
+         <div class="report-entry" ng-repeat="v in managementNotification.all">
+             <div class="report-col report-body">
+                 {{v.name|cutText:true:40}}
+             </div>
+             <div class="report-col report-ctrl">
+                 <div class="btn-group">
+                     <a class="btn btn-default" ng-href="#admin/notifications/{{v.id}}" title="{{_t('lb_update')}}">
+                         <i class="fa fa-pencil text-info"></i>
+                     </a>
+                     <button class="btn btn-default" title="{{_t('lb_remove')}}"
+                             ng-click="deleteProfile(v, _t('lb_delete_confirm'), 1)">
+                         <i class="fa fa-times text-danger"></i>
+                     </button>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <div class="fieldset submit-entry">
+         <a class="btn btn-submit" ng-href="#admin/notifications/0" title="{{_t('Add notification')}}">
+             <i class="fa fa-plus"></i> <span class="btn-name">{{_t('Add notification')}} </span>
+         </a>
+     </div>
+</div>

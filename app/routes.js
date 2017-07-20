@@ -59,6 +59,11 @@ myApp.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'app/views/management/management_user_id.html',
         requireLogin: true,
         roles: cfg.role_access.admin_user
+    }).//Admin notification
+    when('/admin/notifications/:id', {
+        templateUrl: 'app/views/management/management_notifications_id.html',
+        requireLogin: true,
+        roles: cfg.role_access.admin_user
     }).//My Access
     when('/myaccess', {
         templateUrl: 'app/views/mysettings/mysettings.html',

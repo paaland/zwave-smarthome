@@ -1,7 +1,8 @@
 {
     "newtrans": "---",
-    "advanced_apps": "Apps for Advanced",
+    "notifications": "Notifications",
     "---": "newtrans",
+    "advanced_apps": "Apps for Advanced",
     "drag_drop":"Drag & Drop",
     "order_elements":"Custom",
     "select_icon":"Select icon",
