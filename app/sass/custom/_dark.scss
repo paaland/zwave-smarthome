@@ -24,6 +24,43 @@ $app-a-color: $app-color-lighter;
 $app-border-color: #6f777e;
 $app-heading-color: darken($app-body-color,15%);
 
+/* Gird
+-------------------------------------------------- */
+
+/*#header{
+  position: static;
+  width: 20%;
+  float: left;
+  #main_navigation{
+    //position: static;
+    position: relative;
+    .timestamp{
+      display: block;
+      top: 0;
+      left: 100%;
+      position: absolute;
+    }
+    #navigation_left{
+      position: static;
+
+    }
+    a{
+      display: block;
+    }
+    #navigation_right {
+      float: none;
+    }
+  }
+}
+#main_content{
+  margin-top: $spacing;
+  width: 80%;
+  float: left;
+}
+.container{
+  max-width: 100%
+  //width: 100%;
+}*/
 /* Body
 -------------------------------------------------- */
 body {
