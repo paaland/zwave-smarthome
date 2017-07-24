@@ -915,7 +915,7 @@ a {
 .report-entry {
   &.read-true{
     border: 0;
-    background-color: $app-color-red;
+    background-color: $app-color-red-darker;
     .event-date,.rss-title,.rss-description{
       color: darken($app-color-lighter, 20%);
     }
