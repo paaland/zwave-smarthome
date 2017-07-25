@@ -1,5 +1,5 @@
 {
-  "name": "BAYERN SmartHome UI",
+  "name": "BLUE SmartHome UI",
   "version": "1.7.46",
   "v": "1.7.0",
   "rc": 56,
@@ -10,7 +10,7 @@
   "type_cfg": {
     "default": {
       "dir": "dist",
-      "name": "BAYERN SmartHome UI"
+      "name": "BLUE SmartHome UI"
     }
   },
   "devDependencies": {
