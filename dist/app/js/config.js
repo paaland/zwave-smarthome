@@ -10,11 +10,11 @@
 var config_data = {
     'cfg': {
         //Application name
-        'app_name': 'SmartHome UI',
+        'app_name': 'BAYERN SmartHome UI',
         // Application version
-        'app_version': '1.7.0-RC-54',
+        'app_version': '1.7.0-RC-56',
         // Application (DIST) built date
-        'app_built': '19-07-2017 08:11:54',
+        'app_built': '25-07-2017 09:38:09',
         // Application ID
         'app_id': 'SmartHomeUI',
         // Server base url
