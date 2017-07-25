@@ -214,13 +214,28 @@ a {
 
 #main_navigation{
   a{
+    display: inline-block;
+    padding: 0;
+    color: $app-a-color;
+    line-height: $header-h - $spacing;
+    text-align: center;
+
+
     color: $app-color-lighter;
+    width: $header-h  - $spacing;
+    height: $header-h  - $spacing;
+    margin: 0 5px;
+    border-radius: 50%;
+    .fa{
+      line-height: $header-h  - $spacing;
+    }
   }
   a:hover{
     background:transparent;
     color: $app-color-lightest;
   }
   .active{
+
     background-color:$app-color-red-lightest;
     color: $app-color-lightest;
     &:hover{
@@ -406,8 +421,10 @@ a {
     color: $app-color-lighter;
     border: solid 1px lighten($app-color-red-lightest, 20%);
     &.active {
-      background-color: $app-color-red-lightest;
-      color: $app-color-additional;
+      /*background-color: $app-color-red-lightest;
+      color: $app-color-additional;*/
+      background-color:$app-color-red-lightest !important;
+      color: $app-color-lightest;
     }
     .fa {
       color: $app-color-lighter;
