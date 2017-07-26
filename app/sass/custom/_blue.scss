@@ -4,11 +4,11 @@
 /* Variables
 -------------------------------------------------- */
 // COLORS
-$app-brand-primary:         #3bafda !default;
-$app-brand-success:         #00b19d !default;
-$app-brand-info:            #3ddcf7 !default;
-$app-brand-warning:         #ffaa00 !default;
-$app-brand-danger:          #ef5350 !default;
+$app-brand-primary:         #1685c6;
+$app-brand-success:         #00B559;
+$app-brand-info:            #096BA5;
+$app-brand-warning:         #FF8C00;
+$app-brand-danger:          #C50000;
 
 $app-color-dark:#1685c6;
 $app-color-darker: 	#066AA6;
@@ -128,6 +128,8 @@ a {
   }
 }
 
+/* Text colors
+-------------------------------------------------- */
 .text-primary {
   color: $app-brand-primary;
 }
@@ -144,37 +146,77 @@ a {
   color: $app-brand-danger;
 }
 
+/* Label colors
+-------------------------------------------------- */
+.label-primary {
+  background-color: $app-brand-primary;
+}
+.label-success {
+  background-color: $app-brand-success;
+}
+.label-info {
+  background-color: $app-brand-info;
+}
+.label-warning {
+  background-color: $app-brand-warning;
+}
+.label-danger {
+  background-color: $app-brand-danger;
+}
+
+/* Button colors
+-------------------------------------------------- */
+.btn-primary {
+  background-color: $app-brand-primary;
+}
+.btn-success {
+  background-color: $app-brand-success;
+}
+.btn-info {
+  background-color: $app-brand-info;
+}
+.btn-warning {
+  background-color: $app-brand-warning;
+}
+.btn-danger {
+  background-color: $app-brand-danger;
+}
+
 /* Alert
 -------------------------------------------------- */
 .alert{
-  background-color: $app-color-dark-lighter;
+  //background-color: $app-color-dark-lighter;
   border: 2px solid $app-color-dark-lightest;
-  color: $app-color-lighter;
+  color: $app-body-color;
   font-size: 110%;
 }
 .alert-success{
+  color:  darken($app-brand-success,20%);
   border-color: $app-brand-success;
 }
 .alert-info{
+  color:  darken($app-brand-info,20%);
   border-color: $app-brand-info;
 }
 .alert-warning{
+  color:  darken($app-brand-warning,20%);
   border-color: $app-brand-warning;
 }
 .alert-danger{
+  color:  darken($app-brand-danger,20%);
   border-color: $app-brand-danger;
 }
 
 /* Fatal error
 -------------------------------------------------- */
 .app-fatal-error {
-  background-color: $app-color-dark-lighter;
+  background-color: $app-body-bcg-color;
   border: solid 1px $app-brand-danger;
   .fatal-error-message {
     color: $app-brand-danger;
   }
   .fatal-error-info {
-    color: $app-color-lighter;
+    color: $app-body-color;
   }
 }
 
@@ -345,17 +387,24 @@ a {
   background-color: $app-color-lighter;
   border-color: $app-border-color;
   .form-group {
-    border-bottom: solid 1px $app-color-dark;
+    border-bottom: 0;
+    //border-bottom: solid 1px $app-widget-border-color;
   }
 }
 
 .submit-entry {
-  background-color: $app-color-dark;
+  background-color: $app-border-color;
   border-top: 0;
 }
 
 .control-active {
   border: solid 4px $app-color-additional !important;
+}
+
+.help-block {
+  color: lighten($app-body-color,5%);
+  font-style: italic;
+  font-size: 95%;
 }
 
 /* Button
@@ -366,6 +415,7 @@ a {
   border-color: $app-border-color;
   &:hover{
     background-color: darken($app-body-bcg-color,20%);
+    border-color: $app-border-color;
   }
   &.active{
     background-color: darken($app-body-bcg-color,20%);
@@ -514,6 +564,9 @@ a {
 /* Table
 -------------------------------------------------- */
 .table{
+  > thead > tr > th {
+    border-bottom: 0;
+  }
   tbody{
     tr{
       td{
@@ -820,22 +873,22 @@ a {
 /* Apps comments
 -------------------------------------------------- */
 .comment-entry {
- background-color: $app-color-dark-lighter;
+ background-color: $app-widget-bcg-color;
   color: $app-body-color;
   .comment-header {
-    color: lighten($app-body-color, 20%);
+    color: lighten($app-body-color, 10%);
   }
 }
 
 .comment-entry.even {
-  background-color:  $app-color-dark-lightest;
+  background-color: darken($app-widget-bcg-color, 5%);
 }
 
 /* Apps instances
 -------------------------------------------------- */
 #apps_instances {
   .accordion-entry {
-    background-color: $app-color-dark-lighter;
+    background-color: $app-body-bcg-color;
   }
 }
 
@@ -862,6 +915,28 @@ a {
   border: solid 4px $app-border-color;
 }
 
+.widget-entry-customize{
+  .widget-entry-in{
+    .widget-img{
+      .customize-preview-img{
+        border-color: $app-border-color;
+      }
+
+    }
+  }
+}
+
+.app-row-customize{
+  .widget-warning{
+
+    .widget-title{
+      h3{
+        color: lighten($app-heading-color,40%) !important;
+      }
+    }
+  }
+}
+
 /* Image list
 -------------------------------------------------- */
 .app-row-imglist{
@@ -882,29 +957,25 @@ a {
   }
 }
 
-.device-type-logo,.device-logo img{
- /* -webkit-filter: brightness(300%);
-  filter: brightness(300%);*/
-  /*-webkit-filter: saturate(800%); !* Safari *!
-  filter: saturate(800%);*/
-  -webkit-filter: brightness(0) invert(1);
-  filter: brightness(0) invert(1);
+.cfg-info{
+  border-color: $app-border-color;
 }
 
 /* Expert Commands
 -------------------------------------------------- */
 .commands-data-control{
-  background-color: $app-color-dark-lighter;
+  background-color: $app-widget-bcg-color;
 }
 
 /* RSS
 -------------------------------------------------- */
 .report-entry {
+  color: $app-body-color;
   &.read-true{
     border: 0;
-    background-color: $app-color-dark;
+    background-color: $app-body-bcg-color;
     .event-date,.rss-title,.rss-description{
-      color: darken($app-color-lighter, 20%);
+      color: lighten($app-body-color, 20%);
     }
   }
 
@@ -913,9 +984,8 @@ a {
 .read-false{
   .rss-title{
     font-weight: bold;
+    background-color: $app-widget-bcg-color;
   }
-  //border: solid 4px $app-border-color;
-  // background-color: $app-border-color;
 }
 
 /* Footer
@@ -928,6 +998,25 @@ a {
 
   }
 }
+
+/* Slider
+-------------------------------------------------- */
+.app-slider {
+  .slide {
+    .slider-label{
+      background-color: rgba(22, 133, 198, 0.2);
+
+    }
+  }
+}
+
+.slider-btn{
+  background-color: rgba(5, 80, 125, 0.4);
+  &:hover{
+    background-color: rgba(5, 80, 125, 0.8);
+  }
+}
+
 /* Alertify
 -------------------------------------------------- */
 .alertify{
@@ -936,24 +1025,10 @@ a {
   }
   .ajs-dialog,.ajs-header,.ajs-footer {
     color: $app-body-color;
-    background-color: $app-color-darkest;
+    background-color: $app-widget-bcg-color;
   }
   .ajs-footer {
     .ajs-button {
-      display: inline-block;
-      margin-bottom: 0;
-      font-weight: normal;
-      text-align: center;
-      vertical-align: middle;
-      cursor: pointer;
-      background-image: none;
-      border: 1px solid transparent;
-      white-space: nowrap;
-      padding: 6px 12px;
-      font-size: 14px;
-      line-height: 1.42857;
-      border-radius: 4px;
-      font-size: 110%;
       background-color: $app-color-dark-lightest;
       color: $app-color-lighter;
       border: solid 1px lighten($app-color-dark-lightest, 20%);
@@ -990,7 +1065,7 @@ legend {
   border: 1px solid $app-border-color;
 }
 .table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: $app-color-dark-lightest;
+  background-color: $app-widget-bcg-color;
 }
 
 #alpaca_data{
