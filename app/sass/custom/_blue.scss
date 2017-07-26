@@ -108,18 +108,10 @@ a {
   }
 }
 
-
-
 .badge-number {
   background-color: lighten($app-color-dark, 20%);
   color: $app-color-lighter;
 }
-
-/*.fa {
-  &.text-success{
-    color: $app-color-additional;
-  }
-}*/
 
 .device-available-block{
   &.assigned{
@@ -231,11 +223,7 @@ a {
 }
 
 #header_logo{
-  /* -webkit-filter: brightness(300%);
-   filter: brightness(300%);*/
-  /*-webkit-filter: saturate(800%); !* Safari *!
-  filter: saturate(800%);*/
-  -webkit-filter: brightness(0) invert(1);
+   -webkit-filter: brightness(0) invert(1);
   filter: brightness(0) invert(1);
 }
 
@@ -363,25 +351,15 @@ a {
 .form-control {
   color: $app-body-color;
   border: solid 1px $app-border-color;
-  /* border-radius: 4px;
-   -webkit-box-shadow: none;
-   box-shadow: none;
-   -webkit-transition: none;
-   -o-transition: none;
-   transition: none;*/
   background-color: lighten($app-body-bcg-color,3%);
 }
 .form-control:focus {
   border-color: $app-color-additional;
-  //box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
 }
 .input-group-addon {
   background-color: darken($app-body-bcg-color,10%);
   color: $app-body-color;
   border-color: $app-border-color;
- /* .fa {
-    color: $app-color-lightest;
-  }*/
 }
 .form-page {
   background-color: $app-color-lighter;

@@ -2,11 +2,11 @@
   "name": "BLUE SmartHome UI",
   "version": "1.7.46",
   "v": "1.7.0",
-  "rc": 56,
+  "rc": 58,
   "description": "This User Interfaces allows to operate a Smart Home Network based on Z-Wave devices.",
   "main": "index.html",
   "app_type": "default",
-  "built": "25-07-2017 09:38:17",
+  "built": "26-07-2017 14:30:07",
   "type_cfg": {
     "default": {
       "dir": "dist",

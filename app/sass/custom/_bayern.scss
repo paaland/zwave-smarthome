@@ -4,11 +4,11 @@
 /* Variables
 -------------------------------------------------- */
 // COLORS
-$app-brand-primary:         #3bafda;
-$app-brand-success:         #00b19d;
-$app-brand-info:            #3ddcf7;
-$app-brand-warning:         #ffaa00;
-$app-brand-danger:          #dc052d;
+$app-brand-primary:         #1685c6;
+$app-brand-success:         #00B559;
+$app-brand-info:            #096BA5;
+$app-brand-warning:         #FF8C00;
+$app-brand-danger:          #750000;
 
 $app-color-red:#DC052D;
 $app-color-red-darker: #961432;
@@ -124,6 +124,8 @@ a {
   }
 }
 
+/* Text colors
+-------------------------------------------------- */
 .text-primary {
   color: $app-brand-primary;
 }
@@ -138,6 +140,42 @@ a {
 }
 .text-danger {
   color: $app-brand-danger;
+}
+
+/* Label colors
+-------------------------------------------------- */
+.label-primary {
+  background-color: $app-brand-primary;
+}
+.label-success {
+  background-color: $app-brand-success;
+}
+.label-info {
+  background-color: $app-brand-info;
+}
+.label-warning {
+  background-color: $app-brand-warning;
+}
+.label-danger {
+  background-color: $app-brand-danger;
+}
+
+/* Button colors
+-------------------------------------------------- */
+.btn-primary {
+  background-color: $app-brand-primary;
+}
+.btn-success {
+  background-color: $app-brand-success;
+}
+.btn-info {
+  background-color: $app-brand-info;
+}
+.btn-warning {
+  background-color: $app-brand-warning;
+}
+.btn-danger {
+  background-color: $app-brand-danger;
 }
 
 /* Alert
@@ -376,6 +414,7 @@ a {
   &:hover{
     background-color: $app-color-red-darkest;
     color: $app-color-lighter;
+    border-color: $app-border-color;
   }
   &.active{
     /*background-color: $app-color-red-darkest;
@@ -387,10 +426,12 @@ a {
   &:active{
     bbackground-color: $app-color-red-lighter;
     color: $app-color-lighter;
+    border-color: $app-border-color;
   }
   &:focus{
     background-color: $app-color-red-lighter;
     color: $app-color-lighter;
+    border-color: $app-border-color;
   }
 }
 
@@ -533,6 +574,9 @@ a {
 /* Table
 -------------------------------------------------- */
 .table{
+  > thead > tr > th {
+    border-bottom: 0;
+  }
   tbody{
     tr{
       td{
@@ -891,6 +935,16 @@ a {
 .customize-image-detail{
   border: solid 4px $app-border-color;
 }
+.widget-entry-customize{
+  .widget-entry-in{
+    .widget-img{
+      .customize-preview-img{
+        border-color: $app-border-color;
+      }
+
+    }
+  }
+}
 
 /* Image list
 -------------------------------------------------- */
@@ -919,6 +973,10 @@ a {
   filter: saturate(800%);*/
   -webkit-filter: brightness(0) invert(1);
   filter: brightness(0) invert(1);
+}
+
+.cfg-info{
+  border-color: $app-border-color;
 }
 
 /* Expert Commands
@@ -956,6 +1014,24 @@ a {
     color: $app-color-lighter;
     background-color: $app-color-red-darkest;
 
+  }
+}
+
+/* Slider
+-------------------------------------------------- */
+.app-slider {
+  .slide {
+    .slider-label{
+      background-color: rgba(110, 10, 40, 0.5);
+
+    }
+  }
+}
+
+.slider-btn{
+  background-color: rgba(110, 10, 40, 0.4);
+  &:hover{
+    background-color: rgba(110, 10, 40, 0.8);
   }
 }
 /* Alertify
