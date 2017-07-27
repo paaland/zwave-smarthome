@@ -274,6 +274,65 @@ myAppController.controller('ElementBaseController', function ($scope, $q, $inter
         });
     }
 
+    $scope.runOff = function(id) {
+        var index = id.indexOf('-');
+        var res = id.substr(0, index);
+
+        if(res) {
+            var devs = _.filter($scope.dataHolder.devices.all, function (dev) {
+                if (dev.id.indexOf(res) > -1) {
+                    return dev;
+                }
+            });
+
+            devs.forEach(function(dev) {
+                if(dev.deviceType == 'switchMultilevel' && dev.probeType == "multilevel" || dev.deviceType == 'switchRGBW') {
+                    $scope.runCmd(dev.id + '/command/off', dev.id);
+                } else if(dev.deviceType == 'switchMultilevel' && ["switchColor_soft_white", "switchColor_cold_white"].indexOf(dev.probeType) > -1 ) {
+                    $scope.runCmd(dev.id + '/command/exact?level=0', dev.id);
+                }
+            });
+
+        } else {
+
+        }
+    };
+
+    $scope.test = function(cmd, id) {
+        console.log("cmd", cmd);
+        console.log("id", id);
+
+        var index = id.indexOf('-');
+        var res = id.substr(0, index);
+
+        if(res) {
+            var devs = _.filter($scope.dataHolder.devices.all, function (dev) {
+                if (dev.id.indexOf(res) > -1) {
+                    return dev;
+                }
+            });
+            //console.log(devs);
+
+            devs.forEach(function(dev) {
+               if(dev.deviceType == 'switchMultilevel' && dev.probeType == "multilevel" || dev.deviceType == 'switchRGBW') {
+                   $scope.runCmd(dev.id + '/command/on', dev.id);
+               } else if(dev.deviceType == 'switchMultilevel' && ["switchColor_soft_white", "switchColor_cold_white"].indexOf(dev.probeType) > -1 ) {
+                   if(cmd == 'on') {
+                       $scope.runCmd(dev.id + '/command/exact?level=99', dev.id);
+                   } else if(cmd == 'off') {
+                       $scope.runCmd(dev.id + '/command/exact?level=0', dev.id);
+                   }
+               }
+            });
+
+        } else {
+
+        }
+
+    }
+
+
+
     /**
      * Run command
      */

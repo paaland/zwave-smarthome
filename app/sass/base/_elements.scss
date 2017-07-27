@@ -386,11 +386,19 @@ img.widget-promo-image {
   #wheel_picker_selected, #wheel_picker_preview {
     /*border: 1px solid #ccc;
     border-radius: 4px;*/
-    margin: 0;
-    height: 80px;
-    line-height: 80px;
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+
+    .invert {
+      -webkit-filter: invert(100%);
+      -moz-filter: invert(100%);
+      -o-filter: invert(100%);
+      -ms-filter: invert(100%);
+    }
 
   }
+
   /*#wheel_picker_selected_spin{
       background-color: #fff;
   }*/
