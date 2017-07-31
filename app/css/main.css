@@ -10257,6 +10257,393 @@ div.timepicker-picker > table.table-condensed tr td {
   left: 0;
 }
 
+/**
+ * 	Angular RangeSlider SCSS
+ * 
+ *	Version: 0.0.7
+ *
+ * 	Author: Daniel Crisp, danielcrisp.com
+ *
+ * 	The rangeSlider has been styled to match the default styling
+ * 	of form elements styled using Twitter's Bootstrap
+ * 
+ * 	Originally forked from https://github.com/leongersen/noUiSlider
+ *
+
+	This code is released under the MIT Licence - http://opensource.org/licenses/MIT
+
+	Copyright (c) 2013 Daniel Crisp
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in
+	all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	THE SOFTWARE.
+
+ */
+/*------------------------------------*\
+    COMPASS IMPORTS
+\*------------------------------------*/
+/*------------------------------------*\
+    SETTINGS
+\*------------------------------------*/
+/*------------------------------------*\
+    THE CSS
+\*------------------------------------*/
+/* line 69, scss/angular.rangeSlider.scss */
+/* line 47, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider {
+  position: relative;
+  margin: 0 20px 0 0;
+  padding: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear, box-shadow linear;
+  -webkit-transition-delay: 0.2s, 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  min-width: 100px;
+  /*------------------------------------*\
+      RUNNER
+  \*------------------------------------*/
+  /*------------------------------------*\
+      JOIN (connects the two handles)
+  \*------------------------------------*/
+  /*------------------------------------*\
+      HANDLE
+  \*------------------------------------*/
+  /*------------------------------------*\
+      HANDLE SPECIFICS
+  \*------------------------------------*/
+  /*------------------------------------*\
+      VALUE LABELS
+  \*------------------------------------*/
+  /*------------------------------------*\
+      VERTICAL SLIDER
+  \*------------------------------------*/
+  /*------------------------------------*\
+      FOCUS STATE
+  \*------------------------------------*/
+  /*------------------------------------*\
+      DISABLED STATE
+  \*------------------------------------*/
+}
+
+/* line 72, scss/angular.rangeSlider.scss */
+/* line 94, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider, .ngrs-range-slider * {
+  display: block;
+  cursor: default;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+/* line 97, scss/angular.rangeSlider.scss */
+/* line 105, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider .ngrs-runner {
+  position: relative;
+  margin: 0 9px;
+  height: 18px;
+}
+
+/* line 107, scss/angular.rangeSlider.scss */
+/* line 111, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider .ngrs-join {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 0;
+  right: 100%;
+  height: 8px;
+  margin: -4px 0 0 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #2f96b4;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5bc0de), color-stop(100%, #2f96b4));
+  background-image: -webkit-linear-gradient(#5bc0de, #2f96b4);
+  background-image: -moz-linear-gradient(#5bc0de, #2f96b4);
+  background-image: -o-linear-gradient(#5bc0de, #2f96b4);
+  background-image: linear-gradient(#5bc0de, #2f96b4);
+}
+
+/* line 125, scss/angular.rangeSlider.scss */
+/* line 132, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider .ngrs-handle {
+  position: absolute;
+  z-index: 2;
+  height: 100%;
+  width: 18px;
+  margin: 0 0 0 -9px;
+  background: #efefef;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  /*------------------------------------*\
+      HANDLE ICON
+  \*------------------------------------*/
+}
+
+/* line 139, scss/angular.rangeSlider.scss */
+/* line 150, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider .ngrs-handle i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: no-repeat -9999px -9999px;
+  cursor: pointer;
+}
+
+/* line 149, scss/angular.rangeSlider.scss */
+/* line 158, ../sass/vendor/_angular.slider.scss */
+.ngrs-no-touch .ngrs-range-slider .ngrs-handle:hover i, .ngrs-range-slider .ngrs-handle.ngrs-down i {
+  background-position: 50% 50%;
+}
+
+/* line 154, scss/angular.rangeSlider.scss */
+/* line 162, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider .ngrs-handle.ngrs-down {
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+/* line 165, scss/angular.rangeSlider.scss */
+/* line 168, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider .ngrs-handle-min i {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAFNJREFUeNpiYMAEXEDsA+OwoEnKALETEHOgK2AEYhMgNkQ3DqSAB6pLAot1DExIJmAFzED8C4hvQdnIppyFKYCBp0D8CohloVafxWUqN7I3AQIMAKw6B24pOi8lAAAAAElFTkSuQmCC");
+}
+
+/* line 172, scss/angular.rangeSlider.scss */
+/* line 172, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider .ngrs-handle-max i {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAFdJREFUeNpiYEAAHyDmYkADzEhsByBWA+K3QPwJmwJjIGYBYlUgZgLi59gUwIAkEEsD8VMmBtyAkQFqJDZwAYjPAPE/dAU/gHg/ED/GpgvkTW50QYAAAwADfwrM5sqplgAAAABJRU5ErkJggg==");
+}
+
+/* line 182, scss/angular.rangeSlider.scss */
+/* line 176, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider .ngrs-value {
+  position: absolute;
+  top: 0;
+  left: -17px;
+  padding: 5px 0 0 0;
+  font-size: 12px;
+  color: #999;
+}
+
+/* line 190, scss/angular.rangeSlider.scss */
+/* line 185, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider .ngrs-value.ngrs-value-max {
+  /*  left: -50px;*/
+  right: -30px;
+  text-align: right;
+}
+
+/* line 198, scss/angular.rangeSlider.scss */
+/* line 191, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider.ngrs-handle-min-down .ngrs-value-min, .ngrs-range-slider.ngrs-handle-max-down .ngrs-value-max {
+  color: #333;
+}
+
+/* line 206, scss/angular.rangeSlider.scss */
+/* line 195, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider.ngrs-vertical {
+  width: 28px;
+  margin: 10px auto;
+  /*------------------------------------*\
+      RUNNER
+  \*------------------------------------*/
+  /*------------------------------------*\
+      JOIN
+  \*------------------------------------*/
+  /*------------------------------------*\
+      HANDLE
+  \*------------------------------------*/
+  /*------------------------------------*\
+      HANDLE SPECIFICS
+  \*------------------------------------*/
+  /*------------------------------------*\
+      VALUE LABELS
+  \*------------------------------------*/
+  /*------------------------------------*\
+      VERTICAL LEFT SLIDER
+  \*------------------------------------*/
+  /*------------------------------------*\
+      VERTICAL RIGHT SLIDER
+  \*------------------------------------*/
+}
+
+/* line 214, scss/angular.rangeSlider.scss */
+/* line 221, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider.ngrs-vertical .ngrs-runner {
+  margin: 9px 0;
+  height: 300px;
+  width: 18px;
+}
+
+/* line 224, scss/angular.rangeSlider.scss */
+/* line 227, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider.ngrs-vertical .ngrs-join {
+  width: 8px;
+  height: auto;
+  top: 0;
+  bottom: 100%;
+  left: 50%;
+  right: auto;
+  margin: 0 0 0 -4px;
+}
+
+/* line 238, scss/angular.rangeSlider.scss */
+/* line 237, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider.ngrs-vertical .ngrs-handle {
+  width: 100%;
+  height: 18px;
+  margin: -9px 0 0 0;
+}
+
+/* line 249, scss/angular.rangeSlider.scss */
+/* line 243, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider.ngrs-vertical .ngrs-handle-min i {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAFFJREFUeNpiYEAFPFAMB0xIbEYgdoJiRpggM5ICUyBWhZoA0vgMWYEsENsg6ZQE4ldA/AmkkguIHZGNhQKQGBfIBHcgFmTABCxALMJAMQAIMAAcNgVQJ7t7JQAAAABJRU5ErkJggg==");
+}
+
+/* line 256, scss/angular.rangeSlider.scss */
+/* line 247, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider.ngrs-vertical .ngrs-handle-max i {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAFZJREFUeNpiYKAUMAKxDxBL4ZB/xgQk9gHxDyySILF9zEDiNxC/A2JVNAW7gfgtM5TzCYhZgFgCyr8IxNdADGZk+4BYGoi/APEBIP6PzVE8UAwHAAEGAArIDvzRFIA6AAAAAElFTkSuQmCC");
+}
+
+/* line 266, scss/angular.rangeSlider.scss */
+/* line 251, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider.ngrs-vertical .ngrs-value {
+  top: 0;
+  left: 100%;
+  padding: 0 0 0 5px;
+}
+
+/* line 271, scss/angular.rangeSlider.scss */
+/* line 257, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider.ngrs-vertical .ngrs-value.ngrs-value-max {
+  top: auto;
+  bottom: 0;
+  right: auto;
+  text-align: left;
+}
+
+/* line 283, scss/angular.rangeSlider.scss */
+/* line 264, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider.ngrs-vertical.ngrs-left {
+  margin: 10px 0;
+}
+
+/* line 291, scss/angular.rangeSlider.scss */
+/* line 268, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider.ngrs-vertical.ngrs-right {
+  margin: 10px 0 10px auto;
+  /*------------------------------------*\
+      VALUE LABELS
+  \*------------------------------------*/
+}
+
+/* line 298, scss/angular.rangeSlider.scss */
+/* line 275, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider.ngrs-vertical.ngrs-right .ngrs-value {
+  left: auto;
+  right: 100%;
+  padding: 0 5px 0 0;
+  text-align: right;
+}
+
+/* line 304, scss/angular.rangeSlider.scss */
+/* line 282, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider.ngrs-vertical.ngrs-right .ngrs-value.ngrs-value-max {
+  text-align: right;
+}
+
+/* line 316, scss/angular.rangeSlider.scss */
+/* line 286, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider.ngrs-focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+/* line 327, scss/angular.rangeSlider.scss */
+/* line 293, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider.ngrs-disabled, .ngrs-range-slider.ngrs-disabled.ngrs-focus {
+  border-color: #ddd;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/* line 333, scss/angular.rangeSlider.scss */
+/* line 300, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider.ngrs-disabled .ngrs-handle {
+  background: #fff;
+  border-color: #ddd;
+}
+
+/* line 337, scss/angular.rangeSlider.scss */
+/* line 305, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider.ngrs-disabled .ngrs-handle i {
+  background: none !important;
+  cursor: default;
+}
+
+/* line 343, scss/angular.rangeSlider.scss */
+/* line 310, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider.ngrs-disabled .ngrs-join {
+  background: #ddd;
+}
+
+/* line 347, scss/angular.rangeSlider.scss */
+/* line 314, ../sass/vendor/_angular.slider.scss */
+.ngrs-range-slider.ngrs-disabled .ngrs-value {
+  color: #ddd;
+}
+
+/*------------------------------------*\
+    TOUCH STATE
+\*------------------------------------*/
+/* line 359, scss/angular.rangeSlider.scss */
+/* line 322, ../sass/vendor/_angular.slider.scss */
+body.ngrs-touching {
+  -ms-touch-action: none;
+}
+
 /* SmartHome UI base
 -------------------------------------------------- */
 /* Body
@@ -12623,6 +13010,8 @@ http://codepen.io/MattIn4D/pen/LiKFC
   overflow-x: hidden;
 }
 
+/* Modal with color set
+-------------------------------------------------- */
 /* Pagination
 -------------------------------------------------- */
 /* line 3, ../sass/base/_pagination.scss */
@@ -14469,101 +14858,128 @@ img.widget-promo-image {
 -------------------------------------------------- */
 /* Variables
 -------------------------------------------------- */
-/* Body
--------------------------------------------------- */
-/* line 28, ../sass/custom/_bayern.scss */
-body {
-  color: #F7BEC8;
-  background-color: #961432;
-}
-
-/* line 33, ../sass/custom/_bayern.scss */
-.timestamp {
-  color: #F7BEC8;
-}
-
 /* Gird
 -------------------------------------------------- */
-/* Style */
-/* line 40, ../sass/custom/_bayern.scss */
-#main_content {
-  margin-top: 80px;
-  margin-bottom: 60px;
+/*#header{
+  position: static;
+  width: 20%;
+  float: left;
+  #main_navigation{
+    //position: static;
+    position: relative;
+    .timestamp{
+      display: block;
+      top: 0;
+      left: 100%;
+      position: absolute;
+    }
+    #navigation_left{
+      position: static;
+
+    }
+    a{
+      display: block;
+    }
+    #navigation_right {
+      float: none;
+    }
+  }
+}
+#main_content{
+  margin-top: $spacing;
+  width: 80%;
+  float: left;
+}
+.container{
+  max-width: 100%
+  //width: 100%;
+}*/
+/* Body
+-------------------------------------------------- */
+/* line 66, ../sass/custom/_dark.scss */
+body {
+  color: #aeb8c3;
+  background-color: #2D3038;
+}
+
+/* line 71, ../sass/custom/_dark.scss */
+.timestamp {
+  color: #aeb8c3;
 }
 
 /* Typo
 -------------------------------------------------- */
-/* line 47, ../sass/custom/_bayern.scss */
+/* line 77, ../sass/custom/_dark.scss */
 h1, h2, h3, h4 {
-  color: #f4a7b5;
+  color: #8291a2;
 }
 
-/* line 50, ../sass/custom/_bayern.scss */
+/* line 80, ../sass/custom/_dark.scss */
 .app-entry-local h2 {
-  color: #f4a7b5;
+  color: #8291a2;
 }
 
-/* line 54, ../sass/custom/_bayern.scss */
+/* line 84, ../sass/custom/_dark.scss */
 .text-supp {
-  color: #f191a2;
+  color: #919ead;
 }
 
 /* Links
 -------------------------------------------------- */
-/* line 60, ../sass/custom/_bayern.scss */
+/* line 90, ../sass/custom/_dark.scss */
 a {
-  color: #fad5db;
+  color: #aeb8c3;
 }
-/* line 62, ../sass/custom/_bayern.scss */
+/* line 92, ../sass/custom/_dark.scss */
 a:hover, a:focus {
-  color: #fad5db;
+  color: #aeb8c3;
   text-decoration: underline;
 }
-/* line 67, ../sass/custom/_bayern.scss */
+/* line 97, ../sass/custom/_dark.scss */
 a:focus {
   outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
-/* line 75, ../sass/custom/_bayern.scss */
+/* line 105, ../sass/custom/_dark.scss */
 a.link-dotted {
-  color: #fad5db;
-  border-bottom: 1px dotted #fad5db;
+  color: #aeb8c3;
+  border-bottom: 1px dotted #aeb8c3;
 }
-/* line 79, ../sass/custom/_bayern.scss */
+/* line 109, ../sass/custom/_dark.scss */
 a.link-dotted:hover, a.link-dotted:focus {
-  border-bottom: 1px solid #fad5db;
+  border-bottom: 1px solid #aeb8c3;
   text-decoration: none;
 }
-/* line 85, ../sass/custom/_bayern.scss */
+/* line 115, ../sass/custom/_dark.scss */
 a.link-underline {
-  color: #fad5db;
+  color: #aeb8c3;
 }
 
 /* Others
 -------------------------------------------------- */
-/* line 94, ../sass/custom/_bayern.scss */
+/* line 124, ../sass/custom/_dark.scss */
 .bcg-success {
   background-color: #dff0d8;
   background: transparent;
 }
 
-/* line 99, ../sass/custom/_bayern.scss */
+/* line 129, ../sass/custom/_dark.scss */
 .bcg-active.false, .bcg-danger {
   background-color: #f2dede;
   background: transparent;
 }
-/* line 102, ../sass/custom/_bayern.scss */
+/* line 132, ../sass/custom/_dark.scss */
 .bcg-active.false .report-img-s, .bcg-danger .report-img-s {
   -webkit-filter: grayscale(100%);
   /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
 }
 
-/* line 109, ../sass/custom/_bayern.scss */
+/* line 139, ../sass/custom/_dark.scss */
 .badge-number {
-  background-color: #fb4c6d;
-  color: #F7BEC8;
+  background-color: #5a6071;
+  color: #aeb8c3;
 }
 
 /*.fa {
@@ -14571,877 +14987,756 @@ a.link-underline {
     color: $app-color-additional;
   }
 }*/
-/* line 121, ../sass/custom/_bayern.scss */
+/* line 151, ../sass/custom/_dark.scss */
 .device-available-block.assigned {
   border: 0;
-  background-color: #6E0A28;
+  background-color: #24262D;
 }
 
-/* Text colors
--------------------------------------------------- */
-/* line 129, ../sass/custom/_bayern.scss */
+/* line 157, ../sass/custom/_dark.scss */
 .text-primary {
-  color: #1685c6;
+  color: #6494BC;
 }
 
-/* line 132, ../sass/custom/_bayern.scss */
+/* line 160, ../sass/custom/_dark.scss */
 .text-success {
-  color: #00B559;
+  color: #80AD80;
 }
 
-/* line 135, ../sass/custom/_bayern.scss */
+/* line 163, ../sass/custom/_dark.scss */
 .text-info {
-  color: #096BA5;
+  color: #5bc0de;
 }
 
-/* line 138, ../sass/custom/_bayern.scss */
+/* line 166, ../sass/custom/_dark.scss */
 .text-warning {
-  color: #FF8C00;
+  color: #f0ad4e;
 }
 
-/* line 141, ../sass/custom/_bayern.scss */
+/* line 169, ../sass/custom/_dark.scss */
 .text-danger {
-  color: #750000;
-}
-
-/* Label colors
--------------------------------------------------- */
-/* line 147, ../sass/custom/_bayern.scss */
-.label-primary {
-  background-color: #1685c6;
-}
-
-/* line 150, ../sass/custom/_bayern.scss */
-.label-success {
-  background-color: #00B559;
-}
-
-/* line 153, ../sass/custom/_bayern.scss */
-.label-info {
-  background-color: #096BA5;
-}
-
-/* line 156, ../sass/custom/_bayern.scss */
-.label-warning {
-  background-color: #FF8C00;
-}
-
-/* line 159, ../sass/custom/_bayern.scss */
-.label-danger {
-  background-color: #750000;
-}
-
-/* Button colors
--------------------------------------------------- */
-/* line 165, ../sass/custom/_bayern.scss */
-.btn-primary {
-  background-color: #1685c6;
-}
-
-/* line 168, ../sass/custom/_bayern.scss */
-.btn-success {
-  background-color: #00B559;
-}
-
-/* line 171, ../sass/custom/_bayern.scss */
-.btn-info {
-  background-color: #096BA5;
-}
-
-/* line 174, ../sass/custom/_bayern.scss */
-.btn-warning {
-  background-color: #FF8C00;
-}
-
-/* line 177, ../sass/custom/_bayern.scss */
-.btn-danger {
-  background-color: #750000;
+  color: #d9534f;
 }
 
 /* Alert
 -------------------------------------------------- */
-/* line 183, ../sass/custom/_bayern.scss */
+/* line 175, ../sass/custom/_dark.scss */
 .alert {
-  background-color: #a51c39;
-  border: 2px solid #b72847;
-  color: #F7BEC8;
+  background-color: #3B3E47;
+  border: 2px solid #44464F;
+  color: #aeb8c3;
   font-size: 110%;
 }
 
-/* line 189, ../sass/custom/_bayern.scss */
+/* line 181, ../sass/custom/_dark.scss */
 .alert-success {
-  border-color: #00B559;
+  border-color: #80AD80;
 }
 
-/* line 192, ../sass/custom/_bayern.scss */
+/* line 184, ../sass/custom/_dark.scss */
 .alert-info {
-  border-color: #096BA5;
+  border-color: #5bc0de;
 }
 
-/* line 195, ../sass/custom/_bayern.scss */
+/* line 187, ../sass/custom/_dark.scss */
 .alert-warning {
-  border-color: #FF8C00;
+  border-color: #f0ad4e;
 }
 
-/* line 198, ../sass/custom/_bayern.scss */
+/* line 190, ../sass/custom/_dark.scss */
 .alert-danger {
-  border-color: #750000;
+  border-color: #d9534f;
 }
 
 /* Fatal error
 -------------------------------------------------- */
-/* line 204, ../sass/custom/_bayern.scss */
+/* line 196, ../sass/custom/_dark.scss */
 .app-fatal-error {
-  background-color: #a51c39;
-  border: solid 1px #750000;
+  background-color: #3B3E47;
+  border: solid 1px #d9534f;
 }
-/* line 207, ../sass/custom/_bayern.scss */
+/* line 199, ../sass/custom/_dark.scss */
 .app-fatal-error .fatal-error-message {
-  color: #750000;
+  color: #d9534f;
 }
-/* line 210, ../sass/custom/_bayern.scss */
+/* line 202, ../sass/custom/_dark.scss */
 .app-fatal-error .fatal-error-info {
-  color: #F7BEC8;
+  color: #aeb8c3;
 }
 
 /* Header
 -------------------------------------------------- */
-/* line 217, ../sass/custom/_bayern.scss */
+/* line 209, ../sass/custom/_dark.scss */
 #header {
-  color: #F7BEC8;
-  /* MIN WIDTH */
-  /* MAX WIDTH */
+  color: #aeb8c3;
 }
-/* line 219, ../sass/custom/_bayern.scss */
+/* line 211, ../sass/custom/_dark.scss */
 #header .divider-vertical {
   display: none;
-}
-/* line 222, ../sass/custom/_bayern.scss */
-#header .nav-logo {
-  position: absolute;
-  top: 1px;
-  left: 0;
-  width: 70px;
-  height: 70px;
-}
-@media only screen and (min-width: 768px) {
-  /* line 232, ../sass/custom/_bayern.scss */
-  #header .nav-home {
-    margin: 0 0 0 90px;
-  }
-}
-
-/* line 239, ../sass/custom/_bayern.scss */
-#header_logo {
-  border: solid 6px #6E0A28;
-  max-height: 70px;
-  max-width: 70px;
-  border-radius: 50%;
 }
 
 /* Main navigation
 -------------------------------------------------- */
-/* line 248, ../sass/custom/_bayern.scss */
+/* line 219, ../sass/custom/_dark.scss */
 #main_navigation_wrap {
-  background-color: #6E0A28;
-  border-bottom: solid 1px #b72847;
+  background-color: #2A2D35;
+  border-bottom: solid 1px #44464F;
 }
 
-/* line 254, ../sass/custom/_bayern.scss */
+/* line 225, ../sass/custom/_dark.scss */
 #main_navigation a {
-  display: inline-block;
-  padding: 0;
-  color: #fad5db;
-  line-height: 40px;
-  text-align: center;
-  color: #F7BEC8;
-  width: 40px;
-  height: 40px;
-  margin: 0 5px;
-  border-radius: 50%;
+  color: #aeb8c3;
 }
-/* line 267, ../sass/custom/_bayern.scss */
-#main_navigation a .fa {
-  line-height: 40px;
-}
-/* line 271, ../sass/custom/_bayern.scss */
+/* line 228, ../sass/custom/_dark.scss */
 #main_navigation a:hover {
   background: transparent;
-  color: #fff;
+  color: #F6A821;
 }
-/* line 275, ../sass/custom/_bayern.scss */
+/* line 232, ../sass/custom/_dark.scss */
 #main_navigation .active {
-  background-color: #b72847;
-  color: #fff;
+  background-color: #44464F;
+  color: #F6A821;
 }
-/* line 279, ../sass/custom/_bayern.scss */
+/* line 235, ../sass/custom/_dark.scss */
 #main_navigation .active:hover {
-  background-color: #b72847;
+  background-color: #44464F;
 }
 
 /* Subnavigation
 -------------------------------------------------- */
-/* line 288, ../sass/custom/_bayern.scss */
+/* line 244, ../sass/custom/_dark.scss */
 #sub_navigation_in ul {
-  background-color: #961432;
-  border: 1px solid #d95270;
+  background-color: #2A2D35;
+  border: 1px solid #6f777e;
 }
-/* line 292, ../sass/custom/_bayern.scss */
+/* line 248, ../sass/custom/_dark.scss */
 #sub_navigation_in ul li {
-  border-bottom: solid 1px #d95270;
+  border-bottom: solid 1px #6f777e;
 }
-/* line 294, ../sass/custom/_bayern.scss */
+/* line 250, ../sass/custom/_dark.scss */
 #sub_navigation_in ul li a {
-  color: #fad5db;
+  color: #aeb8c3;
 }
-/* line 296, ../sass/custom/_bayern.scss */
+/* line 252, ../sass/custom/_dark.scss */
 #sub_navigation_in ul li a:hover {
-  color: #fff;
+  color: #F6A821;
 }
-/* line 301, ../sass/custom/_bayern.scss */
+/* line 257, ../sass/custom/_dark.scss */
 #sub_navigation_in ul li.active {
-  background-color: #b72847;
+  background-color: #44464F;
 }
-/* line 303, ../sass/custom/_bayern.scss */
+/* line 259, ../sass/custom/_dark.scss */
 #sub_navigation_in ul li.active a {
-  color: #0A3C64;
+  color: #F6A821;
 }
-/* line 306, ../sass/custom/_bayern.scss */
+/* line 262, ../sass/custom/_dark.scss */
 #sub_navigation_in ul li.active .fa {
-  color: #0A3C64;
+  color: #F6A821;
 }
-/* line 312, ../sass/custom/_bayern.scss */
+/* line 268, ../sass/custom/_dark.scss */
 #sub_navigation_in ul .fa {
-  color: #fad5db;
+  color: #aeb8c3;
 }
 
 /* Page navigation
 -------------------------------------------------- */
-/* line 320, ../sass/custom/_bayern.scss */
+/* line 276, ../sass/custom/_dark.scss */
 .page-navi {
-  color: #fad5db;
+  color: #aeb8c3;
 }
-/* line 322, ../sass/custom/_bayern.scss */
+/* line 278, ../sass/custom/_dark.scss */
 .page-navi .page-navi-in {
-  background-color: #961432;
-  border: 1px solid #d95270;
+  background-color: #2A2D35;
+  border: 1px solid #6f777e;
 }
-/* line 327, ../sass/custom/_bayern.scss */
+/* line 283, ../sass/custom/_dark.scss */
 .page-navi ul li {
-  border-bottom: solid 1px #d95270;
+  border-bottom: solid 1px #6f777e;
 }
-/* line 329, ../sass/custom/_bayern.scss */
+/* line 285, ../sass/custom/_dark.scss */
 .page-navi ul li a {
-  color: #fad5db;
+  color: #aeb8c3;
 }
-/* line 335, ../sass/custom/_bayern.scss */
+/* line 291, ../sass/custom/_dark.scss */
 .page-navi ul .active a {
-  color: #0A3C64;
+  color: #F6A821;
 }
-/* line 338, ../sass/custom/_bayern.scss */
+/* line 294, ../sass/custom/_dark.scss */
 .page-navi ul .active .fa {
-  color: #0A3C64;
+  color: #F6A821;
 }
-/* line 343, ../sass/custom/_bayern.scss */
+/* line 299, ../sass/custom/_dark.scss */
 .page-navi ul .fa {
-  color: #fad5db;
+  color: #aeb8c3;
 }
-/* line 348, ../sass/custom/_bayern.scss */
+/* line 304, ../sass/custom/_dark.scss */
 .page-navi .page-navi-title {
-  color: #f4a7b5;
+  color: #8291a2;
 }
-/* line 351, ../sass/custom/_bayern.scss */
+/* line 307, ../sass/custom/_dark.scss */
 .page-navi .page-navi-tag {
-  border: solid 1px #d95270;
+  border: solid 1px #6f777e;
 }
-/* line 355, ../sass/custom/_bayern.scss */
+/* line 311, ../sass/custom/_dark.scss */
 .page-navi .page-navi-tag.active {
-  background-color: #d95270;
+  background-color: #6f777e;
 }
 
 /* Form
 -------------------------------------------------- */
-/* line 362, ../sass/custom/_bayern.scss */
+/* line 318, ../sass/custom/_dark.scss */
 .form-control {
-  color: #F7BEC8;
-  border: solid 1px #6E0A28;
+  color: #aeb8c3;
+  border: solid 1px #24262D;
   /* border-radius: 4px;
    -webkit-box-shadow: none;
    box-shadow: none;
    -webkit-transition: none;
    -o-transition: none;
    transition: none;*/
-  background-color: #b72847;
+  background-color: #44464F;
 }
 
-/* line 373, ../sass/custom/_bayern.scss */
-.help-block {
-  color: #F7BEC8;
-}
-
-/* line 376, ../sass/custom/_bayern.scss */
-.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline {
-  color: #F7BEC8;
-}
-
-/* line 379, ../sass/custom/_bayern.scss */
+/* line 329, ../sass/custom/_dark.scss */
 .form-control:focus {
-  border-color: #0A3C64;
+  border-color: #F6A821;
 }
 
-/* line 384, ../sass/custom/_bayern.scss */
+/* line 334, ../sass/custom/_dark.scss */
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+  background-color: #44464F !important;
+}
+
+/* line 337, ../sass/custom/_dark.scss */
 .input-group-addon {
-  border: solid 1px #6E0A28;
-  background-color: #6E0A28;
+  border: solid 1px #24262D;
+  background-color: #24262D;
 }
-/* line 387, ../sass/custom/_bayern.scss */
+/* line 340, ../sass/custom/_dark.scss */
 .input-group-addon .fa {
-  color: #fff;
+  color: #d4d4d4;
 }
 
-/* line 391, ../sass/custom/_bayern.scss */
+/* line 344, ../sass/custom/_dark.scss */
 .form-page {
-  background-color: #a51c39;
+  background-color: #3B3E47;
   border: 0 none;
 }
-/* line 394, ../sass/custom/_bayern.scss */
+/* line 347, ../sass/custom/_dark.scss */
 .form-page .form-group {
-  border-bottom: solid 1px #6E0A28;
+  border-bottom: solid 1px #2D3038;
 }
 
-/* line 399, ../sass/custom/_bayern.scss */
+/* line 352, ../sass/custom/_dark.scss */
 .submit-entry {
-  background-color: #6E0A28;
+  background-color: #24262D;
   border-top: 0;
 }
 
-/* line 404, ../sass/custom/_bayern.scss */
+/* line 357, ../sass/custom/_dark.scss */
 .control-active {
-  border: solid 4px #0A3C64 !important;
+  border: solid 4px #F6A821 !important;
 }
 
 /* Button
 -------------------------------------------------- */
-/* line 410, ../sass/custom/_bayern.scss */
+/* line 363, ../sass/custom/_dark.scss */
 .btn-default, .btn-primary, .btn-info, .btn-success, .btn-warning, .btn-danger {
-  background-color: #b72847;
-  color: #F7BEC8;
-  border: solid 1px #de6781;
+  background-color: #44464F;
+  color: #aeb8c3;
+  border: solid 1px #737786;
 }
-/* line 414, ../sass/custom/_bayern.scss */
+/* line 367, ../sass/custom/_dark.scss */
 .btn-default:hover, .btn-primary:hover, .btn-info:hover, .btn-success:hover, .btn-warning:hover, .btn-danger:hover {
-  background-color: #6E0A28;
-  color: #F7BEC8;
-  border-color: #d95270;
+  background-color: #24262D;
+  color: #aeb8c3;
 }
-/* line 419, ../sass/custom/_bayern.scss */
+/* line 371, ../sass/custom/_dark.scss */
 .btn-default.active, .btn-primary.active, .btn-info.active, .btn-success.active, .btn-warning.active, .btn-danger.active {
-  /*background-color: $app-color-red-darkest;
-  color: $app-color-lighter;*/
-  background-color: #F7BEC8 !important;
-  color: #6E0A28 !important;
+  background-color: #2D3038;
+  color: #aeb8c3;
 }
-/* line 426, ../sass/custom/_bayern.scss */
+/* line 375, ../sass/custom/_dark.scss */
 .btn-default:active, .btn-primary:active, .btn-info:active, .btn-success:active, .btn-warning:active, .btn-danger:active {
-  bbackground-color: #a51c39;
-  color: #F7BEC8;
-  border-color: #d95270;
+  bbackground-color: #3B3E47;
+  color: #aeb8c3;
 }
-/* line 431, ../sass/custom/_bayern.scss */
+/* line 379, ../sass/custom/_dark.scss */
 .btn-default:focus, .btn-primary:focus, .btn-info:focus, .btn-success:focus, .btn-warning:focus, .btn-danger:focus {
-  background-color: #a51c39;
-  color: #F7BEC8;
-  border-color: #d95270;
+  background-color: #3B3E47;
+  color: #aeb8c3;
 }
 
-/* line 440, ../sass/custom/_bayern.scss */
+/* line 387, ../sass/custom/_dark.scss */
 .btn-goup-block .btn.active .fa {
-  color: #0A3C64;
+  color: #F6A821;
 }
 
-/* line 447, ../sass/custom/_bayern.scss */
+/* line 394, ../sass/custom/_dark.scss */
 .btn-submit {
-  color: #F7BEC8;
-  border: solid 1px #010407;
-  background-color: #0A3C64;
+  color: #fce2b4;
+  border: solid 1px #aa6e07;
+  background-color: #F6A821;
 }
-/* line 451, ../sass/custom/_bayern.scss */
+/* line 398, ../sass/custom/_dark.scss */
 .btn-submit:hover, .btn-submit:focus {
-  background-color: #010407;
-  color: #4da6ed;
+  background-color: #aa6e07;
+  color: #fef5e5;
 }
 
 /* Button tabs
 -------------------------------------------------- */
-/* line 460, ../sass/custom/_bayern.scss */
+/* line 407, ../sass/custom/_dark.scss */
 .btn-goup-tabs .btn {
-  background-color: #961432;
-  color: #F7BEC8;
-  border: solid 1px #de6781;
+  background-color: #2D3038;
+  color: #aeb8c3;
+  border: solid 1px #737786;
 }
-/* line 464, ../sass/custom/_bayern.scss */
+/* line 411, ../sass/custom/_dark.scss */
 .btn-goup-tabs .btn.active {
-  /*background-color: $app-color-red-lightest;
-  color: $app-color-additional;*/
-  background-color: #b72847 !important;
-  color: #fff;
+  background-color: #44464F;
+  color: #F6A821;
 }
-/* line 470, ../sass/custom/_bayern.scss */
+/* line 415, ../sass/custom/_dark.scss */
 .btn-goup-tabs .btn .fa {
-  color: #F7BEC8;
+  color: #aeb8c3;
 }
-/* line 472, ../sass/custom/_bayern.scss */
+/* line 417, ../sass/custom/_dark.scss */
 .btn-goup-tabs .btn .fa.text-danger {
-  color: #750000;
+  color: #d9534f;
 }
-/* line 478, ../sass/custom/_bayern.scss */
+/* line 423, ../sass/custom/_dark.scss */
 .btn-goup-tabs .active .fa {
-  color: #0A3C64;
+  color: #F6A821;
 }
-/* line 480, ../sass/custom/_bayern.scss */
+/* line 425, ../sass/custom/_dark.scss */
 .btn-goup-tabs .active .fa.text-danger {
-  color: #750000;
+  color: #d9534f;
 }
 
 /* Dropdown
 -------------------------------------------------- */
-/* line 490, ../sass/custom/_bayern.scss */
+/* line 435, ../sass/custom/_dark.scss */
 .app-dropdown {
-  background-color: #961432;
-  border: 1px solid #d95270;
-  color: #fad5db;
+  background-color: #2A2D35;
+  border: 1px solid #6f777e;
+  color: #aeb8c3;
 }
-/* line 495, ../sass/custom/_bayern.scss */
+/* line 440, ../sass/custom/_dark.scss */
 .app-dropdown .app-dropdown-title {
-  color: #f4a7b5;
-  border-bottom: solid 1px #d95270;
+  color: #8291a2;
+  border-bottom: solid 1px #6f777e;
 }
-/* line 501, ../sass/custom/_bayern.scss */
+/* line 446, ../sass/custom/_dark.scss */
 .app-dropdown ul li {
-  border-bottom: solid 1px #d95270;
+  border-bottom: solid 1px #6f777e;
 }
-/* line 503, ../sass/custom/_bayern.scss */
+/* line 448, ../sass/custom/_dark.scss */
 .app-dropdown ul li a {
-  color: #fad5db;
+  color: #aeb8c3;
 }
-/* line 506, ../sass/custom/_bayern.scss */
+/* line 451, ../sass/custom/_dark.scss */
 .app-dropdown ul li:hover {
-  background-color: #DC052D;
-  color: #0A3C64;
+  background-color: #2D3038;
+  color: #F6A821;
 }
-/* line 513, ../sass/custom/_bayern.scss */
+/* line 458, ../sass/custom/_dark.scss */
 .app-dropdown ul .active a {
-  color: #0A3C64;
+  color: #F6A821;
 }
-/* line 517, ../sass/custom/_bayern.scss */
+/* line 462, ../sass/custom/_dark.scss */
 .app-dropdown ul .btn {
-  color: #fad5db;
+  color: #aeb8c3;
 }
 
 /* Accordion
 -------------------------------------------------- */
-/* line 526, ../sass/custom/_bayern.scss */
+/* line 471, ../sass/custom/_dark.scss */
 .accordion-entry {
-  border-bottom: dotted 1px #d95270;
-  color: #F7BEC8;
+  border-bottom: dotted 1px #6f777e;
+  color: #aeb8c3;
 }
 
-/* line 530, ../sass/custom/_bayern.scss */
+/* line 475, ../sass/custom/_dark.scss */
 .accordion-entry-title {
-  color: #F7BEC8;
+  color: #aeb8c3;
 }
-/* line 532, ../sass/custom/_bayern.scss */
+/* line 477, ../sass/custom/_dark.scss */
 .accordion-entry-title .fa {
-  color: #f191a2;
+  color: #919ead;
 }
 
 /* Modal
 -------------------------------------------------- */
-/* line 539, ../sass/custom/_bayern.scss */
+/* line 484, ../sass/custom/_dark.scss */
 .appmodal {
-  color: #F7BEC8;
+  color: #aeb8c3;
 }
-/* line 541, ../sass/custom/_bayern.scss */
+/* line 486, ../sass/custom/_dark.scss */
 .appmodal .appmodal-in {
-  background-color: #961432;
+  background-color: #2A2D35;
 }
 
-/* line 546, ../sass/custom/_bayern.scss */
+/* line 491, ../sass/custom/_dark.scss */
 .appmodal-header {
-  border-bottom: solid 1px #b72847;
-  background-color: #6E0A28;
+  border-bottom: solid 1px #44464F;
+  background-color: #24262D;
 }
-/* line 549, ../sass/custom/_bayern.scss */
+/* line 494, ../sass/custom/_dark.scss */
 .appmodal-header h3 {
-  color: #f4a7b5;
+  color: #8291a2;
 }
 
-/* line 557, ../sass/custom/_bayern.scss */
+/* line 502, ../sass/custom/_dark.scss */
 .appmodal-footer {
-  border-top: solid 1px #b72847;
-  background-color: #6E0A28;
+  border-top: solid 1px #44464F;
+  background-color: #24262D;
 }
 
 /* Report
 -------------------------------------------------- */
-/* line 564, ../sass/custom/_bayern.scss */
+/* line 509, ../sass/custom/_dark.scss */
 .app-row-report {
-  border-top: solid 1px #d95270;
-  border-bottom: solid 1px #d95270;
-  background-color: #b72847;
-  color: #F7BEC8;
+  border-top: solid 1px #6f777e;
+  border-bottom: solid 1px #6f777e;
+  background-color: #44464F;
+  color: #aeb8c3;
 }
 
-/* line 570, ../sass/custom/_bayern.scss */
+/* line 515, ../sass/custom/_dark.scss */
 .report-entry {
-  border-bottom: solid 1px #d95270;
+  border-bottom: solid 1px #6f777e;
 }
 
 /* Table
 -------------------------------------------------- */
-/* line 577, ../sass/custom/_bayern.scss */
-.table > thead > tr > th {
-  border-bottom: 0;
-}
-/* line 582, ../sass/custom/_bayern.scss */
+/* line 524, ../sass/custom/_dark.scss */
 .table tbody tr td {
-  border-top: 1px solid #d95270;
+  border-top: 1px solid #6f777e;
 }
 
-/* line 589, ../sass/custom/_bayern.scss */
+/* line 531, ../sass/custom/_dark.scss */
 .table-report {
-  background-color: #b72847;
+  background-color: #44464F;
 }
 
 /* Loader
 -------------------------------------------------- */
-/* line 595, ../sass/custom/_bayern.scss */
+/* line 537, ../sass/custom/_dark.scss */
 #loading {
-  color: #F7BEC8;
+  color: #aeb8c3;
 }
-/* line 597, ../sass/custom/_bayern.scss */
+/* line 539, ../sass/custom/_dark.scss */
 #loading .loading-in {
-  background-color: #6E0A28;
-  border: solid 2px #d95270;
+  background-color: #24262D;
+  border: solid 2px #6f777e;
 }
 
-/* line 604, ../sass/custom/_bayern.scss */
+/* line 546, ../sass/custom/_dark.scss */
 .progress-true .widget-loader {
-  color: #0A3C64;
+  color: #F6A821;
 }
 
 /* Pagination
 -------------------------------------------------- */
-/* line 615, ../sass/custom/_bayern.scss */
+/* line 557, ../sass/custom/_dark.scss */
 .pagination > li > a,
 .pagination > li > span {
-  color: #F7BEC8;
-  background-color: #b72847;
-  border: solid 1px #de6781;
+  color: #aeb8c3;
+  background-color: #44464F;
+  border: solid 1px #737786;
 }
-/* line 627, ../sass/custom/_bayern.scss */
+/* line 569, ../sass/custom/_dark.scss */
 .pagination > li > a:hover, .pagination > li > a:focus,
 .pagination > li > span:hover,
 .pagination > li > span:focus {
-  color: #F7BEC8;
-  background-color: #DC052D;
-  border-color: #de6781;
+  color: #aeb8c3;
+  background-color: #2D3038;
+  border-color: #737786;
 }
-/* line 637, ../sass/custom/_bayern.scss */
+/* line 579, ../sass/custom/_dark.scss */
 .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus,
 .pagination > .active > span,
 .pagination > .active > span:hover,
 .pagination > .active > span:focus {
-  color: #F7BEC8;
-  background-color: #DC052D;
-  border-color: #de6781;
+  color: #aeb8c3;
+  background-color: #2D3038;
+  border-color: #737786;
 }
-/* line 647, ../sass/custom/_bayern.scss */
+/* line 589, ../sass/custom/_dark.scss */
 .pagination > .disabled > span,
 .pagination > .disabled > span:hover,
 .pagination > .disabled > span:focus,
 .pagination > .disabled > a,
 .pagination > .disabled > a:hover,
 .pagination > .disabled > a:focus {
-  color: #ec637b;
-  background-color: #b72847;
-  border-color: #de6781;
+  color: #738598;
+  background-color: #44464F;
+  border-color: #737786;
 }
 
 /* Widget
 -------------------------------------------------- */
-/* line 663, ../sass/custom/_bayern.scss */
+/* line 605, ../sass/custom/_dark.scss */
 .widget-entry .widget-entry-in {
-  border-bottom: solid 1px #d95270;
-  background-color: #b72847;
-  color: #F7BEC8;
+  border-bottom: solid 1px #6f777e;
+  background-color: #44464F;
+  color: #aeb8c3;
   /* MIN WIDTH */
   /* MAX WIDTH */
 }
 @media only screen and (min-width: 768px) {
-  /* line 663, ../sass/custom/_bayern.scss */
+  /* line 605, ../sass/custom/_dark.scss */
   .widget-entry .widget-entry-in {
-    border: solid 2px #b72847;
+    border: solid 2px #44464F;
   }
 }
-/* line 674, ../sass/custom/_bayern.scss */
+/* line 616, ../sass/custom/_dark.scss */
 .widget-entry .widget-entry-in .widget-header .widget-icon {
-  color: #F7BEC8;
+  color: #aeb8c3;
 }
-/* line 679, ../sass/custom/_bayern.scss */
+/* line 621, ../sass/custom/_dark.scss */
 .widget-entry .widget-entry-in .widget-title {
-  color: #f4a7b5;
+  color: #8291a2;
 }
-/* line 682, ../sass/custom/_bayern.scss */
+/* line 624, ../sass/custom/_dark.scss */
 .widget-entry .widget-entry-in .widget-title h3 a {
-  color: #f4a7b5;
+  color: #8291a2;
 }
-/* line 689, ../sass/custom/_bayern.scss */
+/* line 631, ../sass/custom/_dark.scss */
 .widget-entry.widget-success .widget-entry-in {
-  border: solid 2px #00B559;
-}
-
-/* Apps online
--------------------------------------------------- */
-/* line 700, ../sass/custom/_bayern.scss */
-.app-entry-online .app-entry-cat .app-entry-title {
-  color: #f4a7b5;
+  border: solid 2px #80AD80;
 }
 
 /* Rooms
 -------------------------------------------------- */
-/* line 710, ../sass/custom/_bayern.scss */
+/* line 639, ../sass/custom/_dark.scss */
 .card-room {
   /* Inner element */
 }
-/* line 712, ../sass/custom/_bayern.scss */
+/* line 641, ../sass/custom/_dark.scss */
 .card-room .card-room-in {
   border: 0;
-  background-color: #b72847;
+  background-color: #44464F;
 }
-/* line 716, ../sass/custom/_bayern.scss */
+/* line 645, ../sass/custom/_dark.scss */
 .card-room .card-room-in .card-header {
-  background: #6E0A28;
+  background: #24262D;
   /* Header icons */
 }
-/* line 719, ../sass/custom/_bayern.scss */
+/* line 648, ../sass/custom/_dark.scss */
 .card-room .card-room-in .card-header .card-header-icon {
-  color: #F7BEC8;
+  color: #aeb8c3;
 }
-/* line 725, ../sass/custom/_bayern.scss */
+/* line 654, ../sass/custom/_dark.scss */
 .card-room .card-room-in .card-content {
-  background-color: #6E0A28;
+  background-color: #24262D;
   /* MIN WIDTH */
   /* MAX WIDTH */
 }
 @media only screen and (min-width: 768px) {
-  /* line 725, ../sass/custom/_bayern.scss */
+  /* line 654, ../sass/custom/_dark.scss */
   .card-room .card-room-in .card-content {
     background: transparent;
   }
 }
-/* line 733, ../sass/custom/_bayern.scss */
+/* line 662, ../sass/custom/_dark.scss */
 .card-room .card-room-in .card-content .card-title h3 a {
-  color: #F7BEC8;
+  color: #aeb8c3;
 }
-/* line 740, ../sass/custom/_bayern.scss */
+/* line 669, ../sass/custom/_dark.scss */
 .card-room .card-room-in .card-content .card-sensors .sensor .sensor-img {
   background: transparent;
 }
 
-/* line 756, ../sass/custom/_bayern.scss */
+/* line 685, ../sass/custom/_dark.scss */
 .room-no-device .card-title h3 a {
-  color: #F7BEC8 !important;
+  color: #aeb8c3 !important;
 }
 
-/* line 764, ../sass/custom/_bayern.scss */
+/* line 693, ../sass/custom/_dark.scss */
 .elemnts-room-bar {
   border: 0 none;
-  background-color: #b72847;
+  background-color: #44464F;
 }
 
 /* Elements
 -------------------------------------------------- */
-/* line 774, ../sass/custom/_bayern.scss */
+/* line 703, ../sass/custom/_dark.scss */
 .widget-entry-element .widget-entry-in .widget-img {
   background-color: #fff;
 }
-/* line 778, ../sass/custom/_bayern.scss */
+/* line 707, ../sass/custom/_dark.scss */
 .widget-entry-element .widget-entry-in .widget-title .widget-room {
-  color: #F7BEC8;
+  color: #aeb8c3;
 }
-/* line 782, ../sass/custom/_bayern.scss */
+/* line 711, ../sass/custom/_dark.scss */
 .widget-entry-element .widget-entry-in .widget-level {
-  color: #F7BEC8;
+  color: #aeb8c3;
 }
 
-/* line 790, ../sass/custom/_bayern.scss */
+/* line 719, ../sass/custom/_dark.scss */
 .widget-ctrl .fa-caret-down, .tbl-widget-ctrl .fa-caret-down {
-  color: #fdebee;
+  color: #cbd2d9;
 }
-/* line 794, ../sass/custom/_bayern.scss */
+/* line 723, ../sass/custom/_dark.scss */
 .widget-ctrl .btn-group .btn, .tbl-widget-ctrl .btn-group .btn {
-  color: #F7BEC8;
+  color: #aeb8c3;
 }
-/* line 797, ../sass/custom/_bayern.scss */
+/* line 726, ../sass/custom/_dark.scss */
 .widget-ctrl .btn-group .btn-primary, .tbl-widget-ctrl .btn-group .btn-primary {
-  background-color: #F7BEC8 !important;
-  border-color: white;
-  color: #6E0A28 !important;
+  background-color: #aeb8c3 !important;
+  border-color: #e9ebee;
+  color: #24262D !important;
 }
-/* line 801, ../sass/custom/_bayern.scss */
+/* line 730, ../sass/custom/_dark.scss */
 .widget-ctrl .btn-group .btn-primary .fa, .tbl-widget-ctrl .btn-group .btn-primary .fa {
-  color: #6E0A28 !important;
+  color: #24262D !important;
 }
-/* line 805, ../sass/custom/_bayern.scss */
+/* line 734, ../sass/custom/_dark.scss */
 .widget-ctrl .btn-group .btn-off.btn-primary, .tbl-widget-ctrl .btn-group .btn-off.btn-primary {
-  color: #6E0A28 !important;
+  color: #24262D !important;
 }
-/* line 807, ../sass/custom/_bayern.scss */
+/* line 736, ../sass/custom/_dark.scss */
 .widget-ctrl .btn-group .btn-off.btn-primary .fa, .tbl-widget-ctrl .btn-group .btn-off.btn-primary .fa {
-  color: #6E0A28 !important;
+  color: #24262D !important;
 }
-/* line 811, ../sass/custom/_bayern.scss */
+/* line 740, ../sass/custom/_dark.scss */
 .widget-ctrl .btn-group .btn-label-on, .tbl-widget-ctrl .btn-group .btn-label-on {
-  color: #F7BEC8;
+  color: #aeb8c3;
 }
-/* line 814, ../sass/custom/_bayern.scss */
+/* line 743, ../sass/custom/_dark.scss */
 .widget-ctrl .btn-group .btn-widget-time, .widget-ctrl .btn-group .txt-widget-time, .tbl-widget-ctrl .btn-group .btn-widget-time, .tbl-widget-ctrl .btn-group .txt-widget-time {
-  color: #F7BEC8;
+  color: #aeb8c3;
 }
 
-/* line 821, ../sass/custom/_bayern.scss */
+/* line 750, ../sass/custom/_dark.scss */
 .dragdrop-element .dd-placeholder {
-  border: 3px dashed #b72847;
-  background-color: #F7BEC8;
+  border: 3px dashed #44464F;
+  background-color: #aeb8c3;
 }
 
-/* line 826, ../sass/custom/_bayern.scss */
+/* line 755, ../sass/custom/_dark.scss */
 .card-element-dragdrop {
-  background: none #b72847;
-  border: solid 1px #DC052D;
+  background: none #44464F;
+  border: solid 1px #2D3038;
 }
 
 /* Apps
 -------------------------------------------------- */
-/* line 840, ../sass/custom/_bayern.scss */
+/* line 769, ../sass/custom/_dark.scss */
 .widget-entry-app .widget-entry-in .widget-footer .rating-group .widget-rating {
-  color: #f191a2;
+  color: #919ead;
 }
-/* line 842, ../sass/custom/_bayern.scss */
+/* line 771, ../sass/custom/_dark.scss */
 .widget-entry-app .widget-entry-in .widget-footer .rating-group .widget-rating.israted {
-  color: #F7BEC8;
+  color: #aeb8c3;
 }
 
-/* line 854, ../sass/custom/_bayern.scss */
+/* line 783, ../sass/custom/_dark.scss */
 #apps_online .widget-warning .widget-img img, #apps_instances .widget-warning .widget-img img {
   -webkit-filter: grayscale(100%);
   /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
 }
-/* line 862, ../sass/custom/_bayern.scss */
+/* line 791, ../sass/custom/_dark.scss */
 #apps_online .widget-warning .widget-title h3 a, #apps_instances .widget-warning .widget-title h3 a {
-  color: #e94c68 !important;
+  color: #515f6d !important;
 }
-/* line 870, ../sass/custom/_bayern.scss */
+/* line 799, ../sass/custom/_dark.scss */
 #apps_online .widget-warning .widget-footer .rating-group .widget-rating.israted, #apps_instances .widget-warning .widget-footer .rating-group .widget-rating.israted {
-  color: #ec637b;
+  color: #738598;
 }
 
 /* Apps online detail
 -------------------------------------------------- */
-/* line 883, ../sass/custom/_bayern.scss */
+/* line 812, ../sass/custom/_dark.scss */
 .app-detail-list {
-  border-top: solid 1px #d95270;
+  border-top: solid 1px #6f777e;
 }
 
-/* line 887, ../sass/custom/_bayern.scss */
+/* line 816, ../sass/custom/_dark.scss */
 .module-rating {
-  color: #F7BEC8;
+  color: #aeb8c3;
 }
-/* line 889, ../sass/custom/_bayern.scss */
+/* line 818, ../sass/custom/_dark.scss */
 .module-rating.israted {
-  color: #F7BEC8;
+  color: #aeb8c3;
 }
 
 /* Apps comments
 -------------------------------------------------- */
-/* line 896, ../sass/custom/_bayern.scss */
+/* line 825, ../sass/custom/_dark.scss */
 .comment-entry {
-  background-color: #a51c39;
-  color: #F7BEC8;
+  background-color: #3B3E47;
+  color: #aeb8c3;
 }
-/* line 899, ../sass/custom/_bayern.scss */
+/* line 828, ../sass/custom/_dark.scss */
 .comment-entry .comment-header {
-  color: white;
+  color: #e9ebee;
 }
 
-/* line 904, ../sass/custom/_bayern.scss */
+/* line 833, ../sass/custom/_dark.scss */
 .comment-entry.even {
-  background-color: #b72847;
+  background-color: #44464F;
 }
 
 /* Apps instances
 -------------------------------------------------- */
-/* line 911, ../sass/custom/_bayern.scss */
+/* line 840, ../sass/custom/_dark.scss */
 #apps_instances .accordion-entry {
-  background-color: #a51c39;
+  background-color: #3B3E47;
 }
 
 /* Events
 -------------------------------------------------- */
-/* line 918, ../sass/custom/_bayern.scss */
+/* line 847, ../sass/custom/_dark.scss */
 .event-level-warning, .event-level-error, .event-level-critical {
-  background-color: #a51c39;
+  background-color: #3B3E47;
 }
-/* line 920, ../sass/custom/_bayern.scss */
+/* line 849, ../sass/custom/_dark.scss */
 .event-level-warning.report-entry, .event-level-error.report-entry, .event-level-critical.report-entry {
-  border-bottom: solid 1px #750000;
+  border-bottom: solid 1px #d9534f;
 }
 
-/* line 925, ../sass/custom/_bayern.scss */
+/* line 854, ../sass/custom/_dark.scss */
 .event-room {
-  color: #F7BEC8;
+  color: #aeb8c3;
 }
 
 /* Customize
 -------------------------------------------------- */
-/* line 931, ../sass/custom/_bayern.scss */
+/* line 860, ../sass/custom/_dark.scss */
 .customize-detail-img {
-  border-top: solid 1px #b72847;
+  border-top: solid 1px #44464F;
 }
 
-/* line 935, ../sass/custom/_bayern.scss */
+/* line 864, ../sass/custom/_dark.scss */
 .customize-image-detail {
-  border: solid 4px #d95270;
-}
-
-/* line 941, ../sass/custom/_bayern.scss */
-.widget-entry-customize .widget-entry-in .widget-img .customize-preview-img {
-  border-color: #d95270;
+  border: solid 4px #6f777e;
 }
 
 /* Image list
 -------------------------------------------------- */
-/* line 951, ../sass/custom/_bayern.scss */
+/* line 870, ../sass/custom/_dark.scss */
 .app-row-imglist {
-  border: solid 1px #d95270;
-  background-color: #b72847;
+  border: solid 1px #6f777e;
+  background-color: #44464F;
 }
 
-/* line 956, ../sass/custom/_bayern.scss */
+/* line 875, ../sass/custom/_dark.scss */
 .imglist-entry.in-device {
   background-color: #f2dede;
 }
 
 /* ZWave
 -------------------------------------------------- */
-/* line 964, ../sass/custom/_bayern.scss */
+/* line 883, ../sass/custom/_dark.scss */
 .network-zwave-title.noelements {
-  color: #F7BEC8;
+  color: #aeb8c3;
 }
 
-/* line 969, ../sass/custom/_bayern.scss */
+/* line 888, ../sass/custom/_dark.scss */
 .device-type-logo, .device-logo img {
   /* -webkit-filter: brightness(300%);
    filter: brightness(300%);*/
@@ -15451,75 +15746,54 @@ a.link-underline {
   filter: brightness(0) invert(1);
 }
 
-/* line 978, ../sass/custom/_bayern.scss */
-.cfg-info {
-  border-color: #d95270;
-}
-
 /* Expert Commands
 -------------------------------------------------- */
-/* line 984, ../sass/custom/_bayern.scss */
+/* line 899, ../sass/custom/_dark.scss */
 .commands-data-control {
-  background-color: #a51c39;
+  background-color: #3B3E47;
 }
 
 /* RSS
 -------------------------------------------------- */
-/* line 991, ../sass/custom/_bayern.scss */
+/* line 906, ../sass/custom/_dark.scss */
 .report-entry.read-true {
   border: 0;
-  background-color: #961432;
+  background-color: #2D3038;
 }
-/* line 994, ../sass/custom/_bayern.scss */
+/* line 909, ../sass/custom/_dark.scss */
 .report-entry.read-true .event-date, .report-entry.read-true .rss-title, .report-entry.read-true .rss-description {
-  color: #ec637b;
+  color: #738598;
 }
 
-/* line 1002, ../sass/custom/_bayern.scss */
+/* line 917, ../sass/custom/_dark.scss */
 .read-false .rss-title {
   font-weight: bold;
 }
 
 /* Footer
 -------------------------------------------------- */
-/* line 1011, ../sass/custom/_bayern.scss */
+/* line 926, ../sass/custom/_dark.scss */
 #footer {
-  border-top: solid 1px #d95270;
+  border-top: solid 1px #6f777e;
 }
-/* line 1013, ../sass/custom/_bayern.scss */
+/* line 928, ../sass/custom/_dark.scss */
 #footer #footer_in {
-  color: #F7BEC8;
-  background-color: #6E0A28;
-}
-
-/* Slider
--------------------------------------------------- */
-/* line 1024, ../sass/custom/_bayern.scss */
-.app-slider .slide .slider-label {
-  background-color: rgba(110, 10, 40, 0.5);
-}
-
-/* line 1031, ../sass/custom/_bayern.scss */
-.slider-btn {
-  background-color: rgba(110, 10, 40, 0.4);
-}
-/* line 1033, ../sass/custom/_bayern.scss */
-.slider-btn:hover {
-  background-color: rgba(110, 10, 40, 0.8);
+  color: #aeb8c3;
+  background-color: #24262D;
 }
 
 /* Alertify
 -------------------------------------------------- */
-/* line 1040, ../sass/custom/_bayern.scss */
+/* line 937, ../sass/custom/_dark.scss */
 .alertify .ajs-dialog {
-  border: solid 2px #d95270;
+  border: solid 2px #6f777e;
 }
-/* line 1043, ../sass/custom/_bayern.scss */
+/* line 940, ../sass/custom/_dark.scss */
 .alertify .ajs-dialog, .alertify .ajs-header, .alertify .ajs-footer {
-  color: #F7BEC8;
-  background-color: #6E0A28;
+  color: #aeb8c3;
+  background-color: #24262D;
 }
-/* line 1048, ../sass/custom/_bayern.scss */
+/* line 945, ../sass/custom/_dark.scss */
 .alertify .ajs-footer .ajs-button {
   display: inline-block;
   margin-bottom: 0;
@@ -15535,25 +15809,25 @@ a.link-underline {
   line-height: 1.42857;
   border-radius: 4px;
   font-size: 110%;
-  background-color: #b72847;
-  color: #F7BEC8;
-  border: solid 1px #de6781;
+  background-color: #44464F;
+  color: #aeb8c3;
+  border: solid 1px #737786;
 }
-/* line 1066, ../sass/custom/_bayern.scss */
+/* line 963, ../sass/custom/_dark.scss */
 .alertify .ajs-footer .ajs-button.ajs-ok {
-  color: #1e8fe9;
-  border: solid 1px #010407;
-  background-color: #0A3C64;
+  color: #fce2b4;
+  border: solid 1px #aa6e07;
+  background-color: #F6A821;
 }
-/* line 1070, ../sass/custom/_bayern.scss */
+/* line 967, ../sass/custom/_dark.scss */
 .alertify .ajs-footer .ajs-button.ajs-ok:hover, .alertify .ajs-footer .ajs-button.ajs-ok:focus {
-  background-color: #010407;
-  color: #4da6ed;
+  background-color: #aa6e07;
+  color: #fef5e5;
 }
 
 /* Alpaca
 -------------------------------------------------- */
-/* line 1081, ../sass/custom/_bayern.scss */
+/* line 978, ../sass/custom/_dark.scss */
 legend {
   display: block;
   width: 100%;
@@ -15561,38 +15835,38 @@ legend {
   margin-bottom: 20px;
   font-size: 110%;
   line-height: inherit;
-  color: #F7BEC8;
+  color: #aeb8c3;
   border: 0;
-  border-bottom: 0px solid #d95270;
+  border-bottom: 0px solid #6f777e;
 }
 
-/* line 1092, ../sass/custom/_bayern.scss */
+/* line 989, ../sass/custom/_dark.scss */
 .alpaca-field-object {
-  border: 1px #d95270 solid;
+  border: 1px #6f777e solid;
 }
 
-/* line 1095, ../sass/custom/_bayern.scss */
+/* line 992, ../sass/custom/_dark.scss */
 .table-bordered {
-  border: 1px solid #d95270;
+  border: 1px solid #6f777e;
 }
 
-/* line 1098, ../sass/custom/_bayern.scss */
+/* line 995, ../sass/custom/_dark.scss */
 .table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #b72847;
+  background-color: #44464F;
 }
 
-/* line 1103, ../sass/custom/_bayern.scss */
+/* line 1000, ../sass/custom/_dark.scss */
 #alpaca_data .table-bordered > thead > tr > th, #alpaca_data .table-bordered > thead > tr > td {
-  border: 1px solid #d95270;
+  border: 1px solid #6f777e;
 }
-/* line 1107, ../sass/custom/_bayern.scss */
+/* line 1004, ../sass/custom/_dark.scss */
 #alpaca_data .table-bordered > tbody > tr > td, #alpaca_data .table-bordered > tfoot > tr > th, #alpaca_data .table-bordered > tfoot > tr > td {
-  border: 0px solid #d95270;
+  border: 0px solid #6f777e;
 }
-/* line 1110, ../sass/custom/_bayern.scss */
+/* line 1007, ../sass/custom/_dark.scss */
 #alpaca_data .btn-default[disabled] {
   background: transparent;
-  border-color: #d95270;
+  border-color: #6f777e;
 }
 
 /* SmartHome UI custom POPP

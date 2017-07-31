@@ -449,12 +449,19 @@ myAppController.controller('BaseController', function ($scope, $rootScope, $cook
     /**
      * Expand/collapse autocomplete
      * @param {string} key
-     * @param {object} $event
-     * @param {boolean} status
      * @returns {undefined}
      */
     $scope.autocompleteExpanded = {};
-    $scope.expandAutocomplete = function (key, $event, status) {
+    $scope.expandAutocomplete = function (key) {
+        $scope.autocompleteExpanded = {};
+        if (key) {
+            $scope.autocompleteExpanded[key] = true;
+        }
+    };
+    /**
+     * todo: deprecated
+     */
+    /*$scope.expandAutocomplete = function (key, $event, status) {
         if ($scope.autocompleteExpanded[key]) {
             $scope.utocompleteExpanded = {};
             $event.stopPropagation();
@@ -467,13 +474,13 @@ myAppController.controller('BaseController', function ($scope, $rootScope, $cook
             $scope.utocompleteExpanded[key] = !$scope.utocompleteExpanded[key];
         }
         $event.stopPropagation();
-    };
+    };*/
     /**
      * Collapse navi, menu and autocomplete when clicking outside
      */
     window.onclick = function () {
-        if ($scope.utocompleteExpanded) {
-            angular.copy({}, $scope.utocompleteExpanded);
+        if ($scope.autocompleteExpanded) {
+            angular.copy({}, $scope.autocompleteExpanded);
             $scope.$apply();
         }
         if ($scope.naviExpanded) {
