@@ -362,23 +362,22 @@ a {
 .form-control {
   color: $app-color-lighter;
   border: solid 1px $app-color-red-darkest;
-  /* border-radius: 4px;
-   -webkit-box-shadow: none;
-   box-shadow: none;
-   -webkit-transition: none;
-   -o-transition: none;
-   transition: none;*/
   background-color: $app-color-red-lightest;
+  &:focus{
+    border-color: $app-color-additional;
+  }
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    background-color: $app-color-red-lightest;
+    color: lighten($app-color-red-lightest,20%);
+  }
 }
 .help-block {
   color:$app-color-lighter;
 }
 .has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline {
   color:$app-color-lighter;
-}
-.form-control:focus {
-  border-color: $app-color-additional;
-  //box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
 }
 
 .input-group-addon {

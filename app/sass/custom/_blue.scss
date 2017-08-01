@@ -352,10 +352,16 @@ a {
   color: $app-body-color;
   border: solid 1px $app-border-color;
   background-color: lighten($app-body-bcg-color,3%);
+  &:focus{
+    border-color: $app-color-additional;
+  }
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    background-color: darken($app-body-bcg-color,5%);
+  }
 }
-.form-control:focus {
-  border-color: $app-color-additional;
-}
+
 .input-group-addon {
   background-color: darken($app-body-bcg-color,10%);
   color: $app-body-color;

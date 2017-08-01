@@ -318,22 +318,20 @@ a {
 .form-control {
   color: $app-color-lighter;
   border: solid 1px $app-color-darkest;
-  /* border-radius: 4px;
-   -webkit-box-shadow: none;
-   box-shadow: none;
-   -webkit-transition: none;
-   -o-transition: none;
-   transition: none;*/
   background-color: $app-color-dark-lightest;
-}
-.form-control:focus {
-  border-color: $app-color-additional;
-  //box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+  &:focus{
+    border-color: $app-color-additional;
+  }
+
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    color: lighten($app-color-dark-lightest,30%);
+    background-color: $app-color-dark-lightest;
+  }
+
 }
 
-.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
-  background-color: $app-color-dark-lightest !important;
-}
 .input-group-addon {
   border: solid 1px $app-color-darkest;
   background-color: $app-color-darkest;
