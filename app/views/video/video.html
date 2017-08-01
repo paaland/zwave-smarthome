@@ -1,0 +1,29 @@
+<!-- Video view -->
+<div id="VideoController" ng-controller="VideoController">
+    <div ng-include="'app/views/video/no_video.html'"></div>
+    <!--<pre>{{rooms.all | json }}</pre>-->
+    <div class="clearfix video-wrap" ng-if_="rooms.show">
+        <div class="card-video"
+             ng-repeat="v in videos.all track by $index">
+            <div class="card-video-in">
+                <iframe width="387" height="210" ng-src="{{v.src}}" frameborder="0"></iframe>
+                <!-- Card header  -->
+                <div class="card-header">
+                    <span class="clickable card-header-cell" ng-click="videosFind(v)">{{v.roomName|cutText:true:30}}</span>
+                    <!-- Preview -->
+                    <span class="card-header-cell cell-ctrl">
+                        <a class="clickable" ng-click="videosFind(v)"><i class="fa fa-expand fa-lg"></i></a>
+                        <a ng-href="#camera/add"><i class="fa fa-cog fa-lg"></i></a>
+
+                    </span>
+               </div>
+                <!-- Card footer  -->
+                <div class="card-footer">
+                    {{v.name|cutText:true:50}}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div> <!-- /ng-controller --> 
+

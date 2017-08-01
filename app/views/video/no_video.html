@@ -1,0 +1,15 @@
+<!-- No video view -->
+ <h2>{{_t('There is no video surveillance device installed yet')}} </h2>
+ 
+<div class="form-page welcome-entry" ng-if="elementAccess(cfg.role_access.admin)">
+    <div class="fieldset">
+        <div class="form-group">
+            <span class="badge badge-number">1</span> <span class="welcome-help">{{_t('You can add a device in the section')}}</span>
+             <a href="#apps/local" class="btn btn-default"><i class="fa fa-cubes"></i> {{_t('nav_apps')}}</a>
+        </div>
+        <div class="form-group">
+            <span class="badge badge-number">2</span> <span class="welcome-help">{{_t('You can include a device in the section')}}</span>
+             <a href="#devices" class="btn btn-default"><i class="fa fa-cogs"></i> {{_t('nav_devices')}}</a>
+        </div>
+    </div>
+</div>

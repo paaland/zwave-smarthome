@@ -1,0 +1,65 @@
+/* Videos
+-------------------------------------------------- */
+
+
+/* Cards
+-------------------------------------------------- */
+
+.card-video {
+  width: 387px;
+  @include mediaQueries(min-small) {
+    @include appFloat(left);
+  }
+ /* @include mediaQueries(min-medium) {
+    width: 33.33333%;
+  }
+  @include mediaQueries(min-large) {
+    width: 25%;
+  }*/
+  /* Inner element */
+  .card-video-in {
+    position: relative;
+    border: solid 1px #ccc;
+    background-color: #fff;
+    height: 250px;
+    padding: 0;
+    //margin: 0 0 $spacing-double 0;
+    // Media queries
+    @include mediaQueries(min-small) {
+      //margin: $spacing;
+      //height: 268px;
+      //padding: 0;
+    }
+    .card-header{
+      display: table;
+      width: 387px;
+      color: #fff;
+      background-color: #000;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0 $spacing;
+      //text-align: right;
+      height: 40px;
+      line-height: 40px;
+      .card-header-cell{
+        display: table-cell;
+        &.cell-ctrl{
+          text-align: right;
+          a{
+            color: #fff;
+            padding: 0 0 0 $spacing;
+          }
+        }
+      }
+    }
+    .card-footer{
+      padding: 0 $spacing;
+      //text-align: right;
+      height: 40px;
+      line-height: 30px;
+    }
+
+  }
+
+}

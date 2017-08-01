@@ -49,6 +49,10 @@ myApp.config(['$routeProvider', function ($routeProvider) {
     when('/events/:param?/:val?', {
         templateUrl: 'app/views/events/events.html',
         requireLogin: true
+    }).// Video surveillance
+    when('/video', {
+        templateUrl: 'app/views/video/video.html',
+        requireLogin: true
     }).//Admin
     when('/admin', {
         templateUrl: 'app/views/management/management.html',

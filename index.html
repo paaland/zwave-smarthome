@@ -72,6 +72,7 @@
         <script src="app/controllers/element-widget.js"></script>
         <script src="app/controllers/element-id.js"></script>
         <script src="app/controllers/event.js"></script>
+        <script src="app/controllers/video.js"></script>
         <script src="app/controllers/app.js"></script>
         <script src="app/controllers/app-local.js"></script>
         <script src="app/controllers/app-online.js"></script>
@@ -130,6 +131,9 @@
                         <!-- events -->
                         <span class="divider-vertical"></span>
                         <a href="#events" title="{{_t('nav_events')}}" ng-class="isActive('events')"><i class="fa fa-calendar"></i></a>
+                        <!-- Video surveillance  -->
+                        <span class="divider-vertical"></span>
+                        <a href="#video" title="{{_t('video_surveillance')}}" ng-class="isActive('video')"><i class="fa fa-video-camera"></i></a>
                         <!-- rss -->
                         <span class="divider-vertical" ng-show="rss.unread > 0"></span>
                         <a href="#rss" title="{{_t('news')}}" ng-show="rss.unread > 0">
