@@ -10,14 +10,10 @@
   @include mediaQueries(min-small) {
     @include appFloat(left);
   }
- /* @include mediaQueries(min-medium) {
-    width: 33.33333%;
-  }
-  @include mediaQueries(min-large) {
-    width: 25%;
-  }*/
+
   /* Inner element */
   .card-video-in {
+    color: lighten($app-body-color, 30%);
     position: relative;
     border: solid 1px #ccc;
     background-color: #fff;
@@ -27,6 +23,10 @@
     // Media queries
     @include mediaQueries(min-small) {
       margin: $spacing;
+    }
+    .video-screen{
+      width: 365px;
+      height: 210px;
     }
     .card-header{
       display: table;
@@ -46,7 +46,7 @@
         &.cell-ctrl{
           text-align: right;
           a{
-            color: #000;
+            color: lighten($app-body-color, 30%);
             padding: 0 0 0 $spacing;
           }
         }
@@ -61,4 +61,46 @@
 
   }
 
+}
+
+
+/* Modal with video
+-------------------------------------------------- */
+.appmodal-video{
+  &.appmodal {
+    // Animation
+    &.ng-animate {
+      transition: none;
+    }
+    .appmodal-in {
+      //width: 100%;
+      margin: $spacing-double auto;
+      @include mediaQueries(min-small) {
+        width: 99%;
+      }
+
+      .appmodal-body {
+        height: auto;
+        max-height: 800px;
+        overflow-x: hidden;
+        .video-wrapper {
+          position: relative;
+          padding-bottom: 56.25%; /* 16:9 */
+          padding-top: 25px;
+          height: 0;
+          iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            //max-height: 600px;
+          }
+        }
+      }
+      .appmodal-footer{
+        text-align: center;
+      }
+    }
+  }
 }

@@ -2,17 +2,18 @@
 <div id="VideoController" ng-controller="VideoController">
     <div ng-include="'app/views/video/no_video.html'"></div>
     <!--<pre>{{rooms.all | json }}</pre>-->
-    <div class="clearfix video-wrap" ng-if_="rooms.show">
+    <div class="clearfix" ng-if_="rooms.show">
         <div class="card-video"
              ng-repeat="v in videos.all track by $index">
             <div class="card-video-in">
-                <iframe width="365" height="210" ng-src="{{v.src}}" frameborder="0"></iframe>
+                <!--<iframe width="365" height="210" ng-src="{{v.src}}" frameborder="0" allowfullscreen></iframe>-->
+                <img class="clickable video-screen" ng-src="storage/img/demo/{{v.screen}}" ng-click="handleVideoModal(v,'videoModal', $event)" />
                 <!-- Card header  -->
                 <div class="card-header">
-                    <span class="clickable card-header-cell" ng-click="videosFind(v)">{{v.roomName|cutText:true:30}}</span>
+                    <span class="clickable card-header-cell" ng-click="handleVideoModal(v,'videoModal', $event)">{{v.roomName|cutText:true:30}}</span>
                     <!-- Preview -->
                     <span class="card-header-cell cell-ctrl">
-                        <a class="clickable" ng-click="videosFind(v)"><i class="fa fa-expand fa-lg"></i></a>
+                        <a class="clickable" ng-click="handleVideoModal(v,'videoModal', $event)"><i class="fa fa-play-circle fa-lg"></i></a>
                         <a ng-href="#camera/add"><i class="fa fa-cog fa-lg"></i></a>
 
                     </span>
@@ -25,5 +26,45 @@
             </div>
         </div>
     </div>
+
+    <!-- ////////////////////////////// Modal ////////////////////////////// -->
+    <div id="videoModal" class="appmodal-video appmodal" ng-if="modalArr.videoModal">
+        <div class="appmodal-in">
+            <div class="appmodal-header">
+                <span class="appmodal-close" ng-click="handleModal('videoModal', $event)"><i class="fa fa-times"></i></span>
+                <h3>{{videos.find.roomName|cutText:true:30}}, {{videos.find.name|cutText:true:50}}</h3>
+            </div>
+            <div class="appmodal-body">
+                <!--<pre>{{videos.find | json }}</pre>-->
+                <div class="video-wrapper">
+                <iframe width="560" height="349" ng-src="{{videos.find.src}}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="appmodal-footer">
+                <div class="btn-group">
+                    <button class="btn btn-default"><i class="fa fa-search-plus"></i></button>
+                    <button class="btn btn-default"><i class="fa fa-search-minus"></i></button>
+                    <button class="btn btn-default"><i class="fa fa-arrow-circle-left"></i></button>
+                    <button class="btn btn-default"><i class="fa fa-arrow-circle-right"></i></button>
+                    <button class="btn btn-default"><i class="fa fa-arrow-circle-up"></i></button>
+                    <button class="btn btn-default"><i class="fa fa-arrow-circle-down"></i></button>
+                    <button class="btn btn-default"><i class="fa fa-power-off"></i></button>
+
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-default"><i class="fa fa-backward"></i></button>
+                    <button class="btn btn-default"><i class="fa fa-play"></i></button>
+                    <button class="btn btn-default"><i class="fa fa-pause"></i></button>
+                    <button class="btn btn-default"><i class="fa fa-stop"></i></button>
+
+                    <button class="btn btn-default"><i class="fa fa-forward"></i></button>
+                </div>
+                <button class="btn btn-default" ng-click="handleModal('videoModal', $event)"><i class="fa fa-close text-danger"></i></button>
+
+            </div>
+        </div>
+    </div>
+
 </div> <!-- /ng-controller --> 
 

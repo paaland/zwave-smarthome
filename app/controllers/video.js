@@ -18,56 +18,64 @@ myAppController.controller('VideoController', function ($scope, $sce,dataFactory
             {
                 id: 1,
                 name: 'Video surveillance name 1',
-                src: $sce.trustAsResourceUrl('https://www.youtube.com/embed/4i_GFrlaStQ'),
+                screen: '1-video.PNG',
+                src: $sce.trustAsResourceUrl('https://www.youtube.com/embed/4i_GFrlaStQ?autoplay=1'),
                 roomId: 1,
                 roomName: 'Room 1'
             },
             {
                 id: 2,
                 name: 'Video surveillance name 2',
-                src:$sce.trustAsResourceUrl('https://www.youtube.com/embed/Vl2JuGkyDJk'),
+                screen: '2-video.PNG',
+                src:$sce.trustAsResourceUrl('https://www.youtube.com/embed/Vl2JuGkyDJk?autoplay=1'),
                 roomId: 2,
                 roomName: 'Room 2'
             },
             {
                 id: 3,
                 name: 'Video surveillance name 3',
-                src:$sce.trustAsResourceUrl('https://www.youtube.com/embed/xq16iF8RXlA'),
+                screen: '3-video.PNG',
+                src:$sce.trustAsResourceUrl('https://www.youtube.com/embed/xq16iF8RXlA?autoplay=1'),
                 roomId: 1,
                 roomName: 'Room 1'
             },
             {
                 id: 4,
                 name: 'Video surveillance name 4',
-                src:$sce.trustAsResourceUrl('https://www.youtube.com/embed/XGTGILp7rBU'),
+                screen: '4-video.PNG',
+                src:$sce.trustAsResourceUrl('https://www.youtube.com/embed/XGTGILp7rBU?autoplay=1'),
                 roomId: 2,
                 roomName: 'Room 2'
             },
             {
                 id: 5,
                 name: 'Video surveillance name 5',
-                src:$sce.trustAsResourceUrl('https://www.youtube.com/embed/zvfsEIb7lcA'),
+                screen: '5-video.PNG',
+                src:$sce.trustAsResourceUrl('https://www.youtube.com/embed/zvfsEIb7lcA?autoplay=1'),
                 roomId: 3,
                 roomName: 'Room 3'
             },
             {
                 id: 6,
                 name: 'Video surveillance name 6',
-                src:$sce.trustAsResourceUrl('https://www.youtube.com/embed/IKbxMIWCto0'),
+                screen: '6-video.PNG',
+                src:$sce.trustAsResourceUrl('https://www.youtube.com/embed/IKbxMIWCto0?autoplay=1'),
                 roomId: 4,
                 roomName: 'Room 4'
             },
             {
                 id: 7,
                 name: 'Video surveillance name 7',
-                src:$sce.trustAsResourceUrl('https://www.youtube.com/embed/R8XAlSp838Y'),
+                screen: '7-video.PNG',
+                src:$sce.trustAsResourceUrl('https://www.youtube.com/embed/R8XAlSp838Y?autoplay=1'),
                 roomId: 2,
                 roomName: 'Room 2'
             },
             {
                 id: 8,
                 name: 'Video surveillance name 8',
-                src:$sce.trustAsResourceUrl('https://www.youtube.com/embed/zY99Eqagwj0'),
+                screen: '8-video.PNG',
+                src:$sce.trustAsResourceUrl('https://www.youtube.com/embed/zY99Eqagwj0?autoplay=1'),
                 roomId: 1,
                 roomName: 'Room 1'
             }
@@ -75,8 +83,18 @@ myAppController.controller('VideoController', function ($scope, $sce,dataFactory
     };
     $scope.videosAll();
 
-    $scope.videosFind = function(video){
-        console.log(video)
+    $scope.videoFind = function(v){
+        console.log(v.src)
     }
+
+    /**
+     * Open a modal window and load a video
+     * @returns {undefined}
+     */
+    $scope.handleVideoModal = function (v,modal,event) {
+        $scope.videos.find = v;
+        $scope.handleModal(modal, event);
+
+    };
 });
 
