@@ -6,7 +6,7 @@
         <div class="card-video"
              ng-repeat="v in videos.all track by $index">
             <div class="card-video-in">
-                <iframe width="387" height="210" ng-src="{{v.src}}" frameborder="0"></iframe>
+                <iframe width="365" height="210" ng-src="{{v.src}}" frameborder="0"></iframe>
                 <!-- Card header  -->
                 <div class="card-header">
                     <span class="clickable card-header-cell" ng-click="videosFind(v)">{{v.roomName|cutText:true:30}}</span>
