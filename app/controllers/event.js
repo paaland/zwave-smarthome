@@ -45,6 +45,9 @@ myAppController.controller('EventController', function ($scope, $routeParams, $i
         data: {},
         show: false
     };
+    $scope.rooms = {
+        all: {}
+    };
     $scope.currentPage = 1;
     $scope.pageSize = cfg.page_results_events;
     $scope.reset = function () {
@@ -69,13 +72,15 @@ myAppController.controller('EventController', function ($scope, $routeParams, $i
         var urlParam = '?since=' + ($scope.timeFilter.since * 1000);
 
         var promises = [
+            dataFactory.getApi('locations'),
             dataFactory.getApi('devices', null, true),
             dataFactory.getApi('notifications', urlParam, true)
         ];
 
         $q.allSettled(promises).then(function (response) {
-            var devices = response[0];
-            var events = response[1];
+            var locations = response[0];
+            var devices = response[1];
+            var events = response[2];
 
             $scope.loading = false;
             // Error message
@@ -83,6 +88,14 @@ myAppController.controller('EventController', function ($scope, $routeParams, $i
                 $scope.loading = false;
                 alertify.alertError($scope._t('error_load_data'));
                 return;
+            }
+            // Success - locations
+            if (locations.state === 'fulfilled') {
+                 _.filter(dataService.getRooms(locations.value.data.data).value(),function (v) {
+                       if(v.id != 0){
+                           $scope.rooms.all[v.id] = v.title;
+                       }
+                    });
             }
             // Success - devices
             if (devices.state === 'fulfilled') {
@@ -166,12 +179,15 @@ myAppController.controller('EventController', function ($scope, $routeParams, $i
     $scope.refreshData = function () {
         var refresh = function () {
             dataFactory.refreshApi('notifications').then(function (response) {
+                if(!response){
+                    return;
+                }
                 //console.log('Run refresh',response.data.data.notifications)
                 angular.forEach(response.data.data.notifications, function (v, k) {
                     //$scope.collection.push(v);
                     setEvent(v);
                 });
-            }, function (error) {});
+            });
         };
         $scope.apiDataInterval = $interval(refresh, $scope.cfg.interval);
     };
@@ -234,12 +250,32 @@ myAppController.controller('EventController', function ($scope, $routeParams, $i
             }
         }
     }
+
+    /**
+     * prepare notification data
+     */
+    function prepareNotification(v) {
+        v.icon = !v.message.customIcon? $filter('getEventIcon')(v.type,v.message): cfg.img.custom_icons+v.message.customIcon;
+        if (v.message['l'] !== null && v.message['l'] !== undefined) {
+            v.messageView = '<span><span>'+v.message.dev+' '+ $scope._t("lb_is") + ' ' +
+                '<strong>' + v.message.l +'</strong></span>';
+        } else {
+            v.messageView = '<span>'+typeof v.message == 'string'? v.message : JSON.stringify(v.message)+'</span>';
+        }
+
+        v.lvl = $filter('hasNode')(v.message,'l')? $filter('hasNode')(v.message,'l') : JSON.stringify({dev: v.message.dev, l: v.message.l, location: v.message.location});
+
+        return v;
+    };
+
     /**
      * Set events data
      */
     function setEvents(data) {
         $scope.collection = [];
+        $scope.iconSource = '';
         $scope.eventLevels = dataService.getEventLevel(data, [{'key': null, 'val': 'all'}]);
+
         //var filter = null;
         if (angular.isDefined($routeParams.param) && angular.isDefined($routeParams.val)) {
             if ($routeParams.param === 'source' && $routeParams.val !== '') {
@@ -252,7 +288,8 @@ myAppController.controller('EventController', function ($scope, $routeParams, $i
             angular.forEach(data, function (v, k) {
                 if ($scope.filter && angular.isDefined(v[$scope.filter.param])) {
                     if (v[$scope.filter.param] == $scope.filter.val) {
-                        $scope.collection.push(v);
+                        _v = prepareNotification(v);
+                        $scope.collection.push(_v);
                     }
                 }
             });
@@ -260,16 +297,20 @@ myAppController.controller('EventController', function ($scope, $routeParams, $i
             $scope.filter = $routeParams;
             angular.forEach(data, function (v, k) {
                 if (v.source == $scope.filter.source && v.type == $scope.filter.type) {
-                    $scope.collection.push(v);
+                    _v = prepareNotification(v);
+                    $scope.collection.push(_v);
                 }
             });
         } else {
             $scope.filter = {};
-            $scope.collection = data;
+            angular.forEach(data, function (v, k) {
+                _v = prepareNotification(v);
+                $scope.collection.push(_v);
+            });
         }
 
-         // Count events in the device
-         $scope.devices.cnt.deviceEvents =_.countBy(data,function (v) {
+        // Count events in the device
+        $scope.devices.cnt.deviceEvents =_.countBy(data,function (v) {
             return v.source;
         });
         // Run refresh only when filter is empty
@@ -281,20 +322,22 @@ myAppController.controller('EventController', function ($scope, $routeParams, $i
             alertify.alertWarning($scope._t('no_events'));
             return;
         }
-    }
-    ;
+    };
+
     /**
      * Set data
      */
     function setEvent(obj) {
         var findIndex = _.findIndex($scope.collection, {timestamp: obj.timestamp});
+        _obj = prepareNotification(obj);
         if(findIndex > -1){
-            angular.extend($scope.collection[findIndex],obj);
+            angular.extend($scope.collection[findIndex],_obj);
 
         }else{
-            $scope.collection.push(obj);
+            $scope.collection.push(_obj);
         }
     }
+
     /**
      * Update profile
      */

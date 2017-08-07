@@ -22,10 +22,12 @@ var config_data = {
         //'server_url': 'http://192.168.10.119:8083/',
         // Interval in miliseconds to refresh data
         'interval': 3000,
-        // Displays a connection error after reaching the limit (milisecons)
-        'pending_timeout_limit': 10000,
+        // Displays a RAZ connection error after reaching the limit (milisecons)
+        'pending_timeout_limit': 20000,
         // Displays an remote server connection warning after reaching the limit (milisecons)
         'pending_remote_limit': 20000,
+        // Avoid to display Pending error message on the following routes if trying to connet to the remote server
+        'pending_black_list': ['/apps/local', '/apps/instance','/customize/skinslocal','/customize/iconslocal'],
         /// Set to > 0 (milisecons) to simulate latency for http Calls
         'latency_timeout': 0,
         // User
@@ -118,13 +120,17 @@ var config_data = {
             'customicon': 'ZAutomation/api/v1/devices',
             'icons_upload': 'ZAutomation/api/v1/icons/upload',
             'cloudbackup': 'CloudBackupAPI/Backup',
-            'zwave_devices': 'ZWaveAPI/ZWaveDeviceInfoGet',
-            'zwave_vendors': 'http://manuals-backend.z-wave.info/export/ui_vendors.json',
-            'update_device_database': 'ZWaveAPI/ZWaveDeviceInfoUpdate',
+            'zwave_devices': 'ZAutomation/api/v1/system/zwave/deviceInfoGet',
+            'zwave_vendors': 'ZAutomation/api/v1/system/zwave/vendorsInfoGet',
+            'update_zwave_vendors': 'ZAutomation/api/v1/system/zwave/vendorsInfoUpdate',
+            'update_device_database': 'ZAutomation/api/v1/system/zwave/deviceInfoUpdate',
             'app_built_info': 'app/info.json',
             'configget_url': 'ZWaveAPI/ExpertConfigGet',
             'configupdate_url': 'ZWaveAPI/ExpertConfigUpdate',
-            'time_zone': 'ZAutomation/api/v1/system/timezone'
+            'time_zone': 'ZAutomation/api/v1/system/timezone',
+            'get_pulse_trains': 'RF433API/GetPulseTrains',
+            'send_pulse_train': 'RF433API/Send',
+            'reorder': 'ZAutomation/api/v1/devices/reorder'
         },
         // List of remote api URLs
         'api_remote': {
@@ -334,7 +340,7 @@ var config_data = {
         ],
         // Redirect to the url after logout
         'logout_redirect': {
-            'find.z-wave.me': 'https://find.zwave.me/zboxweb'
+            'find.z-wave.me': 'https://find.z-wave.me/zboxweb'
         },
         // List of the forbidden licence app types
         'license_forbidden': [
@@ -349,12 +355,16 @@ var config_data = {
         ],
         // Order by
         orderby: {
+            blacklist:  ['order_dashboard','order_rooms'],//Do not display in the orderby list in the view
             elements: {
                 'updateTimeDESC': '-updateTime',
                 'creationTimeDESC': '-creationTime',
                 'creationTimeASC': 'creationTime',
                 'titleASC': 'metrics.title',
-                'titleDESC': '-metrics.title'
+                'titleDESC': '-metrics.title',
+                'order_elements': 'order.elements',
+                'order_dashboard': 'order.dashboard',
+                'order_rooms': 'order.rooms',
             },
             appslocal: {
                 'titleASC': 'defaults.title',
@@ -398,7 +408,7 @@ var config_data = {
             IN: 'India',
             CN: 'China',
             MY: 'Malaysia',
-            ANZ_BR: 'Australia / New Zealan',
+            ANZ_BR: 'Australia / New Zealand',
             HK: 'Hong Kong',
             KR: 'South Korea',
             JP: 'Japan',
@@ -449,6 +459,25 @@ var config_data = {
                     'DeviceHistory',
                     'PeriodicalSwitchControl',
                     'ScheduledScene'
+                ],
+                advanced_apps: [
+                    'CodeDevice',
+                    'CustomUserCode',
+                    'CustomUserCodeLoader',
+                    'CustomUserCodeZWay',
+                    'GlobalCache',
+                    'InfoWidget',
+                    'Notification',
+                    'NotificationSMSru',
+                    'RGB',
+                    'SecurityMode',
+                    'SwitchControlGenerator',
+                    'PhilioHW',
+                    'SensorsPolling',
+                    'SensorsPollingLogging',
+                    'SensorsValueLogging',
+                    'SwitchPolling',
+                    'ZMEOpenWRT'
                 ]
             },
             'popp': {

@@ -93,13 +93,16 @@ myAppController.controller('ZwaveInclusionController', function ($scope, $q, $ro
 
             // Success - device by id
             if (deviceId.state === 'fulfilled') {
-                var device = dataService.getZwaveDevices([deviceId.value.data]).value();
+                var device = dataService.getZwaveDevices([deviceId.value.data.data]).value();
                 setDeviceId(device[0]);
 
             }
             // Success - ZWaveAPIData
             if (ZWaveAPIData.state === 'fulfilled') {
-                setZWaveAPIData(ZWaveAPIData.value);
+                if(ZWaveAPIData.value){
+                    setZWaveAPIData(ZWaveAPIData.value);
+                }
+
             }
 
             $scope.loading = false;
@@ -118,9 +121,9 @@ myAppController.controller('ZwaveInclusionController', function ($scope, $q, $ro
             var refresh = function () {
                 cnt++;
                 dataFactory.refreshZwaveApiData().then(function (response) {
-                    updateController(response.data);
-                }, function (error) {
-                    return;
+                    if(response){
+                        updateController(response.data);
+                    }
                 });
 
                 if (cnt == maxcnt) {
@@ -131,9 +134,10 @@ myAppController.controller('ZwaveInclusionController', function ($scope, $q, $ro
         } else {
             var refresh = function () {
                 dataFactory.refreshZwaveApiData().then(function (response) {
-                    updateController(response.data);
-                }, function (error) {
-                    return;
+                    if(response){
+                        updateController(response.data);
+                    }
+
                 });
             };
         }
@@ -292,9 +296,7 @@ myAppController.controller('ZwaveInclusionController', function ($scope, $q, $ro
      * Run zwave command
      */
     $scope.runZwaveCmd = function (cmd) {
-        dataFactory.runZwaveCmd(cmd).then(function () {
-        }, function () {
-        });
+        dataFactory.runZwaveCmd(cmd).then(function () {});
     };
 
     /**
@@ -456,6 +458,9 @@ myAppController.controller('ZwaveInclusionController', function ($scope, $q, $ro
         $scope.zwaveInclusion.automatedConfiguration.includedDevice.commandClassesCnt = 0;
         $scope.zwaveInclusion.automatedConfiguration.includedDevice.interviewDoneCnt = 0;
         dataFactory.loadZwaveApiData(true).then(function (ZWaveAPIData) {
+            if(!ZWaveAPIData){
+                return;
+            }
             var node = ZWaveAPIData.devices[nodeId];
             if (!node) {
                 return;

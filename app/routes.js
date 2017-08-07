@@ -14,8 +14,8 @@ myApp.config(['$routeProvider', function ($routeProvider) {
     when('/', {
         templateUrl: 'app/views/auth/auth.html'
     }).// Autocomplete
-    when('/autocomplete', {
-        templateUrl: 'app/views/autocomplete.html',
+    when('/test', {
+        templateUrl: 'app/views/test.html',
     }).
     // Dragdrop
     when('/dragdrop', {
@@ -218,6 +218,21 @@ myApp.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'app/views/enocean/assign.html',
         requireLogin: true,
         roles: cfg.role_access.devices
+    }).
+    when('/rf433/teachin', {
+        templateUrl: 'app/views/rf433/teachin.html',
+        requireLogin: true,
+        roles: cfg.role_access.devices
+    }).//Enocean devices
+    when('/rf433/manage', {
+        templateUrl: 'app/views/rf433/manage.html',
+        requireLogin: true,
+        roles: cfg.role_access.devices
+    }).//Enocean device manage
+    when('/rf433/manage/:vDevId', {
+        templateUrl: 'app/views/rf433/manage_detail.html',
+        requireLogin: true,
+        roles: cfg.role_access.devices
     }).//Rooms
     when('/config-rooms', {
         templateUrl: 'app/views/rooms/config_rooms.html',
@@ -238,7 +253,8 @@ myApp.config(['$routeProvider', function ($routeProvider) {
     }).//Rss
     when('/rss', {
         templateUrl: 'app/views/rss/rss.html',
-        requireLogin: true
+        requireLogin: true,
+        roles: cfg.role_access.admin
     }).//Login
     when('/login', {
         redirectTo: '/'

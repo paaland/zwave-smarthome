@@ -87,7 +87,7 @@ myAppFactory.factory('dataFactory', function ($http, $filter, $q, myCache, $inte
     function pingServer(url) {
          return $http({
             method: "get",
-            timeout: 5000,
+            timeout: cfg.pending_timeout_limit,
             cancel:  $q.defer(),
             url: url
         }).then(function (response) {
@@ -496,6 +496,7 @@ myAppFactory.factory('dataFactory', function ($http, $filter, $q, myCache, $inte
         return $http({
             method: 'get',
             timeout: cfg.pending_remote_limit,
+            isRemote:true,
             url: url
                     /*headers: {
                      'Accept-Language': lang
@@ -520,13 +521,17 @@ myAppFactory.factory('dataFactory', function ($http, $filter, $q, myCache, $inte
      * @returns {unresolved}
      */
     function refreshApi(api, params) {
-        //console.log('?since=' + updatedTime)
-        if (api === 'notifications' && updatedTime.toString().length === 10) {
+        if(_.findWhere($http.pendingRequests,{failWait: api})){
+            return $q.reject('Pending');
+        }
+        // Time in notifications is in miliseconds
+         if (api === 'notifications' && updatedTime.toString().length === 10) {
             updatedTime = updatedTime * 1000;
         }
         return $http({
             method: 'get',
             url: cfg.server_url + cfg.api[api] + '?since=' + updatedTime + (params ? params : ''),
+            failWait:api,
             headers: {
                 'Accept-Language': lang,
                 'ZWAYSession': ZWAYSession
@@ -626,15 +631,15 @@ myAppFactory.factory('dataFactory', function ($http, $filter, $q, myCache, $inte
     /**
      * Get data holder from ZWaveAPI api
      * @param {boolean} noCache
-     * @param {boolean} fatalError
      * @returns {unresolved}
      */
-    function loadZwaveApiData(noCache, fatalError) {
-        // Cached data
+    function loadZwaveApiData(noCache) {
+        var deferred = $q.defer();
         var cacheName = 'cache_zwaveapidata';
         var cached = myCache.get(cacheName);
+
+        // Cached data
         if (!noCache && cached) {
-            var deferred = $q.defer();
             deferred.resolve(cached);
             return deferred.promise;
         }
@@ -670,8 +675,13 @@ myAppFactory.factory('dataFactory', function ($http, $filter, $q, myCache, $inte
      * @returns {unresolved}
      */
     function refreshZwaveApiData() {
+        var cacheName = 'refresh_zwaveapidata';
+        if(_.findWhere($http.pendingRequests,{failWait: cacheName})){
+            return $q.reject('Pending');
+        }
         return $http({
             method: 'get',
+            failWait: cacheName,
             url: cfg.server_url + cfg.zwave_api_url + 'Data/' + updatedTime
         }).then(function (response) {
             if (typeof response.data === 'object') {
@@ -702,9 +712,15 @@ myAppFactory.factory('dataFactory', function ($http, $filter, $q, myCache, $inte
             method: 'post',
             url: cfg.server_url + cfg.zwave_api_url + 'Data/' + updatedTime
         }).then(function (response) {
-            if (typeof response.data === 'object' && apiData) {
+            //console.log(response.data)
+            //console.log(_.size(response.data))
+            if (_.size(response.data) > 1 && apiData) {
+                console.log('_.size(response.data) > 1  && apiData')
                 time = response.data.updateTime;
                 angular.forEach(response.data, function (obj, path) {
+                    console.log(path)
+                    console.log(obj)
+                    console.log('----------------------------------------')
                     if (!angular.isString(path)) {
                         return;
                     }
@@ -743,9 +759,13 @@ myAppFactory.factory('dataFactory', function ($http, $filter, $q, myCache, $inte
      * @returns {unresolved}
      */
     function runZwaveCmd(cmd) {
+        if(_.findWhere($http.pendingRequests,{failWait: cmd})){
+            return $q.reject('Pending');
+        }
         return $http({
             method: 'get',
-            url: cfg.server_url + cfg.zwave_api_url + "Run/" + cmd
+            url: cfg.server_url + cfg.zwave_api_url + "Run/" + cmd,
+            failWait: cmd
         }).then(function (response) {
             return response;
         }, function (response) {// something went wrong
@@ -887,6 +907,8 @@ myAppFactory.factory('dataFactory', function ($http, $filter, $q, myCache, $inte
             method: "POST",
             url: cfg.post_report_url,
             data: $.param(data),
+            timeout: cfg.pending_remote_limit,
+            isRemote:true,
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
                         //'ZWAYSession': ZWAYSession 
@@ -910,6 +932,7 @@ myAppFactory.factory('dataFactory', function ($http, $filter, $q, myCache, $inte
             url: url,
             data: $.param(data),
             timeout: cfg.pending_remote_limit,
+            isRemote:true,
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
                         //'ZWAYSession': ZWAYSession 
@@ -942,6 +965,7 @@ myAppFactory.factory('dataFactory', function ($http, $filter, $q, myCache, $inte
             method: 'post',
             url: cfg.online_module_url,
             data: $.param(data),
+            isRemote:true,
             timeout:cfg.pending_remote_limit,
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',

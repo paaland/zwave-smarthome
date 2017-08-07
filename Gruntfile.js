@@ -83,6 +83,10 @@ module.exports = function (grunt) {
                     // Bootstrap
                     'vendor/bootstrap/bootstrap.min.js',
                     'vendor/bootstrap/plugins/bootstrap-datetimepicker.js',
+                    // ExpertUI configuration js
+                    'vendor/zwave/pyzw.js',
+                    'vendor/zwave/pyzw_zwave_ui.js',
+                    'vendor/xml/xml2json.min.js',
                     // APP
                     'app/app.js',
                     'app/routes.js',
@@ -92,7 +96,9 @@ module.exports = function (grunt) {
                     'app/config/settings.js',
                     'app/factories/factories.js',
                     'app/services/services.js',
+                    'app/services/services-expert.js',
                     'app/directives/directives.js',
+                    'app/directives/directives-expert.js',
                     'app/directives/dir-pagination.js',
                     'app/directives/tc-angular-chartjs.js',
                     'app/filters/filters.js',
@@ -101,6 +107,8 @@ module.exports = function (grunt) {
                     'app/controllers/controllers.js',
                     'app/controllers/jamesbox.js',
                     'app/controllers/element.js',
+                    'app/controllers/element-widget.js',
+                    'app/controllers/element-id.js',
                     'app/controllers/event.js',
                     'app/controllers/app.js',
                     'app/controllers/app-local.js',
@@ -111,22 +119,34 @@ module.exports = function (grunt) {
                     'app/controllers/icon.js',
                     'app/controllers/device.js',
                     'app/controllers/zwave-inclusion.js',
-                    'app/controllers/zwave.js',
+                    'app/controllers/zwave-manage.js',
+                    'app/controllers/zwave-vendor.js',
                     'app/controllers/camera.js',
                     'app/controllers/enocean.js',
+                    'app/controllers/rf433.js',
                     'app/controllers/room.js',
                     'app/controllers/management.js',
+                    'app/controllers/management-appstore.js',
+                    'app/controllers/management-factory.js',
+                    'app/controllers/management-firmware.js',
+                    'app/controllers/management-licence.js',
+                    'app/controllers/management-local.js',
+                    'app/controllers/management-remote.js',
+                    'app/controllers/management-report.js',
+                    'app/controllers/management-restore.js',
+                    'app/controllers/management-cloud-backup.js',
+                    'app/controllers/management-timezone.js',
+                    'app/controllers/management-timezone-jb.js',
+                    'app/controllers/management-user.js',
                     'app/controllers/mysettings.js',
                     'app/controllers/rss.js',
                     'app/controllers/auth.js',
-                    // ExpertUI configuration js
-                    'app/expertui/pyzw.js',
-                    'app/expertui/pyzw_zwave_ui.js',
-                    'vendor/xml/xml2json.min.js',
-                    'app/expertui/directives.js',
-                    'app/expertui/services.js',
-                    'app/expertui/configuration.js',
-                    'app/expertui/commands.js'
+                    'app/controllers/zwave-configuration.js',
+                    'app/controllers/zwave-commands.js'
+
+
+
+
                 ],
                 dest: 'dist/app/js/build.js'
             }
@@ -281,6 +301,20 @@ module.exports = function (grunt) {
                 }
             }
         },
+        jsdox: {
+            generate: {
+                options: {
+                    contentsEnabled: true,
+                    contentsTitle: 'SmartHome UI Documentation',
+                    contentsFile: 'readme.md',
+                    //pathFilter: /^example/,
+                    templateDir: 'docstemplates'
+                },
+                src: ['app/**/*.js'],
+                //src: ['app/controllers/*.js','app/services/*.js','app/directives/*.js','app/modules/*.js','app/jquery/*.js','app/filters/*.js'],
+                dest: 'docs'
+            }
+        },
         'release-it': {
             options: {
                 pkgFiles: ['package.json'],
@@ -317,9 +351,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-html-build');
     grunt.loadNpmTasks('grunt-replace');
     grunt.loadNpmTasks('grunt-modify-json');
+    grunt.loadNpmTasks('grunt-jsdox');
     grunt.loadNpmTasks('grunt-release-it');
 
     // Default task(s).
-    grunt.registerTask('default', ['clean', 'ngtemplates', 'concat','json_generator', 'copy', 'cssmin', 'skinFolder','iconFolder','usebanner','htmlbuild','replace','modify_json']);
+    grunt.registerTask('default', ['clean', 'ngtemplates', 'concat','json_generator', 'copy', 'cssmin', 'skinFolder','iconFolder','usebanner','htmlbuild','replace','jsdox','modify_json']);
 
 };
