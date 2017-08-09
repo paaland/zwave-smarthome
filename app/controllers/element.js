@@ -7,7 +7,7 @@
  * The element root controller
  * @class ElementBaseController
  */
-myAppController.controller('ElementBaseController', function ($scope, $q, $interval, $cookies, $filter, cfg,dataFactory, dataService, myCache) {
+myAppController.controller('ElementBaseController', function ($scope, $q, $interval, $cookies, $filter, $routeParams, cfg,dataFactory, dataService, myCache) {
     $scope.dataHolder = {
         mode: 'default',
         firstLogin: false,
@@ -118,6 +118,9 @@ myAppController.controller('ElementBaseController', function ($scope, $q, $inter
     $scope.refreshDevices = function () {
         var refresh = function () {
             dataFactory.refreshApi('devices').then(function (response) {
+                if(!response){
+                    return;
+                }
                 if (response.data.data.devices.length > 0) {
                     angular.forEach(response.data.data.devices, function (v, k) {
                         if (v.metrics.level) {
@@ -140,8 +143,6 @@ myAppController.controller('ElementBaseController', function ($scope, $q, $inter
                     $scope.allSettled(true);
                 }
 
-            }, function (error) {
-                $interval.cancel($scope.apiDataInterval);
             });
         };
         $scope.apiDataInterval = $interval(refresh, $scope.cfg.interval);
@@ -399,6 +400,11 @@ myAppController.controller('ElementBaseController', function ($scope, $q, $inter
             return v.location;
         });
 
+
+        // If page ID is  rooms removing current room from the list
+        if($scope.getBodyId() === 'rooms' && $routeParams.id){
+            delete $scope.dataHolder.cnt.rooms[$routeParams.id];
+        }
         //All devices
         $scope.dataHolder.devices.all = devices.value();
         if (_.isEmpty($scope.dataHolder.devices.all)) {
@@ -480,9 +486,10 @@ myAppController.controller('ElementRoomController', function ($scope, $q, $route
     $scope.dataHolder.devices.orderBy = 'order_rooms';
 
     $scope.allSettled = function () {
+        //console.log($scope.input.main_sensors);
         $scope.loading = {status: 'loading-spin', icon: 'fa-spinner fa-spin', message: $scope._t('loading')};
         var promises = [
-            dataFactory.getApi('locations', '/' + $routeParams.id),
+            dataFactory.getApi('locations'),
             dataFactory.getApi('devices',null, false)
         ];
 
@@ -492,10 +499,17 @@ myAppController.controller('ElementRoomController', function ($scope, $q, $route
             $scope.loading = false;
             // Success - location
             if (location.state === 'fulfilled') {
-                $scope.room = dataService.getRooms([location.value.data.data]).value()[0];
+                var room = _.find(location.value.data.data, function(room) {
+                    return room.id == $routeParams.id;
+                });
+                if (typeof room != 'undefined') {
+                    $scope.room = dataService.getRooms([room]).value()[0];
+                } else {
+                    alertify.alertError($scope._t('error_load_data'));
+                }
             }
 
-            if(devices.state === 'fulfilled') {
+            if (devices.state === 'fulfilled') {
                 var devices = dataService.getDevicesData(devices.value.data.data.devices, $scope.dataHolder.devices.showHidden);
                 $scope.loadRoomSensors(devices.value());
             }
