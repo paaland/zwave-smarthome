@@ -14865,8 +14865,79 @@ img.widget-promo-image {
 
 /* SmartHome UI custom
 -------------------------------------------------- */
+/* Dark SmartHome skin with left menu
+-------------------------------------------------- */
+/* Gird
+-------------------------------------------------- */
+/* line 7, ../sass/custom/_left_menu.scss */
+#header {
+  position: static;
+  width: 20%;
+  float: left;
+}
+/* line 11, ../sass/custom/_left_menu.scss */
+#header #main_navigation_wrap {
+  background-color: transparent;
+  border-bottom: 0;
+  height: auto;
+}
+/* line 16, ../sass/custom/_left_menu.scss */
+#header #main_navigation {
+  position: relative;
+  /*.timestamp{
+    display: block;
+    top: 0;
+    left: 100%;
+    position: absolute;
+  }*/
+}
+/* line 19, ../sass/custom/_left_menu.scss */
+#header #main_navigation .main-nav-text {
+  display: inline-block;
+}
+/* line 28, ../sass/custom/_left_menu.scss */
+#header #main_navigation #navigation_left {
+  position: static;
+}
+/* line 32, ../sass/custom/_left_menu.scss */
+#header #main_navigation a {
+  display: block;
+}
+/* line 35, ../sass/custom/_left_menu.scss */
+#header #main_navigation #navigation_right {
+  display: none;
+}
+/* line 39, ../sass/custom/_left_menu.scss */
+#header #sub_navigation {
+  display: block !important;
+  /* &.ng-hide{
+     display: block !important;
+   }*/
+  position: static;
+}
+
+/* line 48, ../sass/custom/_left_menu.scss */
+#main_content {
+  margin-top: 10px;
+  width: 80%;
+  float: left;
+}
+
+/* line 53, ../sass/custom/_left_menu.scss */
+.container {
+  max-width: 100%;
+}
+
 /* SmartHome UI custom POPP
 -------------------------------------------------- */
+/* POPP css
+-------------------------------------------------- */
+/* line 5, ../sass/custom/_popp.scss */
+.app-type-popp .header-logo img {
+  max-height: 40px;
+  max-width: 70px;
+}
+
 /* Media queries
 -------------------------------------------------- */
 /* Media queries

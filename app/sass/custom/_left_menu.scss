@@ -8,15 +8,23 @@
   position: static;
   width: 20%;
   float: left;
+  #main_navigation_wrap{
+    background-color:  transparent;
+    border-bottom: 0;
+    height: auto;
+  }
   #main_navigation{
     //position: static;
     position: relative;
-    .timestamp{
+    .main-nav-text{
+      display: inline-block;
+    }
+    /*.timestamp{
       display: block;
       top: 0;
       left: 100%;
       position: absolute;
-    }
+    }*/
     #navigation_left{
       position: static;
 
@@ -25,8 +33,16 @@
       display: block;
     }
     #navigation_right {
-      float: none;
+      display: none;
     }
+  }
+  #sub_navigation{
+    display: block !important;
+   /* &.ng-hide{
+      display: block !important;
+    }*/
+    position: static;
+
   }
 }
 #main_content{
