@@ -160,6 +160,16 @@ module.exports = function (grunt) {
                     built: '<%= grunt.template.today("dd-mm-yyyy HH:MM:ss") %>',
                     timestamp: '<%= Math.floor(Date.now() / 1000) %>'
                 }
+            },
+            skin: {
+                dest: pkg.skin_path + pkg.skin+'/info.json',
+                options: {
+                    name: app_cfg.name,
+                    version: app_version,
+                    skin: pkg.skin,
+                    built: '<%= grunt.template.today("dd-mm-yyyy HH:MM:ss") %>',
+
+                }
             }
         },
         // Copy
@@ -211,7 +221,14 @@ module.exports = function (grunt) {
                     //{expand:true,src: ['vendor/angular/angular-1.2.16/angular.min.js.map'], dest: 'dist/app/js/',flatten: true},
                     //{expand:true,src: ['vendor/angular/angular-1.2.16/angular-route.min.js.map'], dest: 'dist/app/js/',flatten: true}
                 ]
-            }
+            },
+            skin: {
+                files: [
+                    {src: ['app/css/main.css'], dest: pkg.skin_path + pkg.skin + '/main.css'},
+                    {src: ['app/css/main.css'], dest: pkg.skin_path + pkg.skin + '/main.css.orig'},
+                    {expand: true,src: ['storage/img/icons/*'], dest: pkg.skin_path + pkg.skin + '/img/icons/', flatten: true}
+                ]
+            },
         },
         //CSSS min
         cssmin: {
@@ -284,6 +301,22 @@ module.exports = function (grunt) {
                 files: [
                     {expand: true, flatten: true, src: ['app/config.js'], dest: app_cfg.dir + '/app/js/'}
                 ]
+            },
+            skin: {
+                options: {
+                    patterns: [
+                        {
+                            match: /..\/fonts\//g,
+                            replacement: function () {
+                                return '..\/..\/..\/app\/fonts\/';
+                            }
+                        }
+                    ]
+                },
+                files: [
+                    {expand: true, flatten: true, src: [pkg.skin_path + pkg.skin + '/main.css'], dest: pkg.skin_path + pkg.skin + '/'},
+                    {expand: true, flatten: true, src: [pkg.skin_path + pkg.skin + '/main.css.orig'], dest: pkg.skin_path + pkg.skin + '/'}
+                ]
             }
         },
         modify_json: {
@@ -323,6 +356,17 @@ module.exports = function (grunt) {
                 tagAnnotation: 'Release ' + app_cfg.name + ' ' + git_message,
                 buildCommand: false
             }
+        },
+        compress: {
+            foo: {
+                options: {
+                    archive: '_project/skins/blank.zip',
+                    mode: 'zip'
+                },
+                files: [
+                    { src: '_project/skins/blank/**' }
+                ]
+            }
         }
 
     });
@@ -353,6 +397,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-modify-json');
     grunt.loadNpmTasks('grunt-jsdox');
     grunt.loadNpmTasks('grunt-release-it');
+    grunt.loadNpmTasks('grunt-contrib-compress');
 
     // Default task(s).
     grunt.registerTask('default', ['clean', 'ngtemplates', 'concat','json_generator', 'copy', 'cssmin', 'skinFolder','iconFolder','usebanner','htmlbuild','replace','jsdox','modify_json']);
